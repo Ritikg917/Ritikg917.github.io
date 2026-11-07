@@ -1,293 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <meta name="theme-color" content="#0b0e14">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>RS Games - Play 430+ Free Online Games</title>
-  <meta name="description" content="Play 430+ free web games instantly offline and online on RS Games! 1v1.LOL, 2048, BrowserQuest, A Dark Room, Untrusted, Tux VS Dragon, PoryDrive, Serious Shooter, FNAF, Friday Night Funkin, Geometry Dash, Drift Hunters, Granny, Minecraft, GTA, and 330+ offline games.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2300e5ff'/><text y='68' font-size='48' font-weight='900' fill='%230f1423' font-family='sans-serif' x='18'>RS</text></svg>">
-  
-  <!-- Inter Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Talha - Candy Crush</title>
 
-  <!-- ========================================================================
-       SITE HEADER
-       ======================================================================== -->
-  <header class="site-header">
-    <div class="header-container">
-      
-      <!-- Brand Logo -->
-      <a class="brand-link" href="#" id="brandLogo" title="RS Games Home">
-        <div class="brand-badge">RS</div>
-        <div class="brand-text">
-          <span class="brand-title">RS GAMES</span>
-          <span class="brand-subtitle">430+ WEB GAMES</span>
-        </div>
-      </a>
+    <!-- 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻-->
+    <!-- Also uploaded the demo of this code in a gif : https://c.tenor.com/x8v1oNUOmg4AAAAd/tenor.gif-->
+    <!-- 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻-->
 
-      <!-- Search Bar -->
-      <div class="search-wrapper">
-        <div class="search-input-box">
-          <span class="search-icon">🔍</span>
-          <input 
-            type="text" 
-            class="search-input" 
-            id="searchInput" 
-            placeholder="Search 430+ free games on RS Games... (Press '/' to search)"
-            autocomplete="off"
-            spellcheck="false"
-          >
-          <button class="clear-search-btn" id="clearSearchBtn" title="Clear search">✕</button>
-          <span class="search-shortcut">/</span>
-        </div>
-      </div>
+    <!-- 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻-->
+    <!-- More html-css-js Games Calculators Games Cards Elements Projects on https://www.github.com/he-is-talha --> 
+    <!-- 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻-->
 
-      <!-- Header Controls -->
-      <div class="header-actions">
-        <button class="action-btn action-btn-random" id="randomGameBtn" title="Play a random game!">
-          <span>🎲 Surprise Me</span>
-        </button>
+    <link rel="icon" href="https://i.ibb.co/M6KTWnf/pic.jpg">
 
-        <button class="action-btn" id="favoritesNavBtn" title="View your favorite games">
-          <span>❤️ Favorites</span>
-          <span class="counter-badge" id="favNavCount">0</span>
-        </button>
-
-        <button class="icon-btn" id="soundToggleBtn" title="Toggle Sound FX" aria-label="Toggle Sound">
-          🔊
-        </button>
-      </div>
-
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet">
+    <script src="script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <!-- Mode Selection Screen -->
+    <div id="modeSelection">
+      <h2>Choose Game Mode</h2>
+      <button id="endlessMode">Endless Mode</button>
+      <button id="timedMode">Timed Mode</button>
     </div>
-  </header>
-
-  <!-- ========================================================================
-       CATEGORY CHIPS BAR
-       ======================================================================== -->
-  <nav class="categories-nav" aria-label="Game Categories">
-    <div class="categories-scroll">
-      <button class="category-chip active" data-category="all">
-        <span>🌟 All Games</span>
-        <span class="chip-count">433</span>
-      </button>
-
-      <button class="category-chip" data-category="hot">
-        <span>🔥 Trending & Hot</span>
-      </button>
-
-      <button class="category-chip" data-category="racing">
-        <span>🏎️ Racing & Cars</span>
-      </button>
-
-      <button class="category-chip" data-category="arcade">
-        <span>🕹️ Arcade</span>
-      </button>
-
-      <button class="category-chip" data-category="puzzle">
-        <span>🧩 Puzzle & Brain</span>
-      </button>
-
-      <button class="category-chip" data-category="action">
-        <span>⚔️ Action</span>
-      </button>
-
-      <button class="category-chip" data-category="board">
-        <span>♟️ Board & Cards</span>
-      </button>
-
-      <button class="category-chip" data-category="casual">
-        <span>⚡ Casual & Reflex</span>
-      </button>
-
-      <button class="category-chip" data-category="favorites">
-        <span>❤️ My Favorites</span>
-      </button>
-
-      <button class="category-chip" data-category="recent">
-        <span>🕒 Recently Played</span>
-      </button>
+    <!-- Scoreboard with Timer and Change Mode Button -->
+    <div class="scoreBoard">
+      <h3>score</h3>
+      <h1 id="score">0</h1>
+      <div id="timer"></div>
+      <button id="changeMode">Change Mode</button>
     </div>
-  </nav>
-
-  <!-- ========================================================================
-       MAIN CONTENT: POKI DYNAMIC GRID
-       ======================================================================== -->
-  <main class="main-wrapper">
-    
-    <div class="section-header">
-      <div class="section-title-wrap">
-        <h1 class="section-title" id="sectionTitle">All Games</h1>
-        <span class="section-count" id="sectionCount">(50)</span>
-      </div>
-
-      <div class="section-controls">
-        <select class="sort-select" id="sortSelect" aria-label="Sort games">
-          <option value="popular">🔥 Most Popular</option>
-          <option value="top-rated">⭐ Top Rated</option>
-          <option value="name-asc">🔤 Title (A - Z)</option>
-          <option value="name-desc">🔤 Title (Z - A)</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- Poki Dynamic Masonry Grid Container -->
-    <div class="poki-grid" id="pokiGrid">
-      <!-- Dynamically generated via app.js -->
-    </div>
-
-    <!-- Empty State -->
-    <div class="empty-state" id="emptyState" style="display: none;">
-      <div class="empty-icon">🕹️</div>
-      <h3 class="empty-title">No games found</h3>
-      <p class="empty-desc">We couldn't find any games matching your search. Try searching for Pac-Man, Tetris, Puzzle, or clear filters!</p>
-      <button class="reset-search-btn" id="resetSearchBtn">Browse All 50 Games</button>
-    </div>
-
-  </main>
-
-  <!-- ========================================================================
-       POKI GAME PLAYER THEATER MODAL
-       ======================================================================== -->
-  <div class="player-modal" id="playerModal" role="dialog" aria-modal="true" aria-label="Game Player Arena">
-    
-    <!-- Player Top Bar -->
-    <div class="player-topbar">
-      <button class="player-back-btn" id="playerBackBtn">
-        <span>⬅️ Back to Games</span>
-      </button>
-
-      <div class="player-game-title-wrap">
-        <span class="player-game-icon" id="playerGameIcon">🎮</span>
-        <h2 class="player-game-title" id="playerGameTitle">Game Title</h2>
-        <span class="player-category-badge" id="playerCategoryBadge">Arcade</span>
-      </div>
-
-      <div class="player-actions">
-        <button class="player-action-btn" id="playerFavBtn" title="Toggle Favorite">
-          🤍 <span>Favorite</span>
-        </button>
-
-        <button class="player-action-btn" id="playerLikeBtn" title="Like this game">
-          👍
-        </button>
-
-        <button class="player-action-btn" id="playerDislikeBtn" title="Dislike">
-          👎
-        </button>
-
-        <button class="player-action-btn" id="playerRestartBtn" title="Restart Game">
-          🔁 <span>Restart</span>
-        </button>
-
-        <button class="player-action-btn" id="playerFullscreenBtn" title="Fullscreen (F)">
-          ⛶ <span>Fullscreen</span>
-        </button>
-
-        <button class="player-action-btn" id="playerShareBtn" title="Share Game Link">
-          🔗 <span>Share</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Player Arena Container -->
-    <div class="player-stage-container">
-      
-      <!-- Responsive Iframe Card -->
-      <div class="game-viewport-card" id="gameViewportCard">
-        <!-- Loading Spinner -->
-        <div class="game-loader-overlay" id="gameLoader">
-          <div class="loader-spinner"></div>
-          <span class="loader-text">Loading game...</span>
-        </div>
-
-        <!-- Game Iframe -->
-        <iframe 
-          id="gameIframe" 
-          class="game-iframe" 
-          src="about:blank"
-          allow="autoplay; fullscreen; microphone; keyboard" 
-          sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups"
-          title="Play Game"
-        ></iframe>
-      </div>
-
-      <!-- Game Information & Controls -->
-      <div class="game-details-grid">
-        <div class="details-card">
-          <h3 class="card-heading">📖 Game Overview</h3>
-          <p class="game-description-text" id="gameDescText">Game description will appear here.</p>
-          
-          <h3 class="card-heading" style="margin-top: 20px;">🎮 How to Play & Controls</h3>
-          <div class="controls-box" id="gameControlsGuide">
-            Use arrow keys or mouse to play.
-          </div>
-
-          <div class="game-tag-pills" id="gameTagsContainer">
-            <!-- Tags rendered dynamically -->
-          </div>
-        </div>
-
-        <div class="details-card">
-          <h3 class="card-heading">💡 Game Tips</h3>
-          <p class="game-description-text">
-            • Press <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">F</kbd> anytime to toggle Fullscreen.<br>
-            • Press <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">Esc</kbd> to return to the Poki game catalog.<br>
-            • Click the ❤️ button to save this game to your Favorites list!
-          </p>
-        </div>
-      </div>
-
-      <!-- Related Games Row -->
-      <div class="related-games-section">
-        <h3 class="card-heading">🔥 More Games You'll Love</h3>
-        <div class="related-games-scroll" id="relatedGamesContainer">
-          <!-- Dynamically filled with recommendations -->
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- Toast Notification -->
-  <div class="toast-msg" id="toastNotification">Action complete</div>
-
-  <!-- ========================================================================
-       FOOTER
-       ======================================================================== -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <span class="footer-badge">RS GAMES</span>
-          <span>430+ Free Web Games Portal</span>
-        </div>
-        <ul class="footer-links">
-          <li><a href="#brandLogo">Back to Top ↑</a></li>
-          <li><a href="javascript:void(0)" onclick="document.getElementById('randomGameBtn').click()">Random Game 🎲</a></li>
-          <li><a href="javascript:void(0)" onclick="document.querySelector('[data-category=racing]').click()">Racing 🏎️</a></li>
-          <li><a href="javascript:void(0)" onclick="document.querySelector('[data-category=hot]').click()">Trending 🔥</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-bottom">
-        <p>© 2026 RS Games Portal. All 430+ HTML5 & JavaScript games ready to play offline & online.</p>
-        <p>Built with ❤️ using HTML, CSS & Modern Vanilla JavaScript.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="gamesData.js"></script>
-  <script src="app.js"></script>
-</body>
+    <!-- Game Grid -->
+    <div class="grid"></div>
+  </body>
 </html>
