@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Fractal Attack Online Lite - RS Games</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; -webkit-user-select: none; }
+    body { background: #000; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #fff; width: 100vw; height: 100vh; }
+    #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+    #hud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 15px; }
+    .hud-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .hud-stat { background: rgba(10, 15, 30, 0.75); border: 1.5px solid #ec4899; border-radius: 12px; padding: 8px 16px; backdrop-filter: blur(8px); box-shadow: 0 0 15px rgba(236, 72, 153, 0.4); }
+    .hud-stat .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #f472b6; font-weight: 800; }
+    .hud-stat .value { font-size: 22px; font-weight: 900; color: #fff; text-shadow: 0 0 10px #ec4899; }
+    .health-bar-container { width: 140px; height: 12px; background: rgba(255,255,255,0.15); border-radius: 6px; overflow: hidden; margin-top: 5px; border: 1px solid #ec4899; }
+    .health-fill { height: 100%; width: 100%; background: linear-gradient(90deg, #ec4899, #a855f7); transition: width 0.2s ease; }
+    
+    /* Mobile Controls Overlay */
+    #mobile-controls { position: absolute; bottom: 15px; left: 0; width: 100%; display: flex; justify-content: space-between; padding: 0 25px; pointer-events: auto; z-index: 20; }
+    .touch-btn { width: 70px; height: 70px; border-radius: 50%; background: rgba(236, 72, 153, 0.25); border: 2px solid #ec4899; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #fff; box-shadow: 0 0 20px rgba(236, 72, 153, 0.5); backdrop-filter: blur(6px); cursor: pointer; }
+    .touch-btn:active { background: rgba(236, 72, 153, 0.6); transform: scale(0.92); }
+    .d-pad { display: grid; grid-template-columns: repeat(3, 50px); grid-template-rows: repeat(3, 50px); gap: 4px; }
+    .d-btn { width: 50px; height: 50px; border-radius: 10px; background: rgba(168, 85, 247, 0.3); border: 1.5px solid #a855f7; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; backdrop-filter: blur(4px); }
+    .d-btn:active { background: rgba(168, 85, 247, 0.7); }
+    
+    /* Game Over / Start Overlay */
+    #overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 5, 15, 0.88); backdrop-filter: blur(12px); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 50; text-align: center; padding: 20px; }
+    #overlay h1 { font-size: 38px; font-weight: 900; background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+    #overlay p { font-size: 15px; color: #94a3b8; max-width: 420px; line-height: 1.6; margin-bottom: 25px; }
+    .play-btn { background: linear-gradient(135deg, #ec4899, #8b5cf6); border: none; color: #fff; font-size: 18px; font-weight: 800; padding: 14px 40px; border-radius: 30px; cursor: pointer; box-shadow: 0 0 25px rgba(236, 72, 153, 0.6); letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s; pointer-events: auto; }
+    .play-btn:hover { transform: scale(1.05); box-shadow: 0 0 35px rgba(236, 72, 153, 0.9); }
+    .instructions { font-size: 12px; color: #64748b; margin-top: 15px; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+  
+  <div id="hud">
+    <div class="hud-top">
+      <div class="hud-stat">
+        <div class="label">Shield Integrity</div>
+        <div class="health-bar-container"><div id="hp-bar" class="health-fill"></div></div>
+      </div>
+      <div class="hud-stat">
+        <div class="label">Score</div>
+        <div id="score-val" class="value">0</div>
+      </div>
+    </div>
+
+    <!-- Mobile Controls -->
+    <div id="mobile-controls">
+      <div class="d-pad">
+        <div></div>
+        <div class="d-btn" id="d-up">▲</div>
+        <div></div>
+        <div class="d-btn" id="d-left">◀</div>
+        <div></div>
+        <div class="d-btn" id="d-right">▶</div>
+        <div></div>
+        <div class="d-btn" id="d-down">▼</div>
+        <div></div>
+      </div>
+      <div class="touch-btn" id="fire-btn">⚡</div>
+    </div>
+  </div>
+
+  <div id="overlay">
+    <h1 id="title-text">Fractal Attack 3D</h1>
+    <p id="desc-text">Pilot your supersonic starfighter through hyper-speed fractal tunnels! Blast cyber drones, avoid dimensional spikes, and survive!</p>
+    <button class="play-btn" id="start-btn">LAUNCH MISSION</button>
+    <div class="instructions">Desktop: WASD / Arrow Keys + Space to Fire | Mobile: On-screen controls</div>
+  </div>
+
+  <script>
+    // Audio Synth
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playLaserSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(110, audioCtx.currentTime + 0.15);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.15);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.15);
+    }
+    function playExplodeSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(140, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(30, audioCtx.currentTime + 0.3);
+      gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.3);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.3);
+    }
+
+    // Three.js Game Setup
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x050515, 0.02);
+
+    const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    // Tunnel Rings
+    const rings = [];
+    const ringCount = 45;
+    for (let i = 0; i < ringCount; i++) {
+      const geom = new THREE.BufferGeometry();
+      const vertices = [];
+      const sides = 6;
+      const radius = 10;
+      for (let s = 0; s <= sides; s++) {
+        const theta = (s / sides) * Math.PI * 2;
+        vertices.push(Math.cos(theta) * radius, Math.sin(theta) * radius, 0);
+      }
+      geom.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+      const mat = new THREE.LineBasicMaterial({ 
+        color: new THREE.Color().setHSL((i / ringCount + 0.8) % 1, 0.9, 0.5),
+        linewidth: 2,
+        transparent: true,
+        opacity: 0.6
+      });
+      const line = new THREE.Line(geom, mat);
+      line.position.z = -i * 12;
+      scene.add(line);
+      rings.push(line);
+    }
+
+    // Player Starfighter
+    const shipGroup = new THREE.Group();
+    const shipBodyGeom = new THREE.ConeGeometry(0.8, 3, 5);
+    shipBodyGeom.rotateX(Math.PI / 2);
+    const shipMat = new THREE.MeshBasicMaterial({ color: 0x00f0ff, wireframe: true });
+    const shipMesh = new THREE.Mesh(shipBodyGeom, shipMat);
+    shipGroup.add(shipMesh);
+
+    // Wings
+    const wingGeom = new THREE.BufferGeometry();
+    const wingVertices = new Float32Array([
+      -2.5, -0.2, 0.8,  2.5, -0.2, 0.8,  0, 0, -1.5,
+      -2.5, -0.2, 0.8,  0, 0.5, 0.8,   0, 0, -1.5,
+       2.5, -0.2, 0.8,  0, 0.5, 0.8,   0, 0, -1.5
+    ]);
+    wingGeom.setAttribute('position', new THREE.BufferAttribute(wingVertices, 3));
+    const wingMat = new THREE.MeshBasicMaterial({ color: 0xec4899, wireframe: true });
+    const wingsMesh = new THREE.Mesh(wingGeom, wingMat);
+    shipGroup.add(wingsMesh);
+
+    shipGroup.position.set(0, 0, -5);
+    scene.add(shipGroup);
+
+    // Enemies & Lasers
+    const enemies = [];
+    const lasers = [];
+    const particles = [];
+
+    let score = 0;
+    let hp = 100;
+    let isPlaying = false;
+    let speed = 40;
+
+    const keys = { up: false, down: false, left: false, right: false, fire: false };
+
+    // Input Listeners
+    window.addEventListener('keydown', e => {
+      if (e.code === 'KeyW' || e.code === 'ArrowUp') keys.up = true;
+      if (e.code === 'KeyS' || e.code === 'ArrowDown') keys.down = true;
+      if (e.code === 'KeyA' || e.code === 'ArrowLeft') keys.left = true;
+      if (e.code === 'KeyD' || e.code === 'ArrowRight') keys.right = true;
+      if (e.code === 'Space' && isPlaying) shootLaser();
+    });
+    window.addEventListener('keyup', e => {
+      if (e.code === 'KeyW' || e.code === 'ArrowUp') keys.up = false;
+      if (e.code === 'KeyS' || e.code === 'ArrowDown') keys.down = false;
+      if (e.code === 'KeyA' || e.code === 'ArrowLeft') keys.left = false;
+      if (e.code === 'KeyD' || e.code === 'ArrowRight') keys.right = false;
+    });
+
+    // Touch controls
+    const bindTouch = (id, key) => {
+      const el = document.getElementById(id);
+      el.addEventListener('touchstart', (e) => { e.preventDefault(); keys[key] = true; });
+      el.addEventListener('touchend', (e) => { e.preventDefault(); keys[key] = false; });
+      el.addEventListener('mousedown', () => { keys[key] = true; });
+      el.addEventListener('mouseup', () => { keys[key] = false; });
+    };
+    bindTouch('d-up', 'up');
+    bindTouch('d-down', 'down');
+    bindTouch('d-left', 'left');
+    bindTouch('d-right', 'right');
+    document.getElementById('fire-btn').addEventListener('click', () => { if (isPlaying) shootLaser(); });
+    document.getElementById('fire-btn').addEventListener('touchstart', (e) => { e.preventDefault(); if (isPlaying) shootLaser(); });
+
+    function shootLaser() {
+      playLaserSound();
+      const geom = new THREE.CylinderGeometry(0.08, 0.08, 2.5);
+      geom.rotateX(Math.PI / 2);
+      const mat = new THREE.MeshBasicMaterial({ color: 0xec4899 });
+      
+      const l1 = new THREE.Mesh(geom, mat);
+      l1.position.set(shipGroup.position.x - 1.2, shipGroup.position.y, shipGroup.position.z - 1);
+      scene.add(l1);
+      lasers.push(l1);
+
+      const l2 = new THREE.Mesh(geom, mat);
+      l2.position.set(shipGroup.position.x + 1.2, shipGroup.position.y, shipGroup.position.z - 1);
+      scene.add(l2);
+      lasers.push(l2);
+    }
+
+    function spawnEnemy() {
+      if (!isPlaying) return;
+      const geom = new THREE.IcosahedronGeometry(1.2, 1);
+      const mat = new THREE.MeshBasicMaterial({ 
+        color: Math.random() > 0.5 ? 0xef4444 : 0xf59e0b, 
+        wireframe: true 
+      });
+      const enemy = new THREE.Mesh(geom, mat);
+      const angle = Math.random() * Math.PI * 2;
+      const dist = Math.random() * 6;
+      enemy.position.set(Math.cos(angle) * dist, Math.sin(angle) * dist, -350);
+      scene.add(enemy);
+      enemies.push(enemy);
+    }
+
+    function createExplosion(pos) {
+      playExplodeSound();
+      for (let i = 0; i < 18; i++) {
+        const pGeom = new THREE.SphereGeometry(0.12, 4, 4);
+        const pMat = new THREE.MeshBasicMaterial({ color: 0xf43f5e });
+        const p = new THREE.Mesh(pGeom, pMat);
+        p.position.copy(pos);
+        p.velocity = new THREE.Vector3(
+          (Math.random() - 0.5) * 15,
+          (Math.random() - 0.5) * 15,
+          (Math.random() - 0.5) * 15
+        );
+        p.life = 1.0;
+        scene.add(p);
+        particles.push(p);
+      }
+    }
+
+    let enemyTimer = 0;
+    const clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const delta = clock.getDelta();
+
+      if (isPlaying) {
+        // Move Tunnel Rings
+        rings.forEach(r => {
+          r.position.z += speed * delta;
+          r.rotation.z += 0.2 * delta;
+          if (r.position.z > 5) {
+            r.position.z -= ringCount * 12;
+          }
+        });
+
+        // Player Controls
+        const moveSpeed = 16 * delta;
+        if (keys.left && shipGroup.position.x > -7) shipGroup.position.x -= moveSpeed;
+        if (keys.right && shipGroup.position.x < 7) shipGroup.position.x += moveSpeed;
+        if (keys.up && shipGroup.position.y < 7) shipGroup.position.y += moveSpeed;
+        if (keys.down && shipGroup.position.y > -7) shipGroup.position.y -= moveSpeed;
+
+        shipGroup.rotation.z = (keys.left ? 0.35 : (keys.right ? -0.35 : 0));
+        shipGroup.rotation.x = (keys.up ? 0.25 : (keys.down ? -0.25 : 0));
+
+        // Lasers
+        for (let i = lasers.length - 1; i >= 0; i--) {
+          const l = lasers[i];
+          l.position.z -= 180 * delta;
+          if (l.position.z < -400) {
+            scene.remove(l);
+            lasers.splice(i, 1);
+          }
+        }
+
+        // Spawn Enemies
+        enemyTimer += delta;
+        if (enemyTimer > 0.45) {
+          spawnEnemy();
+          enemyTimer = 0;
+        }
+
+        // Update Enemies
+        for (let i = enemies.length - 1; i >= 0; i--) {
+          const e = enemies[i];
+          e.position.z += (speed + 25) * delta;
+          e.rotation.x += 1.5 * delta;
+          e.rotation.y += 2.0 * delta;
+
+          // Check laser hits
+          let hit = false;
+          for (let j = lasers.length - 1; j >= 0; j--) {
+            const l = lasers[j];
+            if (e.position.distanceTo(l.position) < 2.0) {
+              createExplosion(e.position);
+              scene.remove(e);
+              enemies.splice(i, 1);
+              scene.remove(l);
+              lasers.splice(j, 1);
+              score += 150;
+              document.getElementById('score-val').innerText = score;
+              hit = true;
+              break;
+            }
+          }
+          if (hit) continue;
+
+          // Check player collision
+          if (e.position.distanceTo(shipGroup.position) < 2.2) {
+            createExplosion(e.position);
+            scene.remove(e);
+            enemies.splice(i, 1);
+            hp -= 25;
+            document.getElementById('hp-bar').style.width = Math.max(0, hp) + '%';
+            if (hp <= 0) gameOver();
+            continue;
+          }
+
+          // Offscreen
+          if (e.position.z > 10) {
+            scene.remove(e);
+            enemies.splice(i, 1);
+          }
+        }
+
+        // Update Particles
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          p.position.addScaledVector(p.velocity, delta);
+          p.life -= delta * 2;
+          p.scale.setScalar(p.life);
+          if (p.life <= 0) {
+            scene.remove(p);
+            particles.splice(i, 1);
+          }
+        }
+
+        score += Math.floor(delta * 20);
+        document.getElementById('score-val').innerText = score;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    function startGame() {
+      score = 0;
+      hp = 100;
+      isPlaying = true;
+      document.getElementById('score-val').innerText = '0';
+      document.getElementById('hp-bar').style.width = '100%';
+      document.getElementById('overlay').style.display = 'none';
+
+      // Clear existing
+      enemies.forEach(e => scene.remove(e));
+      enemies.length = 0;
+      lasers.forEach(l => scene.remove(l));
+      lasers.length = 0;
+      particles.forEach(p => scene.remove(p));
+      particles.length = 0;
+    }
+
+    function gameOver() {
+      isPlaying = false;
+      document.getElementById('overlay').style.display = 'flex';
+      document.getElementById('title-text').innerText = 'MISSION FAILED';
+      document.getElementById('desc-text').innerText = `Final Score: ${score} points! Re-engage fractal defenses to set a high score.`;
+      document.getElementById('start-btn').innerText = 'PLAY AGAIN';
+    }
+
+    document.getElementById('start-btn').addEventListener('click', startGame);
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    animate();
+  </script>
+</body>
+</html>

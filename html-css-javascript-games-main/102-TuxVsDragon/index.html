@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tux VS Dragon 3D - RS Games</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; -webkit-user-select: none; }
+    body { background: #0b0f19; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #fff; width: 100vw; height: 100vh; }
+    #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+    
+    /* Battle HUD */
+    #hud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 15px; }
+    .hud-bars { display: flex; justify-content: space-between; gap: 20px; }
+    .bar-box { background: rgba(15, 23, 42, 0.85); border: 2px solid #38bdf8; border-radius: 14px; padding: 10px 18px; backdrop-filter: blur(10px); flex: 1; max-width: 320px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+    .bar-box.dragon { border-color: #ef4444; }
+    .bar-header { display: flex; justify-content: space-between; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .tux-title { color: #38bdf8; }
+    .dragon-title { color: #ef4444; }
+    .bar-track { width: 100%; height: 14px; background: rgba(255,255,255,0.15); border-radius: 7px; overflow: hidden; }
+    .bar-fill { height: 100%; width: 100%; transition: width 0.25s ease-out; }
+    .tux-fill { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+    .dragon-fill { background: linear-gradient(90deg, #b91c1c, #ef4444, #f97316); }
+
+    /* Mobile Controls */
+    #mobile-controls { position: absolute; bottom: 20px; left: 0; width: 100%; display: flex; justify-content: space-between; padding: 0 25px; pointer-events: auto; z-index: 20; }
+    .control-cluster { display: flex; gap: 15px; }
+    .action-btn { width: 68px; height: 68px; border-radius: 50%; background: rgba(56, 189, 248, 0.3); border: 2.5px solid #38bdf8; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; box-shadow: 0 0 20px rgba(56, 189, 248, 0.5); backdrop-filter: blur(8px); cursor: pointer; }
+    .action-btn:active { background: rgba(56, 189, 248, 0.7); transform: scale(0.92); }
+    .dash-btn { background: rgba(245, 158, 11, 0.3); border-color: #f59e0b; box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+    .dash-btn:active { background: rgba(245, 158, 11, 0.7); }
+    
+    .d-pad { display: grid; grid-template-columns: repeat(3, 50px); grid-template-rows: repeat(3, 50px); gap: 4px; }
+    .d-btn { width: 50px; height: 50px; border-radius: 12px; background: rgba(15, 23, 42, 0.65); border: 1.5px solid #38bdf8; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; }
+    .d-btn:active { background: rgba(56, 189, 248, 0.6); }
+
+    /* Overlay modal */
+    #overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 10, 20, 0.88); backdrop-filter: blur(12px); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 50; text-align: center; padding: 25px; }
+    #overlay h1 { font-size: 40px; font-weight: 900; background: linear-gradient(135deg, #38bdf8, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; }
+    #overlay p { font-size: 15px; color: #94a3b8; max-width: 440px; line-height: 1.6; margin-bottom: 25px; }
+    .battle-btn { background: linear-gradient(135deg, #0284c7, #e11d48); border: none; color: #fff; font-size: 18px; font-weight: 900; padding: 15px 44px; border-radius: 30px; cursor: pointer; box-shadow: 0 0 25px rgba(225, 29, 72, 0.6); letter-spacing: 1.5px; transition: transform 0.2s; pointer-events: auto; }
+    .battle-btn:hover { transform: scale(1.06); }
+    .instructions { font-size: 12px; color: #64748b; margin-top: 15px; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <div id="hud">
+    <div class="hud-bars">
+      <div class="bar-box">
+        <div class="bar-header">
+          <span class="tux-title">🐧 TUX</span>
+          <span id="tux-hp-text">100 / 100</span>
+        </div>
+        <div class="bar-track"><div id="tux-hp-bar" class="bar-fill tux-fill"></div></div>
+      </div>
+      <div class="bar-box dragon">
+        <div class="bar-header">
+          <span class="dragon-title">🐉 INFERNO DRAGON</span>
+          <span id="dragon-hp-text">300 / 300</span>
+        </div>
+        <div class="bar-track"><div id="dragon-hp-bar" class="bar-fill dragon-fill"></div></div>
+      </div>
+    </div>
+
+    <div id="mobile-controls">
+      <div class="d-pad">
+        <div></div>
+        <div class="d-btn" id="d-up">▲</div>
+        <div></div>
+        <div class="d-btn" id="d-left">◀</div>
+        <div></div>
+        <div class="d-btn" id="d-right">▶</div>
+        <div></div>
+        <div class="d-btn" id="d-down">▼</div>
+        <div></div>
+      </div>
+      <div class="control-cluster">
+        <div class="action-btn dash-btn" id="dash-btn">💨</div>
+        <div class="action-btn" id="attack-btn">❄️</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay">
+    <h1 id="overlay-title">Tux VS Dragon 3D</h1>
+    <p id="overlay-desc">Defend the icy realm! Dodge the Red Dragon's blazing fireballs and strike back with arctic ice blasts!</p>
+    <button class="battle-btn" id="start-btn">COMMENCE BATTLE</button>
+    <div class="instructions">Desktop: WASD/Arrows to Move | Space/Click to Fire Snowball | Shift to Dash</div>
+  </div>
+
+  <script>
+    // Audio Synth
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playIceSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1200, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.2);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.2);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.2);
+    }
+    function playFireSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(60, audioCtx.currentTime + 0.4);
+      gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.4);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.4);
+    }
+
+    // Three.js Setup
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0a1128);
+    scene.fog = new THREE.FogExp2(0x0a1128, 0.015);
+
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 14, 24);
+    camera.lookAt(0, 2, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    container.appendChild(renderer.domElement);
+
+    // Arena Floor
+    const floorGeom = new THREE.CylinderGeometry(26, 26, 2, 32);
+    const floorMat = new THREE.MeshStandardMaterial({ color: 0x1e3a8a, roughness: 0.3, metalness: 0.2 });
+    const floor = new THREE.Mesh(floorGeom, floorMat);
+    floor.position.y = -1;
+    scene.add(floor);
+
+    // Arena Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+    const dirLight = new THREE.DirectionalLight(0x38bdf8, 1.2);
+    dirLight.position.set(10, 20, 15);
+    scene.add(dirLight);
+
+    // Build Tux 3D
+    const tuxGroup = new THREE.Group();
+    // Body
+    const bodyGeom = new THREE.SphereGeometry(1.2, 16, 16);
+    bodyGeom.scale(1, 1.4, 0.9);
+    const bodyMat = new THREE.MeshStandardMaterial({ color: 0x0f172a });
+    const body = new THREE.Mesh(bodyGeom, bodyMat);
+    body.position.y = 1.6;
+    tuxGroup.add(body);
+
+    // Belly
+    const bellyGeom = new THREE.SphereGeometry(0.9, 16, 16);
+    bellyGeom.scale(0.85, 1.2, 0.4);
+    const bellyMat = new THREE.MeshStandardMaterial({ color: 0xffffff });
+    const belly = new THREE.Mesh(bellyGeom, bellyMat);
+    belly.position.set(0, 1.5, 0.65);
+    tuxGroup.add(belly);
+
+    // Beak
+    const beakGeom = new THREE.ConeGeometry(0.35, 0.7, 8);
+    beakGeom.rotateX(Math.PI / 2);
+    const beakMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b });
+    const beak = new THREE.Mesh(beakGeom, beakMat);
+    beak.position.set(0, 2.3, 0.9);
+    tuxGroup.add(beak);
+
+    // Eyes
+    const eyeGeom = new THREE.SphereGeometry(0.18, 8, 8);
+    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    const eyeL = new THREE.Mesh(eyeGeom, eyeMat);
+    eyeL.position.set(-0.35, 2.5, 0.8);
+    const eyeR = new THREE.Mesh(eyeGeom, eyeMat);
+    eyeR.position.set(0.35, 2.5, 0.8);
+    tuxGroup.add(eyeL);
+    tuxGroup.add(eyeR);
+
+    // Feet
+    const footGeom = new THREE.BoxGeometry(0.6, 0.2, 0.9);
+    const footMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b });
+    const footL = new THREE.Mesh(footGeom, footMat);
+    footL.position.set(-0.55, 0.1, 0.2);
+    const footR = new THREE.Mesh(footGeom, footMat);
+    footR.position.set(0.55, 0.1, 0.2);
+    tuxGroup.add(footL);
+    tuxGroup.add(footR);
+
+    tuxGroup.position.set(0, 0, 10);
+    scene.add(tuxGroup);
+
+    // Build Dragon 3D
+    const dragonGroup = new THREE.Group();
+    // Body
+    const dBodyGeom = new THREE.ConeGeometry(2.5, 7, 8);
+    dBodyGeom.rotateX(-Math.PI / 2.5);
+    const dBodyMat = new THREE.MeshStandardMaterial({ color: 0xdc2626 });
+    const dBody = new THREE.Mesh(dBodyGeom, dBodyMat);
+    dragonGroup.add(dBody);
+
+    // Dragon Head
+    const dHeadGeom = new THREE.BoxGeometry(2.2, 1.8, 3.2);
+    const dHead = new THREE.Mesh(dHeadGeom, dBodyMat);
+    dHead.position.set(0, 1.5, 4.0);
+    dragonGroup.add(dHead);
+
+    // Dragon Horns
+    const hornGeom = new THREE.ConeGeometry(0.4, 1.8, 6);
+    const hornMat = new THREE.MeshStandardMaterial({ color: 0x1e293b });
+    const hornL = new THREE.Mesh(hornGeom, hornMat);
+    hornL.position.set(-0.9, 2.8, 3.6);
+    hornL.rotation.x = -0.4;
+    const hornR = new THREE.Mesh(hornGeom, hornMat);
+    hornR.position.set(0.9, 2.8, 3.6);
+    hornR.rotation.x = -0.4;
+    dragonGroup.add(hornL);
+    dragonGroup.add(hornR);
+
+    // Dragon Wings
+    const dWingGeom = new THREE.BufferGeometry();
+    const dWingVertices = new Float32Array([
+      0, 0, 0,  -7, 4, -1,  -4, -2, -3,
+      0, 0, 0,   7, 4, -1,   4, -2, -3
+    ]);
+    dWingGeom.setAttribute('position', new THREE.BufferAttribute(dWingVertices, 3));
+    const dWingMat = new THREE.MeshStandardMaterial({ color: 0x991b1b, side: THREE.DoubleSide });
+    const dWings = new THREE.Mesh(dWingGeom, dWingMat);
+    dWings.position.set(0, 1.8, 0);
+    dragonGroup.add(dWings);
+
+    dragonGroup.position.set(0, 5, -12);
+    scene.add(dragonGroup);
+
+    // Projectiles
+    const snowballs = [];
+    const fireballs = [];
+
+    let tuxHp = 100;
+    let dragonHp = 300;
+    let isPlaying = false;
+    const keys = { up: false, down: false, left: false, right: false };
+
+    // Listeners
+    window.addEventListener('keydown', e => {
+      if (e.code === 'KeyW' || e.code === 'ArrowUp') keys.up = true;
+      if (e.code === 'KeyS' || e.code === 'ArrowDown') keys.down = true;
+      if (e.code === 'KeyA' || e.code === 'ArrowLeft') keys.left = true;
+      if (e.code === 'KeyD' || e.code === 'ArrowRight') keys.right = true;
+      if (e.code === 'Space' && isPlaying) shootSnowball();
+      if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') dash();
+    });
+    window.addEventListener('keyup', e => {
+      if (e.code === 'KeyW' || e.code === 'ArrowUp') keys.up = false;
+      if (e.code === 'KeyS' || e.code === 'ArrowDown') keys.down = false;
+      if (e.code === 'KeyA' || e.code === 'ArrowLeft') keys.left = false;
+      if (e.code === 'KeyD' || e.code === 'ArrowRight') keys.right = false;
+    });
+
+    const bindTouch = (id, key) => {
+      const el = document.getElementById(id);
+      el.addEventListener('touchstart', e => { e.preventDefault(); keys[key] = true; });
+      el.addEventListener('touchend', e => { e.preventDefault(); keys[key] = false; });
+      el.addEventListener('mousedown', () => keys[key] = true);
+      el.addEventListener('mouseup', () => keys[key] = false);
+    };
+    bindTouch('d-up', 'up');
+    bindTouch('d-down', 'down');
+    bindTouch('d-left', 'left');
+    bindTouch('d-right', 'right');
+    document.getElementById('attack-btn').addEventListener('click', () => { if (isPlaying) shootSnowball(); });
+    document.getElementById('attack-btn').addEventListener('touchstart', e => { e.preventDefault(); if (isPlaying) shootSnowball(); });
+    document.getElementById('dash-btn').addEventListener('click', dash);
+    document.getElementById('dash-btn').addEventListener('touchstart', e => { e.preventDefault(); dash(); });
+
+    function dash() {
+      if (!isPlaying) return;
+      const dashDist = 4.5;
+      if (keys.left) tuxGroup.position.x = Math.max(-18, tuxGroup.position.x - dashDist);
+      if (keys.right) tuxGroup.position.x = Math.min(18, tuxGroup.position.x + dashDist);
+      if (keys.up) tuxGroup.position.z = Math.max(-5, tuxGroup.position.z - dashDist);
+      if (keys.down) tuxGroup.position.z = Math.min(20, tuxGroup.position.z + dashDist);
+    }
+
+    function shootSnowball() {
+      playIceSound();
+      const geom = new THREE.SphereGeometry(0.45, 12, 12);
+      const mat = new THREE.MeshStandardMaterial({ color: 0xbae6fd, emissive: 0x38bdf8 });
+      const ball = new THREE.Mesh(geom, mat);
+      ball.position.set(tuxGroup.position.x, 1.8, tuxGroup.position.z - 1.5);
+      scene.add(ball);
+      snowballs.push(ball);
+    }
+
+    function dragonBreath() {
+      if (!isPlaying) return;
+      playFireSound();
+      const geom = new THREE.SphereGeometry(0.7, 12, 12);
+      const mat = new THREE.MeshStandardMaterial({ color: 0xf97316, emissive: 0xef4444 });
+      const fire = new THREE.Mesh(geom, mat);
+      fire.position.set(dragonGroup.position.x, 5.0, dragonGroup.position.z + 3.0);
+      const target = tuxGroup.position.clone();
+      fire.velocity = target.sub(fire.position).normalize().multiplyScalar(22);
+      scene.add(fire);
+      fireballs.push(fire);
+    }
+
+    let dragonTimer = 0;
+    const clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const delta = clock.getDelta();
+      const time = clock.getElapsedTime();
+
+      if (isPlaying) {
+        // Player Movement
+        const speed = 14 * delta;
+        if (keys.left && tuxGroup.position.x > -20) tuxGroup.position.x -= speed;
+        if (keys.right && tuxGroup.position.x < 20) tuxGroup.position.x += speed;
+        if (keys.up && tuxGroup.position.z > -4) tuxGroup.position.z -= speed;
+        if (keys.down && tuxGroup.position.z < 21) tuxGroup.position.z += speed;
+
+        // Dragon AI Sway & Attack
+        dragonGroup.position.x = Math.sin(time * 1.5) * 14;
+        dragonGroup.position.y = 5 + Math.sin(time * 3.0) * 1.2;
+        dWings.rotation.z = Math.sin(time * 8.0) * 0.35;
+
+        dragonTimer += delta;
+        if (dragonTimer > 1.2) {
+          dragonBreath();
+          dragonTimer = 0;
+        }
+
+        // Snowballs
+        for (let i = snowballs.length - 1; i >= 0; i--) {
+          const s = snowballs[i];
+          s.position.z -= 35 * delta;
+          if (s.position.distanceTo(dragonGroup.position) < 3.8) {
+            scene.remove(s);
+            snowballs.splice(i, 1);
+            dragonHp = Math.max(0, dragonHp - 20);
+            document.getElementById('dragon-hp-bar').style.width = (dragonHp / 3) + '%';
+            document.getElementById('dragon-hp-text').innerText = `${dragonHp} / 300`;
+            if (dragonHp <= 0) winGame();
+            continue;
+          }
+          if (s.position.z < -30) {
+            scene.remove(s);
+            snowballs.splice(i, 1);
+          }
+        }
+
+        // Fireballs
+        for (let i = fireballs.length - 1; i >= 0; i--) {
+          const f = fireballs[i];
+          f.position.addScaledVector(f.velocity, delta);
+          if (f.position.distanceTo(tuxGroup.position) < 1.8) {
+            scene.remove(f);
+            fireballs.splice(i, 1);
+            tuxHp = Math.max(0, tuxHp - 25);
+            document.getElementById('tux-hp-bar').style.width = tuxHp + '%';
+            document.getElementById('tux-hp-text').innerText = `${tuxHp} / 100`;
+            if (tuxHp <= 0) loseGame();
+            continue;
+          }
+          if (f.position.z > 30 || f.position.y < -2) {
+            scene.remove(f);
+            fireballs.splice(i, 1);
+          }
+        }
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    function startGame() {
+      tuxHp = 100;
+      dragonHp = 300;
+      isPlaying = true;
+      document.getElementById('tux-hp-bar').style.width = '100%';
+      document.getElementById('tux-hp-text').innerText = '100 / 100';
+      document.getElementById('dragon-hp-bar').style.width = '100%';
+      document.getElementById('dragon-hp-text').innerText = '300 / 300';
+      document.getElementById('overlay').style.display = 'none';
+
+      snowballs.forEach(s => scene.remove(s));
+      snowballs.length = 0;
+      fireballs.forEach(f => scene.remove(f));
+      fireballs.length = 0;
+    }
+
+    function winGame() {
+      isPlaying = false;
+      document.getElementById('overlay').style.display = 'flex';
+      document.getElementById('overlay-title').innerText = 'VICTORY FOR TUX!';
+      document.getElementById('overlay-desc').innerText = 'You extinguished the Inferno Dragon and saved Antarctica! Tux reigns supreme!';
+      document.getElementById('start-btn').innerText = 'BATTLE AGAIN';
+    }
+
+    function loseGame() {
+      isPlaying = false;
+      document.getElementById('overlay').style.display = 'flex';
+      document.getElementById('overlay-title').innerText = 'TUX MELTED!';
+      document.getElementById('overlay-desc').innerText = 'The Dragon’s flame engulfed Tux! Dodge swiftly and strike with frost snowballs!';
+      document.getElementById('start-btn').innerText = 'TRY AGAIN';
+    }
+
+    document.getElementById('start-btn').addEventListener('click', startGame);
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    animate();
+  </script>
+</body>
+</html>
