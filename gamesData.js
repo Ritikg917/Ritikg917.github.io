@@ -1,7 +1,7 @@
 const gamesData = [
   {
     id: "76-1v1-LOL",
-    logo: "assets/logos/76-1v1-LOL.svg",
+    logo: "assets/logos/76-1v1-LOL.webp",
     title: "1v1.LOL Building Battle",
     category: "action",
     badge: "🏆 BATTLE ROYALE",
@@ -18,7 +18,7 @@ const gamesData = [
   },
   {
     id: "74-Among-Us-Online",
-    logo: "assets/logos/74-Among-Us-Online.svg",
+    logo: "assets/logos/74-Among-Us-Online.png",
     title: "Among Us Online",
     category: "action",
     badge: "🚀 IMPOSTOR",
@@ -35,7 +35,7 @@ const gamesData = [
   },
   {
     id: "73-Angry-Birds",
-    logo: "assets/logos/73-Angry-Birds.svg",
+    logo: "assets/logos/73-Angry-Birds.png",
     title: "Angry Birds Classic",
     category: "puzzle",
     badge: "🎯 SLINGSHOT",
@@ -52,7 +52,7 @@ const gamesData = [
   },
   {
     id: "72-Bad-Ice-Cream",
-    logo: "assets/logos/72-Bad-Ice-Cream.svg",
+    logo: "assets/logos/72-Bad-Ice-Cream.webp",
     title: "Bad Ice Cream",
     category: "arcade",
     badge: "🍦 NITROME CLASSIC",
@@ -69,7 +69,7 @@ const gamesData = [
   },
   {
     id: "71-Awesome-Tanks",
-    logo: "assets/logos/71-Awesome-Tanks.svg",
+    logo: "assets/logos/71-Awesome-Tanks.webp",
     title: "Awesome Tanks",
     category: "action",
     badge: "💥 TANK WAR",
@@ -86,7 +86,7 @@ const gamesData = [
   },
   {
     id: "69-8-Ball-Pool-Classic",
-    logo: "assets/logos/69-8-Ball-Pool-Classic.svg",
+    logo: "assets/logos/69-8-Ball-Pool-Classic.png",
     title: "8 Ball Pool Classic",
     category: "board",
     badge: "🎱 BILLIARDS",
@@ -103,7 +103,7 @@ const gamesData = [
   },
   {
     id: "77-Underrun",
-    logo: "assets/logos/77-Underrun.svg",
+    logo: "assets/logos/77-Underrun.png",
     title: "Underrun 3D Shooter",
     category: "action",
     badge: "👾 WEBGL SCI-FI",
@@ -120,7 +120,7 @@ const gamesData = [
   },
   {
     id: "79-Hextris",
-    logo: "assets/logos/79-Hextris.svg",
+    logo: "assets/logos/79-Hextris.webp",
     title: "Hextris",
     category: "puzzle",
     badge: "🔷 HEXAGON PUZZLE",
@@ -137,7 +137,7 @@ const gamesData = [
   },
   {
     id: "68-1-on-1-Soccer",
-    logo: "assets/logos/68-1-on-1-Soccer.svg",
+    logo: "assets/logos/68-1-on-1-Soccer.webp",
     title: "1 on 1 Soccer",
     category: "arcade",
     badge: "⚽ HEAD SOCCER",
@@ -154,7 +154,7 @@ const gamesData = [
   },
   {
     id: "70-3D-Free-Kick",
-    logo: "assets/logos/70-3D-Free-Kick.svg",
+    logo: "assets/logos/70-3D-Free-Kick.webp",
     title: "3D Free Kick Football",
     category: "arcade",
     badge: "🎯 FREE KICK",
@@ -171,7 +171,7 @@ const gamesData = [
   },
   {
     id: "75-Bad-Piggies",
-    logo: "assets/logos/75-Bad-Piggies.svg",
+    logo: "assets/logos/75-Bad-Piggies.png",
     title: "Bad Piggies",
     category: "puzzle",
     badge: "🐷 CONTRAPTION",
@@ -188,7 +188,7 @@ const gamesData = [
   },
   {
     id: "67-Agar-IO-Lite",
-    logo: "assets/logos/67-Agar-IO-Lite.svg",
+    logo: "assets/logos/67-Agar-IO-Lite.webp",
     title: "Agar.io Lite",
     category: "casual",
     badge: "🟣 CELL WARS",
@@ -205,7 +205,7 @@ const gamesData = [
   },
   {
     id: "78-The-Pond",
-    logo: "assets/logos/78-The-Pond.svg",
+    logo: "assets/logos/78-The-Pond.webp",
     title: "The Pond",
     category: "casual",
     badge: "🐟 EAT & SWIM",
@@ -222,7 +222,7 @@ const gamesData = [
   },
   {
     id: "80-Particle-Clicker",
-    logo: "assets/logos/80-Particle-Clicker.svg",
+    logo: "assets/logos/80-Particle-Clicker.png",
     title: "Particle Clicker",
     category: "casual",
     badge: "⚛️ CERN LHC",
@@ -239,7 +239,7 @@ const gamesData = [
   },
   {
     id: "63-GTA-Vice-City-Wasm",
-    logo: "assets/logos/63-GTA-Vice-City-Wasm.svg",
+    logo: "assets/logos/63-GTA-Vice-City-Wasm.png",
     title: "GTA Vice City (WASM)",
     category: "action",
     badge: "🌴 VICE CITY",
@@ -256,7 +256,7 @@ const gamesData = [
   },
   {
     id: "62-JS-Minecraft",
-    logo: "assets/logos/62-JS-Minecraft.svg",
+    logo: "assets/logos/62-JS-Minecraft.png",
     title: "JS Minecraft Classic",
     category: "arcade",
     badge: "🧊 3D VOXEL",
@@ -273,7 +273,7 @@ const gamesData = [
   },
   {
     id: "65-GTA-3-Liberty-City",
-    logo: "assets/logos/65-GTA-3-Liberty-City.svg",
+    logo: "assets/logos/65-GTA-3-Liberty-City.png",
     title: "GTA III: Liberty City 3D",
     category: "action",
     badge: "🏙️ 3D OPEN WORLD",
@@ -290,7 +290,7 @@ const gamesData = [
   },
   {
     id: "64-GTA-Advance",
-    logo: "assets/logos/64-GTA-Advance.svg",
+    logo: "assets/logos/64-GTA-Advance.png",
     title: "GTA Advance: Liberty City",
     category: "action",
     badge: "⭐ RETRO GTA",
@@ -307,7 +307,7 @@ const gamesData = [
   },
   {
     id: "66-Minecraft-Survival",
-    logo: "assets/logos/66-Minecraft-Survival.svg",
+    logo: "assets/logos/66-Minecraft-Survival.png",
     title: "Minecraft Survival (MCP 940)",
     category: "arcade",
     badge: "🪓 SURVIVAL",
@@ -324,7 +324,7 @@ const gamesData = [
   },
   {
     id: "61-Bike-Game",
-    logo: "assets/logos/61-Bike-Game.svg",
+    logo: "assets/logos/61-Bike-Game.jpg",
     title: "Bike Stunt Rush",
     category: "arcade",
     badge: "🏍️ STUNT",
@@ -341,7 +341,7 @@ const gamesData = [
   },
   {
     id: "60-Hill-Climb-Racing",
-    logo: "assets/logos/60-Hill-Climb-Racing.svg",
+    logo: "assets/logos/60-Hill-Climb-Racing.png",
     title: "Hill Climb Racing",
     category: "action",
     badge: "🔥 TOP HIT",
@@ -358,7 +358,7 @@ const gamesData = [
   },
   {
     id: "56-Open-Red-Racing",
-    logo: "assets/logos/56-Open-Red-Racing.svg",
+    logo: "assets/logos/56-Open-Red-Racing.jpg",
     title: "Open Red Racing 3D",
     category: "arcade",
     badge: "🏎️ 3D RACER",
@@ -375,7 +375,7 @@ const gamesData = [
   },
   {
     id: "59-Speedbreaker-Street-Racer",
-    logo: "assets/logos/59-Speedbreaker-Street-Racer.svg",
+    logo: "assets/logos/59-Speedbreaker-Street-Racer.jpg",
     title: "Speedbreaker: Street Pursuit",
     category: "action",
     badge: "⚡ NITRO",
@@ -392,7 +392,7 @@ const gamesData = [
   },
   {
     id: "57-Top-Down-Racer",
-    logo: "assets/logos/57-Top-Down-Racer.svg",
+    logo: "assets/logos/57-Top-Down-Racer.jpg",
     title: "Top-Down Circuit Racer",
     category: "arcade",
     badge: "🏁 DRIFT",
@@ -409,7 +409,7 @@ const gamesData = [
   },
   {
     id: "58-Car-Racing-Game",
-    logo: "assets/logos/58-Car-Racing-Game.svg",
+    logo: "assets/logos/58-Car-Racing-Game.jpg",
     title: "Highway Traffic Racer",
     category: "casual",
     badge: "🚗 HIGHWAY",
@@ -426,7 +426,7 @@ const gamesData = [
   },
   {
     id: "51-Subway-Surfers",
-    logo: "assets/logos/51-Subway-Surfers.svg",
+    logo: "assets/logos/51-Subway-Surfers.png",
     title: "Subway Surfers Zurich",
     category: "action",
     badge: "🔥 #1 HIT",
@@ -443,7 +443,7 @@ const gamesData = [
   },
   {
     id: "52-Level-Devil",
-    logo: "assets/logos/52-Level-Devil.svg",
+    logo: "assets/logos/52-Level-Devil.png",
     title: "Level Devil (FableDevil)",
     category: "arcade",
     badge: "😈 VIRAL",
@@ -460,7 +460,7 @@ const gamesData = [
   },
   {
     id: "54-Temple-Run-2",
-    logo: "assets/logos/54-Temple-Run-2.svg",
+    logo: "assets/logos/54-Temple-Run-2.png",
     title: "Temple Run 2",
     category: "action",
     badge: "TOP",
@@ -477,7 +477,7 @@ const gamesData = [
   },
   {
     id: "53-Fruit-Ninja-Deluxe",
-    logo: "assets/logos/53-Fruit-Ninja-Deluxe.svg",
+    logo: "assets/logos/53-Fruit-Ninja-Deluxe.png",
     title: "Fruit Ninja Deluxe",
     category: "action",
     badge: "CLASSIC",
@@ -494,7 +494,7 @@ const gamesData = [
   },
   {
     id: "55-Catch-Fruits",
-    logo: "assets/logos/55-Catch-Fruits.svg",
+    logo: "assets/logos/55-Catch-Fruits.jpg",
     title: "Catch Fruits Arcade",
     category: "casual",
     badge: "NEW",
@@ -511,7 +511,7 @@ const gamesData = [
   },
   {
     id: "01-Candy-Crush-Game",
-    logo: "assets/logos/01-Candy-Crush-Game.svg",
+    logo: "assets/logos/01-Candy-Crush-Game.png",
     title: "Candy Crush Saga",
     category: "puzzle",
     badge: "HOT",
@@ -528,7 +528,7 @@ const gamesData = [
   },
   {
     id: "02-Pac-Man-Game",
-    logo: "assets/logos/02-Pac-Man-Game.svg",
+    logo: "assets/logos/02-Pac-Man-Game.png",
     title: "Pac-Man Classic",
     category: "arcade",
     badge: "RETRO",
@@ -545,7 +545,7 @@ const gamesData = [
   },
   {
     id: "03-Chess-Game",
-    logo: "assets/logos/03-Chess-Game.svg",
+    logo: "assets/logos/03-Chess-Game.webp",
     title: "Master Chess",
     category: "board",
     badge: "CLASSIC",
@@ -562,7 +562,7 @@ const gamesData = [
   },
   {
     id: "04-Doodle-Jump-Game",
-    logo: "assets/logos/04-Doodle-Jump-Game.svg",
+    logo: "assets/logos/04-Doodle-Jump-Game.png",
     title: "Doodle Jump Deluxe",
     category: "arcade",
     badge: "POPULAR",
@@ -579,7 +579,7 @@ const gamesData = [
   },
   {
     id: "05-Solitaire-Game",
-    logo: "assets/logos/05-Solitaire-Game.svg",
+    logo: "assets/logos/05-Solitaire-Game.jpg",
     title: "Klondike Solitaire",
     category: "board",
     badge: "CLASSIC",
@@ -596,7 +596,7 @@ const gamesData = [
   },
   {
     id: "06-Sudoku-Game",
-    logo: "assets/logos/06-Sudoku-Game.svg",
+    logo: "assets/logos/06-Sudoku-Game.jpg",
     title: "Sudoku Master",
     category: "puzzle",
     badge: "BRAIN",
@@ -613,7 +613,7 @@ const gamesData = [
   },
   {
     id: "07-Crossy-Road-Game",
-    logo: "assets/logos/07-Crossy-Road-Game.svg",
+    logo: "assets/logos/07-Crossy-Road-Game.png",
     title: "Crossy Road 3D",
     category: "action",
     badge: "TOP",
@@ -630,7 +630,7 @@ const gamesData = [
   },
   {
     id: "08-Rock-Paper-Scissors",
-    logo: "assets/logos/08-Rock-Paper-Scissors.svg",
+    logo: "assets/logos/08-Rock-Paper-Scissors.jpg",
     title: "Rock Paper Scissors",
     category: "casual",
     badge: "QUICK",
@@ -647,7 +647,7 @@ const gamesData = [
   },
   {
     id: "09-Flappy-Bird-Game",
-    logo: "assets/logos/09-Flappy-Bird-Game.svg",
+    logo: "assets/logos/09-Flappy-Bird-Game.webp",
     title: "Flappy Bird Original",
     category: "arcade",
     badge: "HOT",
@@ -664,7 +664,7 @@ const gamesData = [
   },
   {
     id: "10-2048-Game",
-    logo: "assets/logos/10-2048-Game.svg",
+    logo: "assets/logos/10-2048-Game.png",
     title: "2048 Number Puzzle",
     category: "puzzle",
     badge: "BRAIN",
@@ -681,7 +681,7 @@ const gamesData = [
   },
   {
     id: "11-Wordle-Game",
-    logo: "assets/logos/11-Wordle-Game.svg",
+    logo: "assets/logos/11-Wordle-Game.webp",
     title: "Wordle Daily",
     category: "puzzle",
     badge: "POPULAR",
@@ -698,7 +698,7 @@ const gamesData = [
   },
   {
     id: "12-Hangman-Game",
-    logo: "assets/logos/12-Hangman-Game.svg",
+    logo: "assets/logos/12-Hangman-Game.jpg",
     title: "Hangman Word Guess",
     category: "puzzle",
     badge: "CLASSIC",
@@ -715,7 +715,7 @@ const gamesData = [
   },
   {
     id: "13-Tower-Blocks",
-    logo: "assets/logos/13-Tower-Blocks.svg",
+    logo: "assets/logos/13-Tower-Blocks.jpg",
     title: "Tower Blocks Stacker",
     category: "arcade",
     badge: "SKILL",
@@ -732,7 +732,7 @@ const gamesData = [
   },
   {
     id: "14-Archery-Game",
-    logo: "assets/logos/14-Archery-Game.svg",
+    logo: "assets/logos/14-Archery-Game.jpg",
     title: "Archery Bow Master",
     category: "action",
     badge: "ACTION",
@@ -749,7 +749,7 @@ const gamesData = [
   },
   {
     id: "15-Tic-Tac-Toe",
-    logo: "assets/logos/15-Tic-Tac-Toe.svg",
+    logo: "assets/logos/15-Tic-Tac-Toe.jpg",
     title: "Tic Tac Toe Neon",
     category: "board",
     badge: "2-PLAYER",
@@ -766,7 +766,7 @@ const gamesData = [
   },
   {
     id: "16-Minesweeper-Game",
-    logo: "assets/logos/16-Minesweeper-Game.svg",
+    logo: "assets/logos/16-Minesweeper-Game.jpg",
     title: "Minesweeper Retro",
     category: "puzzle",
     badge: "RETRO",
@@ -783,7 +783,7 @@ const gamesData = [
   },
   {
     id: "17-Speed-Typing-Game",
-    logo: "assets/logos/17-Speed-Typing-Game.svg",
+    logo: "assets/logos/17-Speed-Typing-Game.jpg",
     title: "Speed Typing Test",
     category: "casual",
     badge: "SKILL",
@@ -800,7 +800,7 @@ const gamesData = [
   },
   {
     id: "18-Breakout-Game",
-    logo: "assets/logos/18-Breakout-Game.svg",
+    logo: "assets/logos/18-Breakout-Game.jpg",
     title: "Retro Breakout",
     category: "arcade",
     badge: "RETRO",
@@ -817,7 +817,7 @@ const gamesData = [
   },
   {
     id: "19-Ping-Pong-Game",
-    logo: "assets/logos/19-Ping-Pong-Game.svg",
+    logo: "assets/logos/19-Ping-Pong-Game.jpg",
     title: "Neon Ping Pong",
     category: "arcade",
     badge: "2-PLAYER",
@@ -834,7 +834,7 @@ const gamesData = [
   },
   {
     id: "20-Tetris-Game",
-    logo: "assets/logos/20-Tetris-Game.svg",
+    logo: "assets/logos/20-Tetris-Game.webp",
     title: "Tetris Classic",
     category: "arcade",
     badge: "TOP",
@@ -851,7 +851,7 @@ const gamesData = [
   },
   {
     id: "21-Tilting-Maze-Game",
-    logo: "assets/logos/21-Tilting-Maze-Game.svg",
+    logo: "assets/logos/21-Tilting-Maze-Game.jpg",
     title: "Tilting Maze 3D",
     category: "puzzle",
     badge: "PHYSICS",
@@ -868,7 +868,7 @@ const gamesData = [
   },
   {
     id: "22-Memory-Card-Game",
-    logo: "assets/logos/22-Memory-Card-Game.svg",
+    logo: "assets/logos/22-Memory-Card-Game.jpg",
     title: "Memory Card Match",
     category: "casual",
     badge: "BRAIN",
@@ -885,7 +885,7 @@ const gamesData = [
   },
   {
     id: "23-Type-Number-Guessing-Game",
-    logo: "assets/logos/23-Type-Number-Guessing-Game.svg",
+    logo: "assets/logos/23-Type-Number-Guessing-Game.jpg",
     title: "Number Guesser Pro",
     category: "casual",
     badge: "BRAIN",
@@ -902,7 +902,7 @@ const gamesData = [
   },
   {
     id: "24-Snake-Game",
-    logo: "assets/logos/24-Snake-Game.svg",
+    logo: "assets/logos/24-Snake-Game.webp",
     title: "Retro Snake Classic",
     category: "arcade",
     badge: "TOP",
@@ -919,7 +919,7 @@ const gamesData = [
   },
   {
     id: "25-Connect-Four-Game",
-    logo: "assets/logos/25-Connect-Four-Game.svg",
+    logo: "assets/logos/25-Connect-Four-Game.jpg",
     title: "Connect Four",
     category: "board",
     badge: "2-PLAYER",
@@ -936,7 +936,7 @@ const gamesData = [
   },
   {
     id: "26-Insect-Catch-Game",
-    logo: "assets/logos/26-Insect-Catch-Game.svg",
+    logo: "assets/logos/26-Insect-Catch-Game.jpg",
     title: "Bug Smasher Rush",
     category: "action",
     badge: "REFLEX",
@@ -953,7 +953,7 @@ const gamesData = [
   },
   {
     id: "27-Typing-Game",
-    logo: "assets/logos/27-Typing-Game.svg",
+    logo: "assets/logos/27-Typing-Game.jpg",
     title: "Speed Typer Racer",
     category: "casual",
     badge: "SKILL",
@@ -970,7 +970,7 @@ const gamesData = [
   },
   {
     id: "28-Dice-Roll-Simulator",
-    logo: "assets/logos/28-Dice-Roll-Simulator.svg",
+    logo: "assets/logos/28-Dice-Roll-Simulator.jpg",
     title: "3D Dice Simulator",
     category: "casual",
     badge: "CASUAL",
@@ -987,7 +987,7 @@ const gamesData = [
   },
   {
     id: "29-Shape-Clicker-Game",
-    logo: "assets/logos/29-Shape-Clicker-Game.svg",
+    logo: "assets/logos/29-Shape-Clicker-Game.jpg",
     title: "Shape Reflex Clicker",
     category: "casual",
     badge: "REFLEX",
@@ -1004,7 +1004,7 @@ const gamesData = [
   },
   {
     id: "30-Typing-Game",
-    logo: "assets/logos/30-Typing-Game.svg",
+    logo: "assets/logos/30-Typing-Game.jpg",
     title: "Typing Challenge Pro",
     category: "casual",
     badge: "BRAIN",
@@ -1021,7 +1021,7 @@ const gamesData = [
   },
   {
     id: "31-Speak-Number-Guessing-Game",
-    logo: "assets/logos/31-Speak-Number-Guessing-Game.svg",
+    logo: "assets/logos/31-Speak-Number-Guessing-Game.jpg",
     title: "Voice Number Guesser",
     category: "casual",
     badge: "VOICE",
@@ -1038,7 +1038,7 @@ const gamesData = [
   },
   {
     id: "32-Fruit-Slicer-Game",
-    logo: "assets/logos/32-Fruit-Slicer-Game.svg",
+    logo: "assets/logos/32-Fruit-Slicer-Game.webp",
     title: "Fruit Ninja Slicer",
     category: "action",
     badge: "ACTION",
@@ -1055,7 +1055,7 @@ const gamesData = [
   },
   {
     id: "33-Quiz-Game",
-    logo: "assets/logos/33-Quiz-Game.svg",
+    logo: "assets/logos/33-Quiz-Game.jpg",
     title: "Ultimate Trivia Quiz",
     category: "puzzle",
     badge: "BRAIN",
@@ -1072,7 +1072,7 @@ const gamesData = [
   },
   {
     id: "34-Emoji-Catcher-Game",
-    logo: "assets/logos/34-Emoji-Catcher-Game.svg",
+    logo: "assets/logos/34-Emoji-Catcher-Game.jpg",
     title: "Emoji Rain Catcher",
     category: "arcade",
     badge: "CASUAL",
@@ -1089,7 +1089,7 @@ const gamesData = [
   },
   {
     id: "35-Whack-A-Mole-Game",
-    logo: "assets/logos/35-Whack-A-Mole-Game.svg",
+    logo: "assets/logos/35-Whack-A-Mole-Game.jpg",
     title: "Whack-A-Mole Arcade",
     category: "arcade",
     badge: "POPULAR",
@@ -1106,7 +1106,7 @@ const gamesData = [
   },
   {
     id: "36-Simon-Says-Game",
-    logo: "assets/logos/36-Simon-Says-Game.svg",
+    logo: "assets/logos/36-Simon-Says-Game.png",
     title: "Simon Says Memory",
     category: "puzzle",
     badge: "MEMORY",
@@ -1123,7 +1123,7 @@ const gamesData = [
   },
   {
     id: "37-Sliding-Puzzle-Game",
-    logo: "assets/logos/37-Sliding-Puzzle-Game.svg",
+    logo: "assets/logos/37-Sliding-Puzzle-Game.jpg",
     title: "15 Sliding Tile Puzzle",
     category: "puzzle",
     badge: "CLASSIC",
@@ -1140,7 +1140,7 @@ const gamesData = [
   },
   {
     id: "38-Mastermind-Game",
-    logo: "assets/logos/38-Mastermind-Game.svg",
+    logo: "assets/logos/38-Mastermind-Game.jpg",
     title: "Mastermind Code Breaker",
     category: "puzzle",
     badge: "STRATEGY",
@@ -1157,7 +1157,7 @@ const gamesData = [
   },
   {
     id: "39-Blackjack-Game",
-    logo: "assets/logos/39-Blackjack-Game.svg",
+    logo: "assets/logos/39-Blackjack-Game.webp",
     title: "Blackjack 21 Casino",
     category: "board",
     badge: "CASINO",
@@ -1174,7 +1174,7 @@ const gamesData = [
   },
   {
     id: "40-Bubble-Shooter-Game",
-    logo: "assets/logos/40-Bubble-Shooter-Game.svg",
+    logo: "assets/logos/40-Bubble-Shooter-Game.jpg",
     title: "Bubble Shooter Pop",
     category: "arcade",
     badge: "HOT",
@@ -1191,7 +1191,7 @@ const gamesData = [
   },
   {
     id: "41-Checkers-Game",
-    logo: "assets/logos/41-Checkers-Game.svg",
+    logo: "assets/logos/41-Checkers-Game.jpg",
     title: "Checkers Classic",
     category: "board",
     badge: "CLASSIC",
@@ -1208,7 +1208,7 @@ const gamesData = [
   },
   {
     id: "42-Space-Invaders-Game",
-    logo: "assets/logos/42-Space-Invaders-Game.svg",
+    logo: "assets/logos/42-Space-Invaders-Game.jpg",
     title: "Space Invaders Retro",
     category: "action",
     badge: "RETRO",
@@ -1225,7 +1225,7 @@ const gamesData = [
   },
   {
     id: "43-Asteroids-Game",
-    logo: "assets/logos/43-Asteroids-Game.svg",
+    logo: "assets/logos/43-Asteroids-Game.png",
     title: "Asteroids Vector 360",
     category: "action",
     badge: "RETRO",
@@ -1242,7 +1242,7 @@ const gamesData = [
   },
   {
     id: "44-Reversi-Game",
-    logo: "assets/logos/44-Reversi-Game.svg",
+    logo: "assets/logos/44-Reversi-Game.jpg",
     title: "Reversi / Othello",
     category: "board",
     badge: "STRATEGY",
@@ -1259,7 +1259,7 @@ const gamesData = [
   },
   {
     id: "45-Mahjong-Solitaire-Game",
-    logo: "assets/logos/45-Mahjong-Solitaire-Game.svg",
+    logo: "assets/logos/45-Mahjong-Solitaire-Game.jpg",
     title: "Mahjong Solitaire",
     category: "puzzle",
     badge: "CLASSIC",
@@ -1276,7 +1276,7 @@ const gamesData = [
   },
   {
     id: "46-Frogger-Game",
-    logo: "assets/logos/46-Frogger-Game.svg",
+    logo: "assets/logos/46-Frogger-Game.jpg",
     title: "Frogger Classic",
     category: "arcade",
     badge: "RETRO",
@@ -1293,7 +1293,7 @@ const gamesData = [
   },
   {
     id: "47-Poker-Game",
-    logo: "assets/logos/47-Poker-Game.svg",
+    logo: "assets/logos/47-Poker-Game.png",
     title: "Texas Hold'em Poker",
     category: "board",
     badge: "CASINO",
@@ -1310,7 +1310,7 @@ const gamesData = [
   },
   {
     id: "48-Battleship-Game",
-    logo: "assets/logos/48-Battleship-Game.svg",
+    logo: "assets/logos/48-Battleship-Game.png",
     title: "Battleship Naval War",
     category: "board",
     badge: "STRATEGY",
@@ -1327,7 +1327,7 @@ const gamesData = [
   },
   {
     id: "49-Nonogram-Game",
-    logo: "assets/logos/49-Nonogram-Game.svg",
+    logo: "assets/logos/49-Nonogram-Game.jpg",
     title: "Nonogram Logic Pic",
     category: "puzzle",
     badge: "BRAIN",
@@ -1344,7 +1344,7 @@ const gamesData = [
   },
   {
     id: "50-Lights-Out-Game",
-    logo: "assets/logos/50-Lights-Out-Game.svg",
+    logo: "assets/logos/50-Lights-Out-Game.jpg",
     title: "Lights Out Grid",
     category: "puzzle",
     badge: "BRAIN",
@@ -1362,7 +1362,7 @@ const gamesData = [
 ,
   {
     id: "81-Original-2048",
-    logo: "assets/logos/81-Original-2048.svg",
+    logo: "assets/logos/81-Original-2048.png",
     title: "2048 Original",
     category: "puzzle",
     badge: "LEGEND",
@@ -1379,7 +1379,7 @@ const gamesData = [
   },
   {
     id: "82-PoryDrive",
-    logo: "assets/logos/82-PoryDrive.svg",
+    logo: "assets/logos/82-PoryDrive.png",
     title: "PoryDrive 2.0",
     category: "racing",
     badge: "3D WASM",
@@ -1396,7 +1396,7 @@ const gamesData = [
   },
   {
     id: "83-Tuxocide",
-    logo: "assets/logos/83-Tuxocide.svg",
+    logo: "assets/logos/83-Tuxocide.png",
     title: "Tuxocide 3D",
     category: "action",
     badge: "NEW",
@@ -1413,7 +1413,7 @@ const gamesData = [
   },
   {
     id: "84-TuxPusher",
-    logo: "assets/logos/84-TuxPusher.svg",
+    logo: "assets/logos/84-TuxPusher.png",
     title: "Tux Pusher",
     category: "arcade",
     badge: "HOT",
@@ -1430,7 +1430,7 @@ const gamesData = [
   },
   {
     id: "85-Snowboarder",
-    logo: "assets/logos/85-Snowboarder.svg",
+    logo: "assets/logos/85-Snowboarder.png",
     title: "Snowboarder 3D",
     category: "sports",
     badge: "3D WASM",
@@ -1447,7 +1447,7 @@ const gamesData = [
   },
   {
     id: "86-PAC-GAL",
-    logo: "assets/logos/86-PAC-GAL.svg",
+    logo: "assets/logos/86-PAC-GAL.png",
     title: "PAC-GAL 3D",
     category: "arcade",
     badge: "RETRO",
@@ -1464,7 +1464,7 @@ const gamesData = [
   },
   {
     id: "87-SpaceMiner",
-    logo: "assets/logos/87-SpaceMiner.svg",
+    logo: "assets/logos/87-SpaceMiner.png",
     title: "Space Miner 3D",
     category: "action",
     badge: "SCI-FI",
@@ -1481,7 +1481,7 @@ const gamesData = [
   },
   {
     id: "88-CoinPusher",
-    logo: "assets/logos/88-CoinPusher.svg",
+    logo: "assets/logos/88-CoinPusher.png",
     title: "Sea Coin Pusher",
     category: "arcade",
     badge: "HOT",
@@ -1498,7 +1498,7 @@ const gamesData = [
   },
   {
     id: "89-Cubes2",
-    logo: "assets/logos/89-Cubes2.svg",
+    logo: "assets/logos/89-Cubes2.png",
     title: "Cubes 2 Shooter",
     category: "action",
     badge: "FPS 3D",
@@ -1515,7 +1515,7 @@ const gamesData = [
   },
   {
     id: "90-Catrooms",
-    logo: "assets/logos/90-Catrooms.svg",
+    logo: "assets/logos/90-Catrooms.png",
     title: "Catrooms 3D",
     category: "adventure",
     badge: "HORROR",
@@ -1532,7 +1532,7 @@ const gamesData = [
   },
   {
     id: "91-TempleDriver",
-    logo: "assets/logos/91-TempleDriver.svg",
+    logo: "assets/logos/91-TempleDriver.png",
     title: "Temple Driver",
     category: "racing",
     badge: "3D RUNNER",
@@ -1549,7 +1549,7 @@ const gamesData = [
   },
   {
     id: "92-AIGeneratedGame",
-    logo: "assets/logos/92-AIGeneratedGame.svg",
+    logo: "assets/logos/92-AIGeneratedGame.png",
     title: "AI Generated 3D",
     category: "action",
     badge: "NEURAL",
@@ -1566,7 +1566,7 @@ const gamesData = [
   },
   {
     id: "93-Snowling",
-    logo: "assets/logos/93-Snowling.svg",
+    logo: "assets/logos/93-Snowling.png",
     title: "Snowling 3D",
     category: "sports",
     badge: "PHYSICS",
@@ -1583,7 +1583,7 @@ const gamesData = [
   },
   {
     id: "94-TuxScape",
-    logo: "assets/logos/94-TuxScape.svg",
+    logo: "assets/logos/94-TuxScape.png",
     title: "TuxScape 3D",
     category: "adventure",
     badge: "EXPLORE",
@@ -1600,7 +1600,7 @@ const gamesData = [
   },
   {
     id: "95-TuxFishing",
-    logo: "assets/logos/95-TuxFishing.svg",
+    logo: "assets/logos/95-TuxFishing.png",
     title: "Tux Fishing 3D",
     category: "casual",
     badge: "CHILL",
@@ -1617,7 +1617,7 @@ const gamesData = [
   },
   {
     id: "96-SeriousShooter",
-    logo: "assets/logos/96-SeriousShooter.svg",
+    logo: "assets/logos/96-SeriousShooter.png",
     title: "Serious Shooter 3D",
     category: "action",
     badge: "INTENSE",
@@ -1634,7 +1634,7 @@ const gamesData = [
   },
   {
     id: "97-ADarkRoom",
-    logo: "assets/logos/97-ADarkRoom.svg",
+    logo: "assets/logos/97-ADarkRoom.ico",
     title: "A Dark Room",
     category: "rpg",
     badge: "CLASSIC",
@@ -1651,7 +1651,7 @@ const gamesData = [
   },
   {
     id: "98-BrowserQuest",
-    logo: "assets/logos/98-BrowserQuest.svg",
+    logo: "assets/logos/98-BrowserQuest.jpg",
     title: "BrowserQuest",
     category: "rpg",
     badge: "MOZILLA",
@@ -1668,7 +1668,7 @@ const gamesData = [
   },
   {
     id: "99-Untrusted",
-    logo: "assets/logos/99-Untrusted.svg",
+    logo: "assets/logos/99-Untrusted.ico",
     title: "Untrusted: Rogue JS",
     category: "puzzle",
     badge: "HACKER",
@@ -1685,7 +1685,7 @@ const gamesData = [
   },
   {
     id: "100-TuxPusherAF",
-    logo: "assets/logos/100-TuxPusherAF.svg",
+    logo: "assets/logos/100-TuxPusherAF.png",
     title: "Tux Pusher Arcade",
     category: "arcade",
     badge: "ARCADE",
@@ -1702,7 +1702,7 @@ const gamesData = [
   },
   {
     id: "101-FractalAttack",
-    logo: "assets/logos/101-FractalAttack.svg",
+    logo: "assets/logos/101-FractalAttack.png",
     title: "Fractal Attack 3D",
     category: "action",
     badge: "CYBER",
@@ -1719,7 +1719,7 @@ const gamesData = [
   },
   {
     id: "102-TuxVsDragon",
-    logo: "assets/logos/102-TuxVsDragon.svg",
+    logo: "assets/logos/102-TuxVsDragon.jpg",
     title: "Tux VS Dragon 3D",
     category: "action",
     badge: "BOSS",
@@ -1736,7 +1736,7 @@ const gamesData = [
   },
   {
     id: "103-TuxScape2",
-    logo: "assets/logos/103-TuxScape2.svg",
+    logo: "assets/logos/103-TuxScape2.jpg",
     title: "TuxScape 2: Arctic Rush",
     category: "adventure",
     badge: "RUNNER",
@@ -1754,7 +1754,7 @@ const gamesData = [
 ,
   {
     id: "cd-1-on-1-soccer",
-    logo: "assets/logos/cd-1-on-1-soccer.svg",
+    logo: "assets/logos/cd-1-on-1-soccer.jpg",
     title: "1 On 1 Soccer",
     category: "sports",
     badge: "SPORTS",
@@ -1771,7 +1771,7 @@ const gamesData = [
   },
   {
     id: "cd-1-on-1-tennis",
-    logo: "assets/logos/cd-1-on-1-tennis.svg",
+    logo: "assets/logos/cd-1-on-1-tennis.jpg",
     title: "1 On 1 Tennis",
     category: "sports",
     badge: "SPORTS",
@@ -1788,7 +1788,7 @@ const gamesData = [
   },
   {
     id: "cd-1.12",
-    logo: "assets/logos/cd-1.12.svg",
+    logo: "assets/logos/cd-1.12.jpg",
     title: "1 12",
     category: "arcade",
     badge: "ARCADE",
@@ -1805,7 +1805,7 @@ const gamesData = [
   },
   {
     id: "cd-1.12_WASM",
-    logo: "assets/logos/cd-1.12_WASM.svg",
+    logo: "assets/logos/cd-1.12_WASM.jpg",
     title: "1 12 WASM",
     category: "arcade",
     badge: "ARCADE",
@@ -1822,7 +1822,7 @@ const gamesData = [
   },
   {
     id: "cd-1.5",
-    logo: "assets/logos/cd-1.5.svg",
+    logo: "assets/logos/cd-1.5.jpg",
     title: "1 5",
     category: "arcade",
     badge: "ARCADE",
@@ -1839,7 +1839,7 @@ const gamesData = [
   },
   {
     id: "cd-1.8",
-    logo: "assets/logos/cd-1.8.svg",
+    logo: "assets/logos/cd-1.8.jpg",
     title: "1 8",
     category: "arcade",
     badge: "ARCADE",
@@ -1856,7 +1856,7 @@ const gamesData = [
   },
   {
     id: "cd-1.8_WASM",
-    logo: "assets/logos/cd-1.8_WASM.svg",
+    logo: "assets/logos/cd-1.8_WASM.jpg",
     title: "1 8 WASM",
     category: "arcade",
     badge: "ARCADE",
@@ -1873,7 +1873,7 @@ const gamesData = [
   },
   {
     id: "cd-10-minutes-till-dawn",
-    logo: "assets/logos/cd-10-minutes-till-dawn.svg",
+    logo: "assets/logos/cd-10-minutes-till-dawn.webp",
     title: "10 Minutes Till Dawn",
     category: "arcade",
     badge: "ARCADE",
@@ -1890,7 +1890,7 @@ const gamesData = [
   },
   {
     id: "cd-12-mini-battles",
-    logo: "assets/logos/cd-12-mini-battles.svg",
+    logo: "assets/logos/cd-12-mini-battles.png",
     title: "12 Mini Battles",
     category: "action",
     badge: "ACTION",
@@ -1907,7 +1907,7 @@ const gamesData = [
   },
   {
     id: "cd-1v1.lol",
-    logo: "assets/logos/cd-1v1.lol.svg",
+    logo: "assets/logos/cd-1v1.lol.webp",
     title: "1v1.LOL Arena",
     category: "action",
     badge: "ACTION",
@@ -1924,7 +1924,7 @@ const gamesData = [
   },
   {
     id: "cd-2048-cupcakes",
-    logo: "assets/logos/cd-2048-cupcakes.svg",
+    logo: "assets/logos/cd-2048-cupcakes.png",
     title: "2048 Cupcakes Edition",
     category: "puzzle",
     badge: "PUZZLE",
@@ -1941,7 +1941,7 @@ const gamesData = [
   },
   {
     id: "cd-2048",
-    logo: "assets/logos/cd-2048.svg",
+    logo: "assets/logos/cd-2048.webp",
     title: "2048",
     category: "puzzle",
     badge: "PUZZLE",
@@ -1958,7 +1958,7 @@ const gamesData = [
   },
   {
     id: "cd-3D-flight-simulator",
-    logo: "assets/logos/cd-3D-flight-simulator.svg",
+    logo: "assets/logos/cd-3D-flight-simulator.png",
     title: "3D Flight Simulator",
     category: "action",
     badge: "RUNNER",
@@ -1975,7 +1975,7 @@ const gamesData = [
   },
   {
     id: "cd-3d-free-kick",
-    logo: "assets/logos/cd-3d-free-kick.svg",
+    logo: "assets/logos/cd-3d-free-kick.png",
     title: "3D Free Kick Soccer",
     category: "sports",
     badge: "SPORTS",
@@ -1992,7 +1992,7 @@ const gamesData = [
   },
   {
     id: "cd-8-ball-classic",
-    logo: "assets/logos/cd-8-ball-classic.svg",
+    logo: "assets/logos/cd-8-ball-classic.webp",
     title: "8 Ball Pool Classic",
     category: "sports",
     badge: "SPORTS",
@@ -2009,7 +2009,7 @@ const gamesData = [
   },
   {
     id: "cd-9007199254740992",
-    logo: "assets/logos/cd-9007199254740992.svg",
+    logo: "assets/logos/cd-9007199254740992.webp",
     title: "9007199254740992",
     category: "arcade",
     badge: "ARCADE",
@@ -2026,7 +2026,7 @@ const gamesData = [
   },
   {
     id: "cd-Alpha_1.2.6",
-    logo: "assets/logos/cd-Alpha_1.2.6.svg",
+    logo: "assets/logos/cd-Alpha_1.2.6.png",
     title: "Alpha 1 2 6",
     category: "arcade",
     badge: "ARCADE",
@@ -2043,7 +2043,7 @@ const gamesData = [
   },
   {
     id: "cd-Beta_1.3",
-    logo: "assets/logos/cd-Beta_1.3.svg",
+    logo: "assets/logos/cd-Beta_1.3.png",
     title: "Beta 1 3",
     category: "arcade",
     badge: "ARCADE",
@@ -2060,7 +2060,7 @@ const gamesData = [
   },
   {
     id: "cd-Indev",
-    logo: "assets/logos/cd-Indev.svg",
+    logo: "assets/logos/cd-Indev.jpg",
     title: "Indev",
     category: "arcade",
     badge: "ARCADE",
@@ -2077,7 +2077,7 @@ const gamesData = [
   },
   {
     id: "cd-agar-io-lite",
-    logo: "assets/logos/cd-agar-io-lite.svg",
+    logo: "assets/logos/cd-agar-io-lite.webp",
     title: "Agar.io Lite Arena",
     category: "action",
     badge: "ACTION",
@@ -2094,7 +2094,7 @@ const gamesData = [
   },
   {
     id: "cd-age-of-war-2",
-    logo: "assets/logos/cd-age-of-war-2.svg",
+    logo: "assets/logos/cd-age-of-war-2.jpg",
     title: "Age Of War 2",
     category: "action",
     badge: "ACTION",
@@ -2111,7 +2111,7 @@ const gamesData = [
   },
   {
     id: "cd-age-of-war",
-    logo: "assets/logos/cd-age-of-war.svg",
+    logo: "assets/logos/cd-age-of-war.jpg",
     title: "Age Of War",
     category: "action",
     badge: "ACTION",
@@ -2128,7 +2128,7 @@ const gamesData = [
   },
   {
     id: "cd-ages-of-conflict",
-    logo: "assets/logos/cd-ages-of-conflict.svg",
+    logo: "assets/logos/cd-ages-of-conflict.jpg",
     title: "Ages Of Conflict",
     category: "arcade",
     badge: "ARCADE",
@@ -2145,7 +2145,7 @@ const gamesData = [
   },
   {
     id: "cd-among-us",
-    logo: "assets/logos/cd-among-us.svg",
+    logo: "assets/logos/cd-among-us.webp",
     title: "Among Us",
     category: "arcade",
     badge: "ARCADE",
@@ -2162,7 +2162,7 @@ const gamesData = [
   },
   {
     id: "cd-angry-birds-showdown",
-    logo: "assets/logos/cd-angry-birds-showdown.svg",
+    logo: "assets/logos/cd-angry-birds-showdown.jpg",
     title: "Angry Birds Showdown",
     category: "arcade",
     badge: "ARCADE",
@@ -2179,7 +2179,7 @@ const gamesData = [
   },
   {
     id: "cd-angry-birds-space",
-    logo: "assets/logos/cd-angry-birds-space.svg",
+    logo: "assets/logos/cd-angry-birds-space.jpg",
     title: "Angry Birds Space",
     category: "arcade",
     badge: "ARCADE",
@@ -2196,7 +2196,7 @@ const gamesData = [
   },
   {
     id: "cd-angry-birds",
-    logo: "assets/logos/cd-angry-birds.svg",
+    logo: "assets/logos/cd-angry-birds.webp",
     title: "Angry Birds",
     category: "arcade",
     badge: "ARCADE",
@@ -2213,7 +2213,7 @@ const gamesData = [
   },
   {
     id: "cd-awesome-tanks-2",
-    logo: "assets/logos/cd-awesome-tanks-2.svg",
+    logo: "assets/logos/cd-awesome-tanks-2.webp",
     title: "Awesome Tanks 2",
     category: "action",
     badge: "ACTION",
@@ -2230,7 +2230,7 @@ const gamesData = [
   },
   {
     id: "cd-awesome-tanks",
-    logo: "assets/logos/cd-awesome-tanks.svg",
+    logo: "assets/logos/cd-awesome-tanks.webp",
     title: "Awesome Tanks",
     category: "action",
     badge: "ACTION",
@@ -2247,7 +2247,7 @@ const gamesData = [
   },
   {
     id: "cd-backrooms",
-    logo: "assets/logos/cd-backrooms.svg",
+    logo: "assets/logos/cd-backrooms.webp",
     title: "Backrooms",
     category: "arcade",
     badge: "ARCADE",
@@ -2264,7 +2264,7 @@ const gamesData = [
   },
   {
     id: "cd-bacon-may-die",
-    logo: "assets/logos/cd-bacon-may-die.svg",
+    logo: "assets/logos/cd-bacon-may-die.jpg",
     title: "Bacon May Die",
     category: "arcade",
     badge: "ARCADE",
@@ -2281,7 +2281,7 @@ const gamesData = [
   },
   {
     id: "cd-bad-ice-cream-2",
-    logo: "assets/logos/cd-bad-ice-cream-2.svg",
+    logo: "assets/logos/cd-bad-ice-cream-2.webp",
     title: "Bad Ice Cream 2",
     category: "arcade",
     badge: "ARCADE",
@@ -2298,7 +2298,7 @@ const gamesData = [
   },
   {
     id: "cd-bad-ice-cream-3",
-    logo: "assets/logos/cd-bad-ice-cream-3.svg",
+    logo: "assets/logos/cd-bad-ice-cream-3.webp",
     title: "Bad Ice Cream 3",
     category: "arcade",
     badge: "ARCADE",
@@ -2315,7 +2315,7 @@ const gamesData = [
   },
   {
     id: "cd-bad-ice-cream",
-    logo: "assets/logos/cd-bad-ice-cream.svg",
+    logo: "assets/logos/cd-bad-ice-cream.webp",
     title: "Bad Ice Cream",
     category: "arcade",
     badge: "ARCADE",
@@ -2332,7 +2332,7 @@ const gamesData = [
   },
   {
     id: "cd-bad-parenting",
-    logo: "assets/logos/cd-bad-parenting.svg",
+    logo: "assets/logos/cd-bad-parenting.jpg",
     title: "Bad Parenting: Mr. Red Face",
     category: "arcade",
     badge: "ARCADE",
@@ -2349,7 +2349,7 @@ const gamesData = [
   },
   {
     id: "cd-bad-piggies",
-    logo: "assets/logos/cd-bad-piggies.svg",
+    logo: "assets/logos/cd-bad-piggies.jpg",
     title: "Bad Piggies",
     category: "arcade",
     badge: "ARCADE",
@@ -2366,7 +2366,7 @@ const gamesData = [
   },
   {
     id: "cd-bad-time-simulator",
-    logo: "assets/logos/cd-bad-time-simulator.svg",
+    logo: "assets/logos/cd-bad-time-simulator.webp",
     title: "Bad Time Simulator",
     category: "casual",
     badge: "CASUAL",
@@ -2383,7 +2383,7 @@ const gamesData = [
   },
   {
     id: "cd-baldis-basics",
-    logo: "assets/logos/cd-baldis-basics.svg",
+    logo: "assets/logos/cd-baldis-basics.webp",
     title: "Baldis Basics",
     category: "arcade",
     badge: "ARCADE",
@@ -2400,7 +2400,7 @@ const gamesData = [
   },
   {
     id: "cd-bank-robbery-2",
-    logo: "assets/logos/cd-bank-robbery-2.svg",
+    logo: "assets/logos/cd-bank-robbery-2.jpg",
     title: "Bank Robbery 2",
     category: "arcade",
     badge: "ARCADE",
@@ -2417,7 +2417,7 @@ const gamesData = [
   },
   {
     id: "cd-bank-robbery-3",
-    logo: "assets/logos/cd-bank-robbery-3.svg",
+    logo: "assets/logos/cd-bank-robbery-3.jpg",
     title: "Bank Robbery 3",
     category: "arcade",
     badge: "ARCADE",
@@ -2434,7 +2434,7 @@ const gamesData = [
   },
   {
     id: "cd-baseball-bros",
-    logo: "assets/logos/cd-baseball-bros.svg",
+    logo: "assets/logos/cd-baseball-bros.png",
     title: "Baseball Bros",
     category: "sports",
     badge: "SPORTS",
@@ -2451,7 +2451,7 @@ const gamesData = [
   },
   {
     id: "cd-basket-bros",
-    logo: "assets/logos/cd-basket-bros.svg",
+    logo: "assets/logos/cd-basket-bros.webp",
     title: "Basket Bros",
     category: "arcade",
     badge: "ONLINE",
@@ -2468,7 +2468,7 @@ const gamesData = [
   },
   {
     id: "cd-basket-random",
-    logo: "assets/logos/cd-basket-random.svg",
+    logo: "assets/logos/cd-basket-random.png",
     title: "Basket Random",
     category: "arcade",
     badge: "ARCADE",
@@ -2485,7 +2485,7 @@ const gamesData = [
   },
   {
     id: "cd-basketball-legends",
-    logo: "assets/logos/cd-basketball-legends.svg",
+    logo: "assets/logos/cd-basketball-legends.png",
     title: "Basketball Legends",
     category: "sports",
     badge: "SPORTS",
@@ -2502,7 +2502,7 @@ const gamesData = [
   },
   {
     id: "cd-basketball-stars",
-    logo: "assets/logos/cd-basketball-stars.svg",
+    logo: "assets/logos/cd-basketball-stars.avif",
     title: "Basketball Stars",
     category: "sports",
     badge: "SPORTS",
@@ -2519,7 +2519,7 @@ const gamesData = [
   },
   {
     id: "cd-big-ice-tower-tiny-square",
-    logo: "assets/logos/cd-big-ice-tower-tiny-square.svg",
+    logo: "assets/logos/cd-big-ice-tower-tiny-square.webp",
     title: "Big Ice Tower Tiny Square",
     category: "arcade",
     badge: "ARCADE",
@@ -2536,7 +2536,7 @@ const gamesData = [
   },
   {
     id: "cd-big-neon-tower-tiny-square",
-    logo: "assets/logos/cd-big-neon-tower-tiny-square.svg",
+    logo: "assets/logos/cd-big-neon-tower-tiny-square.webp",
     title: "Big Neon Tower Tiny Square",
     category: "arcade",
     badge: "ARCADE",
@@ -2553,7 +2553,7 @@ const gamesData = [
   },
   {
     id: "cd-big-tower-tiny-square-2",
-    logo: "assets/logos/cd-big-tower-tiny-square-2.svg",
+    logo: "assets/logos/cd-big-tower-tiny-square-2.webp",
     title: "Big Tower Tiny Square 2",
     category: "arcade",
     badge: "ARCADE",
@@ -2570,7 +2570,7 @@ const gamesData = [
   },
   {
     id: "cd-big-tower-tiny-square",
-    logo: "assets/logos/cd-big-tower-tiny-square.svg",
+    logo: "assets/logos/cd-big-tower-tiny-square.webp",
     title: "Big Tower Tiny Square",
     category: "arcade",
     badge: "ARCADE",
@@ -2587,7 +2587,7 @@ const gamesData = [
   },
   {
     id: "cd-bitlife",
-    logo: "assets/logos/cd-bitlife.svg",
+    logo: "assets/logos/cd-bitlife.webp",
     title: "Bitlife",
     category: "arcade",
     badge: "ARCADE",
@@ -2604,7 +2604,7 @@ const gamesData = [
   },
   {
     id: "cd-blocky-snakes",
-    logo: "assets/logos/cd-blocky-snakes.svg",
+    logo: "assets/logos/cd-blocky-snakes.jpg",
     title: "Blocky Snakes",
     category: "puzzle",
     badge: "PUZZLE",
@@ -2621,7 +2621,7 @@ const gamesData = [
   },
   {
     id: "cd-bloons-TD-2",
-    logo: "assets/logos/cd-bloons-TD-2.svg",
+    logo: "assets/logos/cd-bloons-TD-2.png",
     title: "Bloons TD 2",
     category: "arcade",
     badge: "ARCADE",
@@ -2638,7 +2638,7 @@ const gamesData = [
   },
   {
     id: "cd-bloons-TD-3",
-    logo: "assets/logos/cd-bloons-TD-3.svg",
+    logo: "assets/logos/cd-bloons-TD-3.png",
     title: "Bloons TD 3",
     category: "arcade",
     badge: "ARCADE",
@@ -2655,7 +2655,7 @@ const gamesData = [
   },
   {
     id: "cd-bloons-TD-4",
-    logo: "assets/logos/cd-bloons-TD-4.svg",
+    logo: "assets/logos/cd-bloons-TD-4.jpg",
     title: "Bloons TD 4",
     category: "arcade",
     badge: "ARCADE",
@@ -2672,7 +2672,7 @@ const gamesData = [
   },
   {
     id: "cd-bloons-TD-5",
-    logo: "assets/logos/cd-bloons-TD-5.svg",
+    logo: "assets/logos/cd-bloons-TD-5.jpg",
     title: "Bloons TD 5",
     category: "arcade",
     badge: "ARCADE",
@@ -2689,7 +2689,7 @@ const gamesData = [
   },
   {
     id: "cd-bloons-TD",
-    logo: "assets/logos/cd-bloons-TD.svg",
+    logo: "assets/logos/cd-bloons-TD.jpg",
     title: "Bloons TD",
     category: "arcade",
     badge: "ARCADE",
@@ -2706,7 +2706,7 @@ const gamesData = [
   },
   {
     id: "cd-bloxorz",
-    logo: "assets/logos/cd-bloxorz.svg",
+    logo: "assets/logos/cd-bloxorz.webp",
     title: "Bloxorz",
     category: "arcade",
     badge: "ARCADE",
@@ -2723,7 +2723,7 @@ const gamesData = [
   },
   {
     id: "cd-blumgi-racers",
-    logo: "assets/logos/cd-blumgi-racers.svg",
+    logo: "assets/logos/cd-blumgi-racers.jpg",
     title: "Blumgi Racers",
     category: "arcade",
     badge: "ARCADE",
@@ -2740,7 +2740,7 @@ const gamesData = [
   },
   {
     id: "cd-blumgi-rocket",
-    logo: "assets/logos/cd-blumgi-rocket.svg",
+    logo: "assets/logos/cd-blumgi-rocket.webp",
     title: "Blumgi Rocket",
     category: "arcade",
     badge: "ARCADE",
@@ -2757,7 +2757,7 @@ const gamesData = [
   },
   {
     id: "cd-bob-the-robber-2",
-    logo: "assets/logos/cd-bob-the-robber-2.svg",
+    logo: "assets/logos/cd-bob-the-robber-2.webp",
     title: "Bob The Robber 2",
     category: "arcade",
     badge: "ARCADE",
@@ -2774,7 +2774,7 @@ const gamesData = [
   },
   {
     id: "cd-bob-the-robber-5",
-    logo: "assets/logos/cd-bob-the-robber-5.svg",
+    logo: "assets/logos/cd-bob-the-robber-5.webp",
     title: "Bob The Robber 5",
     category: "arcade",
     badge: "ARCADE",
@@ -2791,7 +2791,7 @@ const gamesData = [
   },
   {
     id: "cd-bob-the-robber",
-    logo: "assets/logos/cd-bob-the-robber.svg",
+    logo: "assets/logos/cd-bob-the-robber.webp",
     title: "Bob The Robber",
     category: "arcade",
     badge: "ARCADE",
@@ -2808,7 +2808,7 @@ const gamesData = [
   },
   {
     id: "cd-bouncy-motors",
-    logo: "assets/logos/cd-bouncy-motors.svg",
+    logo: "assets/logos/cd-bouncy-motors.png",
     title: "Bouncy Motors",
     category: "racing",
     badge: "RACING",
@@ -2825,7 +2825,7 @@ const gamesData = [
   },
   {
     id: "cd-bow-masters",
-    logo: "assets/logos/cd-bow-masters.svg",
+    logo: "assets/logos/cd-bow-masters.png",
     title: "Bow Masters",
     category: "arcade",
     badge: "ARCADE",
@@ -2842,7 +2842,7 @@ const gamesData = [
   },
   {
     id: "cd-boxel-rebound",
-    logo: "assets/logos/cd-boxel-rebound.svg",
+    logo: "assets/logos/cd-boxel-rebound.png",
     title: "Boxel Rebound",
     category: "arcade",
     badge: "ARCADE",
@@ -2859,7 +2859,7 @@ const gamesData = [
   },
   {
     id: "cd-breaking-the-bank",
-    logo: "assets/logos/cd-breaking-the-bank.svg",
+    logo: "assets/logos/cd-breaking-the-bank.webp",
     title: "Breaking The Bank",
     category: "arcade",
     badge: "ARCADE",
@@ -2876,7 +2876,7 @@ const gamesData = [
   },
   {
     id: "cd-bubble-shooter",
-    logo: "assets/logos/cd-bubble-shooter.svg",
+    logo: "assets/logos/cd-bubble-shooter.png",
     title: "Bubble Shooter",
     category: "action",
     badge: "ACTION",
@@ -2893,7 +2893,7 @@ const gamesData = [
   },
   {
     id: "cd-burrito-bison-launcha-libre",
-    logo: "assets/logos/cd-burrito-bison-launcha-libre.svg",
+    logo: "assets/logos/cd-burrito-bison-launcha-libre.png",
     title: "Burrito Bison Launcha Libre",
     category: "arcade",
     badge: "ARCADE",
@@ -2910,7 +2910,7 @@ const gamesData = [
   },
   {
     id: "cd-candy-crush",
-    logo: "assets/logos/cd-candy-crush.svg",
+    logo: "assets/logos/cd-candy-crush.jpg",
     title: "Candy Crush",
     category: "puzzle",
     badge: "PUZZLE",
@@ -2927,7 +2927,7 @@ const gamesData = [
   },
   {
     id: "cd-capybara-clicker",
-    logo: "assets/logos/cd-capybara-clicker.svg",
+    logo: "assets/logos/cd-capybara-clicker.png",
     title: "Capybara Clicker",
     category: "casual",
     badge: "CASUAL",
@@ -2944,7 +2944,7 @@ const gamesData = [
   },
   {
     id: "cd-car-drawing",
-    logo: "assets/logos/cd-car-drawing.svg",
+    logo: "assets/logos/cd-car-drawing.png",
     title: "Car Drawing",
     category: "racing",
     badge: "RACING",
@@ -2961,7 +2961,7 @@ const gamesData = [
   },
   {
     id: "cd-car-king-arena",
-    logo: "assets/logos/cd-car-king-arena.svg",
+    logo: "assets/logos/cd-car-king-arena.png",
     title: "Car King Arena",
     category: "racing",
     badge: "RACING",
@@ -2978,7 +2978,7 @@ const gamesData = [
   },
   {
     id: "cd-chaos-faction-2",
-    logo: "assets/logos/cd-chaos-faction-2.svg",
+    logo: "assets/logos/cd-chaos-faction-2.png",
     title: "Chaos Faction 2",
     category: "arcade",
     badge: "ONLINE",
@@ -2995,7 +2995,7 @@ const gamesData = [
   },
   {
     id: "cd-chess",
-    logo: "assets/logos/cd-chess.svg",
+    logo: "assets/logos/cd-chess.webp",
     title: "Chess",
     category: "puzzle",
     badge: "PUZZLE",
@@ -3012,7 +3012,7 @@ const gamesData = [
   },
   {
     id: "cd-choppy-orc",
-    logo: "assets/logos/cd-choppy-orc.svg",
+    logo: "assets/logos/cd-choppy-orc.png",
     title: "Choppy Orc",
     category: "arcade",
     badge: "ARCADE",
@@ -3029,7 +3029,7 @@ const gamesData = [
   },
   {
     id: "cd-circloO-2",
-    logo: "assets/logos/cd-circloO-2.svg",
+    logo: "assets/logos/cd-circloO-2.png",
     title: "CircloO 2",
     category: "arcade",
     badge: "ARCADE",
@@ -3046,7 +3046,7 @@ const gamesData = [
   },
   {
     id: "cd-circloO",
-    logo: "assets/logos/cd-circloO.svg",
+    logo: "assets/logos/cd-circloO.png",
     title: "CircloO",
     category: "arcade",
     badge: "ARCADE",
@@ -3063,7 +3063,7 @@ const gamesData = [
   },
   {
     id: "cd-clash-of-vikings",
-    logo: "assets/logos/cd-clash-of-vikings.svg",
+    logo: "assets/logos/cd-clash-of-vikings.png",
     title: "Clash Of Vikings",
     category: "arcade",
     badge: "ARCADE",
@@ -3080,7 +3080,7 @@ const gamesData = [
   },
   {
     id: "cd-cleanup-io",
-    logo: "assets/logos/cd-cleanup-io.svg",
+    logo: "assets/logos/cd-cleanup-io.webp",
     title: "Cleanup .io",
     category: "arcade",
     badge: "ONLINE",
@@ -3097,7 +3097,7 @@ const gamesData = [
   },
   {
     id: "cd-cluster-rush",
-    logo: "assets/logos/cd-cluster-rush.svg",
+    logo: "assets/logos/cd-cluster-rush.webp",
     title: "Cluster Rush",
     category: "action",
     badge: "RUNNER",
@@ -3114,7 +3114,7 @@ const gamesData = [
   },
   {
     id: "cd-coreball",
-    logo: "assets/logos/cd-coreball.svg",
+    logo: "assets/logos/cd-coreball.png",
     title: "Coreball Precision",
     category: "sports",
     badge: "SPORTS",
@@ -3131,7 +3131,7 @@ const gamesData = [
   },
   {
     id: "cd-crazy-cars",
-    logo: "assets/logos/cd-crazy-cars.svg",
+    logo: "assets/logos/cd-crazy-cars.webp",
     title: "Crazy Cars",
     category: "racing",
     badge: "RACING",
@@ -3148,7 +3148,7 @@ const gamesData = [
   },
   {
     id: "cd-crazy-cattle-3D",
-    logo: "assets/logos/cd-crazy-cattle-3D.svg",
+    logo: "assets/logos/cd-crazy-cattle-3D.webp",
     title: "Crazy Cattle 3D",
     category: "arcade",
     badge: "ARCADE",
@@ -3165,7 +3165,7 @@ const gamesData = [
   },
   {
     id: "cd-crazy-crash-landing",
-    logo: "assets/logos/cd-crazy-crash-landing.svg",
+    logo: "assets/logos/cd-crazy-crash-landing.png",
     title: "Crazy Crash Landing",
     category: "arcade",
     badge: "ARCADE",
@@ -3182,7 +3182,7 @@ const gamesData = [
   },
   {
     id: "cd-crazy-motorcycle",
-    logo: "assets/logos/cd-crazy-motorcycle.svg",
+    logo: "assets/logos/cd-crazy-motorcycle.png",
     title: "Crazy Motorcycle",
     category: "racing",
     badge: "RACING",
@@ -3199,7 +3199,7 @@ const gamesData = [
   },
   {
     id: "cd-cut-the-rope-2",
-    logo: "assets/logos/cd-cut-the-rope-2.svg",
+    logo: "assets/logos/cd-cut-the-rope-2.webp",
     title: "Cut The Rope 2",
     category: "arcade",
     badge: "ARCADE",
@@ -3216,7 +3216,7 @@ const gamesData = [
   },
   {
     id: "cd-cut-the-rope-holiday-gift",
-    logo: "assets/logos/cd-cut-the-rope-holiday-gift.svg",
+    logo: "assets/logos/cd-cut-the-rope-holiday-gift.webp",
     title: "Cut The Rope Holiday Gift",
     category: "arcade",
     badge: "ARCADE",
@@ -3233,7 +3233,7 @@ const gamesData = [
   },
   {
     id: "cd-cut-the-rope-time-travel",
-    logo: "assets/logos/cd-cut-the-rope-time-travel.svg",
+    logo: "assets/logos/cd-cut-the-rope-time-travel.webp",
     title: "Cut The Rope Time Travel",
     category: "arcade",
     badge: "ARCADE",
@@ -3250,7 +3250,7 @@ const gamesData = [
   },
   {
     id: "cd-cut-the-rope",
-    logo: "assets/logos/cd-cut-the-rope.svg",
+    logo: "assets/logos/cd-cut-the-rope.webp",
     title: "Cut The Rope",
     category: "arcade",
     badge: "ARCADE",
@@ -3267,7 +3267,7 @@ const gamesData = [
   },
   {
     id: "cd-dadish-2",
-    logo: "assets/logos/cd-dadish-2.svg",
+    logo: "assets/logos/cd-dadish-2.png",
     title: "Dadish 2",
     category: "arcade",
     badge: "ARCADE",
@@ -3284,7 +3284,7 @@ const gamesData = [
   },
   {
     id: "cd-dadish-3",
-    logo: "assets/logos/cd-dadish-3.svg",
+    logo: "assets/logos/cd-dadish-3.png",
     title: "Dadish 3",
     category: "arcade",
     badge: "ARCADE",
@@ -3301,7 +3301,7 @@ const gamesData = [
   },
   {
     id: "cd-dadish",
-    logo: "assets/logos/cd-dadish.svg",
+    logo: "assets/logos/cd-dadish.jpg",
     title: "Dadish",
     category: "arcade",
     badge: "ARCADE",
@@ -3318,7 +3318,7 @@ const gamesData = [
   },
   {
     id: "cd-deadly-descent",
-    logo: "assets/logos/cd-deadly-descent.svg",
+    logo: "assets/logos/cd-deadly-descent.png",
     title: "Deadly Descent",
     category: "arcade",
     badge: "ARCADE",
@@ -3335,7 +3335,7 @@ const gamesData = [
   },
   {
     id: "cd-death-chase",
-    logo: "assets/logos/cd-death-chase.svg",
+    logo: "assets/logos/cd-death-chase.png",
     title: "Death Chase",
     category: "arcade",
     badge: "ARCADE",
@@ -3352,7 +3352,7 @@ const gamesData = [
   },
   {
     id: "cd-death-run-3D",
-    logo: "assets/logos/cd-death-run-3D.svg",
+    logo: "assets/logos/cd-death-run-3D.webp",
     title: "Death Run 3D",
     category: "action",
     badge: "RUNNER",
@@ -3369,7 +3369,7 @@ const gamesData = [
   },
   {
     id: "cd-demolition-derby-crash-racing",
-    logo: "assets/logos/cd-demolition-derby-crash-racing.svg",
+    logo: "assets/logos/cd-demolition-derby-crash-racing.png",
     title: "Demolition Derby Crash Racing",
     category: "racing",
     badge: "RACING",
@@ -3386,7 +3386,7 @@ const gamesData = [
   },
   {
     id: "cd-doodle-jump",
-    logo: "assets/logos/cd-doodle-jump.svg",
+    logo: "assets/logos/cd-doodle-jump.avif",
     title: "Doodle Jump",
     category: "action",
     badge: "RUNNER",
@@ -3403,7 +3403,7 @@ const gamesData = [
   },
   {
     id: "cd-draw-climber",
-    logo: "assets/logos/cd-draw-climber.svg",
+    logo: "assets/logos/cd-draw-climber.png",
     title: "Draw Climber",
     category: "arcade",
     badge: "ARCADE",
@@ -3420,7 +3420,7 @@ const gamesData = [
   },
   {
     id: "cd-drift-hunters-pro",
-    logo: "assets/logos/cd-drift-hunters-pro.svg",
+    logo: "assets/logos/cd-drift-hunters-pro.webp",
     title: "Drift Hunters Pro",
     category: "racing",
     badge: "RACING",
@@ -3437,7 +3437,7 @@ const gamesData = [
   },
   {
     id: "cd-duck-life-2",
-    logo: "assets/logos/cd-duck-life-2.svg",
+    logo: "assets/logos/cd-duck-life-2.avif",
     title: "Duck Life 2",
     category: "arcade",
     badge: "ARCADE",
@@ -3454,7 +3454,7 @@ const gamesData = [
   },
   {
     id: "cd-duck-life-3",
-    logo: "assets/logos/cd-duck-life-3.svg",
+    logo: "assets/logos/cd-duck-life-3.avif",
     title: "Duck Life 3",
     category: "arcade",
     badge: "ARCADE",
@@ -3471,7 +3471,7 @@ const gamesData = [
   },
   {
     id: "cd-duck-life-4",
-    logo: "assets/logos/cd-duck-life-4.svg",
+    logo: "assets/logos/cd-duck-life-4.avif",
     title: "Duck Life 4",
     category: "arcade",
     badge: "ARCADE",
@@ -3488,7 +3488,7 @@ const gamesData = [
   },
   {
     id: "cd-duck-life-5",
-    logo: "assets/logos/cd-duck-life-5.svg",
+    logo: "assets/logos/cd-duck-life-5.avif",
     title: "Duck Life 5",
     category: "arcade",
     badge: "ARCADE",
@@ -3505,7 +3505,7 @@ const gamesData = [
   },
   {
     id: "cd-duck-life",
-    logo: "assets/logos/cd-duck-life.svg",
+    logo: "assets/logos/cd-duck-life.avif",
     title: "Duck Life",
     category: "arcade",
     badge: "ARCADE",
@@ -3522,7 +3522,7 @@ const gamesData = [
   },
   {
     id: "cd-ducklings-io",
-    logo: "assets/logos/cd-ducklings-io.svg",
+    logo: "assets/logos/cd-ducklings-io.png",
     title: "Ducklings .io",
     category: "arcade",
     badge: "ONLINE",
@@ -3539,7 +3539,7 @@ const gamesData = [
   },
   {
     id: "cd-eagle-ride",
-    logo: "assets/logos/cd-eagle-ride.svg",
+    logo: "assets/logos/cd-eagle-ride.png",
     title: "Eagle Ride",
     category: "arcade",
     badge: "ARCADE",
@@ -3556,7 +3556,7 @@ const gamesData = [
   },
   {
     id: "cd-earn-to-die-2",
-    logo: "assets/logos/cd-earn-to-die-2.svg",
+    logo: "assets/logos/cd-earn-to-die-2.png",
     title: "Earn To Die 2",
     category: "arcade",
     badge: "ARCADE",
@@ -3573,7 +3573,7 @@ const gamesData = [
   },
   {
     id: "cd-earn-to-die",
-    logo: "assets/logos/cd-earn-to-die.svg",
+    logo: "assets/logos/cd-earn-to-die.png",
     title: "Earn To Die",
     category: "arcade",
     badge: "ARCADE",
@@ -3590,7 +3590,7 @@ const gamesData = [
   },
   {
     id: "cd-eggy-car",
-    logo: "assets/logos/cd-eggy-car.svg",
+    logo: "assets/logos/cd-eggy-car.webp",
     title: "Eggy Car",
     category: "racing",
     badge: "RACING",
@@ -3607,7 +3607,7 @@ const gamesData = [
   },
   {
     id: "cd-escape-road-2",
-    logo: "assets/logos/cd-escape-road-2.svg",
+    logo: "assets/logos/cd-escape-road-2.png",
     title: "Escape Road 2",
     category: "puzzle",
     badge: "PUZZLE",
@@ -3624,7 +3624,7 @@ const gamesData = [
   },
   {
     id: "cd-escape-road-3",
-    logo: "assets/logos/cd-escape-road-3.svg",
+    logo: "assets/logos/cd-escape-road-3.png",
     title: "Escape Road 3",
     category: "puzzle",
     badge: "PUZZLE",
@@ -3641,7 +3641,7 @@ const gamesData = [
   },
   {
     id: "cd-escape-road",
-    logo: "assets/logos/cd-escape-road.svg",
+    logo: "assets/logos/cd-escape-road.png",
     title: "Escape Road",
     category: "puzzle",
     badge: "PUZZLE",
@@ -3658,7 +3658,7 @@ const gamesData = [
   },
   {
     id: "cd-escaping-the-prison",
-    logo: "assets/logos/cd-escaping-the-prison.svg",
+    logo: "assets/logos/cd-escaping-the-prison.webp",
     title: "Escaping The Prison",
     category: "arcade",
     badge: "ARCADE",
@@ -3675,7 +3675,7 @@ const gamesData = [
   },
   {
     id: "cd-eugenes-life",
-    logo: "assets/logos/cd-eugenes-life.svg",
+    logo: "assets/logos/cd-eugenes-life.png",
     title: "Eugenes Life",
     category: "arcade",
     badge: "ARCADE",
@@ -3692,7 +3692,7 @@ const gamesData = [
   },
   {
     id: "cd-evil-glitch",
-    logo: "assets/logos/cd-evil-glitch.svg",
+    logo: "assets/logos/cd-evil-glitch.webp",
     title: "Evil Glitch Retro",
     category: "adventure",
     badge: "HORROR",
@@ -3709,7 +3709,7 @@ const gamesData = [
   },
   {
     id: "cd-fancy-pants-adventure-2",
-    logo: "assets/logos/cd-fancy-pants-adventure-2.svg",
+    logo: "assets/logos/cd-fancy-pants-adventure-2.webp",
     title: "Fancy Pants Adventure 2",
     category: "arcade",
     badge: "ARCADE",
@@ -3726,7 +3726,7 @@ const gamesData = [
   },
   {
     id: "cd-fancy-pants-adventure",
-    logo: "assets/logos/cd-fancy-pants-adventure.svg",
+    logo: "assets/logos/cd-fancy-pants-adventure.webp",
     title: "Fancy Pants Adventure",
     category: "arcade",
     badge: "ARCADE",
@@ -3743,7 +3743,7 @@ const gamesData = [
   },
   {
     id: "cd-fireblob",
-    logo: "assets/logos/cd-fireblob.svg",
+    logo: "assets/logos/cd-fireblob.png",
     title: "Fireblob",
     category: "arcade",
     badge: "ARCADE",
@@ -3760,7 +3760,7 @@ const gamesData = [
   },
   {
     id: "cd-fireboy-and-watergirl-2",
-    logo: "assets/logos/cd-fireboy-and-watergirl-2.svg",
+    logo: "assets/logos/cd-fireboy-and-watergirl-2.webp",
     title: "Fireboy And Watergirl 2",
     category: "arcade",
     badge: "ARCADE",
@@ -3777,7 +3777,7 @@ const gamesData = [
   },
   {
     id: "cd-fireboy-and-watergirl-3",
-    logo: "assets/logos/cd-fireboy-and-watergirl-3.svg",
+    logo: "assets/logos/cd-fireboy-and-watergirl-3.png",
     title: "Fireboy And Watergirl 3",
     category: "arcade",
     badge: "ARCADE",
@@ -3794,7 +3794,7 @@ const gamesData = [
   },
   {
     id: "cd-fireboy-and-watergirl-4",
-    logo: "assets/logos/cd-fireboy-and-watergirl-4.svg",
+    logo: "assets/logos/cd-fireboy-and-watergirl-4.png",
     title: "Fireboy And Watergirl 4",
     category: "arcade",
     badge: "ARCADE",
@@ -3811,7 +3811,7 @@ const gamesData = [
   },
   {
     id: "cd-fireboy-and-watergirl",
-    logo: "assets/logos/cd-fireboy-and-watergirl.svg",
+    logo: "assets/logos/cd-fireboy-and-watergirl.png",
     title: "Fireboy And Watergirl",
     category: "arcade",
     badge: "ARCADE",
@@ -3828,7 +3828,7 @@ const gamesData = [
   },
   {
     id: "cd-flappy-bird",
-    logo: "assets/logos/cd-flappy-bird.svg",
+    logo: "assets/logos/cd-flappy-bird.webp",
     title: "Flappy Bird",
     category: "arcade",
     badge: "ARCADE",
@@ -3845,7 +3845,7 @@ const gamesData = [
   },
   {
     id: "cd-fleeing-the-complex",
-    logo: "assets/logos/cd-fleeing-the-complex.svg",
+    logo: "assets/logos/cd-fleeing-the-complex.webp",
     title: "Fleeing The Complex",
     category: "arcade",
     badge: "ARCADE",
@@ -3862,7 +3862,7 @@ const gamesData = [
   },
   {
     id: "cd-flood-runner-2",
-    logo: "assets/logos/cd-flood-runner-2.svg",
+    logo: "assets/logos/cd-flood-runner-2.png",
     title: "Flood Runner 2",
     category: "action",
     badge: "RUNNER",
@@ -3879,7 +3879,7 @@ const gamesData = [
   },
   {
     id: "cd-flood-runner-3",
-    logo: "assets/logos/cd-flood-runner-3.svg",
+    logo: "assets/logos/cd-flood-runner-3.png",
     title: "Flood Runner 3",
     category: "action",
     badge: "RUNNER",
@@ -3896,7 +3896,7 @@ const gamesData = [
   },
   {
     id: "cd-flood-runner-4",
-    logo: "assets/logos/cd-flood-runner-4.svg",
+    logo: "assets/logos/cd-flood-runner-4.png",
     title: "Flood Runner 4",
     category: "action",
     badge: "RUNNER",
@@ -3913,7 +3913,7 @@ const gamesData = [
   },
   {
     id: "cd-fnaf-2",
-    logo: "assets/logos/cd-fnaf-2.svg",
+    logo: "assets/logos/cd-fnaf-2.webp",
     title: "FNAF 2",
     category: "adventure",
     badge: "HORROR",
@@ -3930,7 +3930,7 @@ const gamesData = [
   },
   {
     id: "cd-fnaf-3",
-    logo: "assets/logos/cd-fnaf-3.svg",
+    logo: "assets/logos/cd-fnaf-3.webp",
     title: "FNAF 3",
     category: "adventure",
     badge: "HORROR",
@@ -3947,7 +3947,7 @@ const gamesData = [
   },
   {
     id: "cd-fnaf-4",
-    logo: "assets/logos/cd-fnaf-4.svg",
+    logo: "assets/logos/cd-fnaf-4.webp",
     title: "FNAF 4",
     category: "adventure",
     badge: "HORROR",
@@ -3964,7 +3964,7 @@ const gamesData = [
   },
   {
     id: "cd-fnaf-sister-location",
-    logo: "assets/logos/cd-fnaf-sister-location.svg",
+    logo: "assets/logos/cd-fnaf-sister-location.png",
     title: "FNAF: Sister Location",
     category: "adventure",
     badge: "HORROR",
@@ -3981,7 +3981,7 @@ const gamesData = [
   },
   {
     id: "cd-fnaf",
-    logo: "assets/logos/cd-fnaf.svg",
+    logo: "assets/logos/cd-fnaf.webp",
     title: "FNAF",
     category: "adventure",
     badge: "HORROR",
@@ -3998,7 +3998,7 @@ const gamesData = [
   },
   {
     id: "cd-football-bros",
-    logo: "assets/logos/cd-football-bros.svg",
+    logo: "assets/logos/cd-football-bros.png",
     title: "Football Bros",
     category: "sports",
     badge: "SPORTS",
@@ -4015,7 +4015,7 @@ const gamesData = [
   },
   {
     id: "cd-football-legends",
-    logo: "assets/logos/cd-football-legends.svg",
+    logo: "assets/logos/cd-football-legends.png",
     title: "Football Legends",
     category: "sports",
     badge: "SPORTS",
@@ -4032,7 +4032,7 @@ const gamesData = [
   },
   {
     id: "cd-free-rider-3",
-    logo: "assets/logos/cd-free-rider-3.svg",
+    logo: "assets/logos/cd-free-rider-3.png",
     title: "Free Rider 3",
     category: "arcade",
     badge: "ARCADE",
@@ -4049,7 +4049,7 @@ const gamesData = [
   },
   {
     id: "cd-friday-night-funkin",
-    logo: "assets/logos/cd-friday-night-funkin.svg",
+    logo: "assets/logos/cd-friday-night-funkin.png",
     title: "Friday Night Funkin'",
     category: "arcade",
     badge: "ARCADE",
@@ -4066,7 +4066,7 @@ const gamesData = [
   },
   {
     id: "cd-fruit-ninja",
-    logo: "assets/logos/cd-fruit-ninja.svg",
+    logo: "assets/logos/cd-fruit-ninja.webp",
     title: "Fruit Ninja",
     category: "action",
     badge: "RUNNER",
@@ -4083,7 +4083,7 @@ const gamesData = [
   },
   {
     id: "cd-funny-battle-2",
-    logo: "assets/logos/cd-funny-battle-2.svg",
+    logo: "assets/logos/cd-funny-battle-2.webp",
     title: "Funny Battle 2",
     category: "action",
     badge: "ACTION",
@@ -4100,7 +4100,7 @@ const gamesData = [
   },
   {
     id: "cd-funny-battle",
-    logo: "assets/logos/cd-funny-battle.svg",
+    logo: "assets/logos/cd-funny-battle.webp",
     title: "Funny Battle",
     category: "action",
     badge: "ACTION",
@@ -4117,7 +4117,7 @@ const gamesData = [
   },
   {
     id: "cd-funny-mad-racing",
-    logo: "assets/logos/cd-funny-mad-racing.svg",
+    logo: "assets/logos/cd-funny-mad-racing.png",
     title: "Funny Mad Racing",
     category: "racing",
     badge: "RACING",
@@ -4134,7 +4134,7 @@ const gamesData = [
   },
   {
     id: "cd-funny-shooter-2",
-    logo: "assets/logos/cd-funny-shooter-2.svg",
+    logo: "assets/logos/cd-funny-shooter-2.jpeg",
     title: "Funny Shooter 2",
     category: "action",
     badge: "ACTION",
@@ -4151,7 +4151,7 @@ const gamesData = [
   },
   {
     id: "cd-geometry-dash-lite",
-    logo: "assets/logos/cd-geometry-dash-lite.svg",
+    logo: "assets/logos/cd-geometry-dash-lite.png",
     title: "Geometry Dash Lite",
     category: "action",
     badge: "RUNNER",
@@ -4168,7 +4168,7 @@ const gamesData = [
   },
   {
     id: "cd-geometry-dash",
-    logo: "assets/logos/cd-geometry-dash.svg",
+    logo: "assets/logos/cd-geometry-dash.webp",
     title: "Geometry Dash",
     category: "action",
     badge: "RUNNER",
@@ -4185,7 +4185,7 @@ const gamesData = [
   },
   {
     id: "cd-geometry-vibes",
-    logo: "assets/logos/cd-geometry-vibes.svg",
+    logo: "assets/logos/cd-geometry-vibes.png",
     title: "Geometry Vibes",
     category: "arcade",
     badge: "ARCADE",
@@ -4202,7 +4202,7 @@ const gamesData = [
   },
   {
     id: "cd-get-on-top",
-    logo: "assets/logos/cd-get-on-top.svg",
+    logo: "assets/logos/cd-get-on-top.png",
     title: "Get On Top",
     category: "arcade",
     badge: "ARCADE",
@@ -4219,7 +4219,7 @@ const gamesData = [
   },
   {
     id: "cd-getaway-shootout",
-    logo: "assets/logos/cd-getaway-shootout.svg",
+    logo: "assets/logos/cd-getaway-shootout.avif",
     title: "Getaway Shootout",
     category: "action",
     badge: "ACTION",
@@ -4236,7 +4236,7 @@ const gamesData = [
   },
   {
     id: "cd-gladi-hoppers",
-    logo: "assets/logos/cd-gladi-hoppers.svg",
+    logo: "assets/logos/cd-gladi-hoppers.png",
     title: "Gladi Hoppers",
     category: "arcade",
     badge: "ARCADE",
@@ -4253,7 +4253,7 @@ const gamesData = [
   },
   {
     id: "cd-google-baseball",
-    logo: "assets/logos/cd-google-baseball.svg",
+    logo: "assets/logos/cd-google-baseball.webp",
     title: "Google Baseball",
     category: "sports",
     badge: "SPORTS",
@@ -4270,7 +4270,7 @@ const gamesData = [
   },
   {
     id: "cd-google-dino",
-    logo: "assets/logos/cd-google-dino.svg",
+    logo: "assets/logos/cd-google-dino.webp",
     title: "Google Dino T-Rex Runner",
     category: "action",
     badge: "RUNNER",
@@ -4287,7 +4287,7 @@ const gamesData = [
   },
   {
     id: "cd-granny-2",
-    logo: "assets/logos/cd-granny-2.svg",
+    logo: "assets/logos/cd-granny-2.png",
     title: "Granny Chapter Two",
     category: "adventure",
     badge: "HORROR",
@@ -4304,7 +4304,7 @@ const gamesData = [
   },
   {
     id: "cd-granny",
-    logo: "assets/logos/cd-granny.svg",
+    logo: "assets/logos/cd-granny.png",
     title: "Granny",
     category: "adventure",
     badge: "HORROR",
@@ -4321,7 +4321,7 @@ const gamesData = [
   },
   {
     id: "cd-guess-their-answer",
-    logo: "assets/logos/cd-guess-their-answer.svg",
+    logo: "assets/logos/cd-guess-their-answer.png",
     title: "Guess Their Answer",
     category: "arcade",
     badge: "ARCADE",
@@ -4338,7 +4338,7 @@ const gamesData = [
   },
   {
     id: "cd-hanger-2",
-    logo: "assets/logos/cd-hanger-2.svg",
+    logo: "assets/logos/cd-hanger-2.png",
     title: "Hanger 2",
     category: "arcade",
     badge: "ARCADE",
@@ -4355,7 +4355,7 @@ const gamesData = [
   },
   {
     id: "cd-happy-wheels",
-    logo: "assets/logos/cd-happy-wheels.svg",
+    logo: "assets/logos/cd-happy-wheels.webp",
     title: "Happy Wheels",
     category: "arcade",
     badge: "ARCADE",
@@ -4372,7 +4372,7 @@ const gamesData = [
   },
   {
     id: "cd-helix-jump",
-    logo: "assets/logos/cd-helix-jump.svg",
+    logo: "assets/logos/cd-helix-jump.jpg",
     title: "Helix Jump",
     category: "action",
     badge: "RUNNER",
@@ -4389,7 +4389,7 @@ const gamesData = [
   },
   {
     id: "cd-highway-traffic",
-    logo: "assets/logos/cd-highway-traffic.svg",
+    logo: "assets/logos/cd-highway-traffic.png",
     title: "Highway Traffic",
     category: "racing",
     badge: "RACING",
@@ -4406,7 +4406,7 @@ const gamesData = [
   },
   {
     id: "cd-hill-climb-racing-lite",
-    logo: "assets/logos/cd-hill-climb-racing-lite.svg",
+    logo: "assets/logos/cd-hill-climb-racing-lite.png",
     title: "Hill Climb Racing Lite",
     category: "racing",
     badge: "RACING",
@@ -4423,7 +4423,7 @@ const gamesData = [
   },
   {
     id: "cd-hole-io",
-    logo: "assets/logos/cd-hole-io.svg",
+    logo: "assets/logos/cd-hole-io.jpg",
     title: "Hole .io",
     category: "arcade",
     badge: "ONLINE",
@@ -4440,7 +4440,7 @@ const gamesData = [
   },
   {
     id: "cd-house-of-hazards",
-    logo: "assets/logos/cd-house-of-hazards.svg",
+    logo: "assets/logos/cd-house-of-hazards.png",
     title: "House Of Hazards",
     category: "arcade",
     badge: "ARCADE",
@@ -4457,7 +4457,7 @@ const gamesData = [
   },
   {
     id: "cd-hover-racer-drive",
-    logo: "assets/logos/cd-hover-racer-drive.svg",
+    logo: "assets/logos/cd-hover-racer-drive.png",
     title: "Hover Racer Drive",
     category: "racing",
     badge: "RACING",
@@ -4474,7 +4474,7 @@ const gamesData = [
   },
   {
     id: "cd-ice-dodo",
-    logo: "assets/logos/cd-ice-dodo.svg",
+    logo: "assets/logos/cd-ice-dodo.png",
     title: "Ice Dodo",
     category: "arcade",
     badge: "ARCADE",
@@ -4491,7 +4491,7 @@ const gamesData = [
   },
   {
     id: "cd-idle-breakout",
-    logo: "assets/logos/cd-idle-breakout.svg",
+    logo: "assets/logos/cd-idle-breakout.png",
     title: "Idle Breakout",
     category: "casual",
     badge: "CASUAL",
@@ -4508,7 +4508,7 @@ const gamesData = [
   },
   {
     id: "cd-idle-dice",
-    logo: "assets/logos/cd-idle-dice.svg",
+    logo: "assets/logos/cd-idle-dice.png",
     title: "Idle Dice",
     category: "casual",
     badge: "CASUAL",
@@ -4525,7 +4525,7 @@ const gamesData = [
   },
   {
     id: "cd-infiltrating-the-airship",
-    logo: "assets/logos/cd-infiltrating-the-airship.svg",
+    logo: "assets/logos/cd-infiltrating-the-airship.webp",
     title: "Infiltrating The Airship",
     category: "arcade",
     badge: "ARCADE",
@@ -4542,7 +4542,7 @@ const gamesData = [
   },
   {
     id: "cd-iron-snout",
-    logo: "assets/logos/cd-iron-snout.svg",
+    logo: "assets/logos/cd-iron-snout.webp",
     title: "Iron Snout",
     category: "arcade",
     badge: "ARCADE",
@@ -4559,7 +4559,7 @@ const gamesData = [
   },
   {
     id: "cd-jacksmith",
-    logo: "assets/logos/cd-jacksmith.svg",
+    logo: "assets/logos/cd-jacksmith.webp",
     title: "Jacksmith",
     category: "arcade",
     badge: "ARCADE",
@@ -4576,7 +4576,7 @@ const gamesData = [
   },
   {
     id: "cd-jetpack-joyride",
-    logo: "assets/logos/cd-jetpack-joyride.svg",
+    logo: "assets/logos/cd-jetpack-joyride.webp",
     title: "Jetpack Joyride",
     category: "arcade",
     badge: "ARCADE",
@@ -4593,7 +4593,7 @@ const gamesData = [
   },
   {
     id: "cd-johnny-trigger",
-    logo: "assets/logos/cd-johnny-trigger.svg",
+    logo: "assets/logos/cd-johnny-trigger.jpg",
     title: "Johnny Trigger",
     category: "arcade",
     badge: "ARCADE",
@@ -4610,7 +4610,7 @@ const gamesData = [
   },
   {
     id: "cd-jumping-shell",
-    logo: "assets/logos/cd-jumping-shell.svg",
+    logo: "assets/logos/cd-jumping-shell.png",
     title: "Jumping Shell",
     category: "action",
     badge: "RUNNER",
@@ -4627,7 +4627,7 @@ const gamesData = [
   },
   {
     id: "cd-karate-bros",
-    logo: "assets/logos/cd-karate-bros.svg",
+    logo: "assets/logos/cd-karate-bros.png",
     title: "Karate Bros",
     category: "arcade",
     badge: "ONLINE",
@@ -4644,7 +4644,7 @@ const gamesData = [
   },
   {
     id: "cd-kart-bros",
-    logo: "assets/logos/cd-kart-bros.svg",
+    logo: "assets/logos/cd-kart-bros.png",
     title: "Kart Bros",
     category: "racing",
     badge: "RACING",
@@ -4661,7 +4661,7 @@ const gamesData = [
   },
   {
     id: "cd-kittytoy",
-    logo: "assets/logos/cd-kittytoy.svg",
+    logo: "assets/logos/cd-kittytoy.png",
     title: "Kittytoy",
     category: "arcade",
     badge: "ARCADE",
@@ -4678,7 +4678,7 @@ const gamesData = [
   },
   {
     id: "cd-learn-to-fly-2",
-    logo: "assets/logos/cd-learn-to-fly-2.svg",
+    logo: "assets/logos/cd-learn-to-fly-2.webp",
     title: "Learn To Fly 2",
     category: "action",
     badge: "RUNNER",
@@ -4695,7 +4695,7 @@ const gamesData = [
   },
   {
     id: "cd-learn-to-fly-3",
-    logo: "assets/logos/cd-learn-to-fly-3.svg",
+    logo: "assets/logos/cd-learn-to-fly-3.webp",
     title: "Learn To Fly 3",
     category: "action",
     badge: "RUNNER",
@@ -4712,7 +4712,7 @@ const gamesData = [
   },
   {
     id: "cd-learn-to-fly-idle",
-    logo: "assets/logos/cd-learn-to-fly-idle.svg",
+    logo: "assets/logos/cd-learn-to-fly-idle.webp",
     title: "Learn To Fly Idle",
     category: "action",
     badge: "RUNNER",
@@ -4729,7 +4729,7 @@ const gamesData = [
   },
   {
     id: "cd-learn-to-fly",
-    logo: "assets/logos/cd-learn-to-fly.svg",
+    logo: "assets/logos/cd-learn-to-fly.webp",
     title: "Learn To Fly",
     category: "action",
     badge: "RUNNER",
@@ -4746,7 +4746,7 @@ const gamesData = [
   },
   {
     id: "cd-level-devil",
-    logo: "assets/logos/cd-level-devil.svg",
+    logo: "assets/logos/cd-level-devil.png",
     title: "Level Devil",
     category: "adventure",
     badge: "HORROR",
@@ -4763,7 +4763,7 @@ const gamesData = [
   },
   {
     id: "cd-little-alchemy-2",
-    logo: "assets/logos/cd-little-alchemy-2.svg",
+    logo: "assets/logos/cd-little-alchemy-2.webp",
     title: "Little Alchemy 2",
     category: "arcade",
     badge: "ARCADE",
@@ -4780,7 +4780,7 @@ const gamesData = [
   },
   {
     id: "cd-madalin-stunt-cars-2",
-    logo: "assets/logos/cd-madalin-stunt-cars-2.svg",
+    logo: "assets/logos/cd-madalin-stunt-cars-2.webp",
     title: "Madalin Stunt Cars 2",
     category: "racing",
     badge: "RACING",
@@ -4797,7 +4797,7 @@ const gamesData = [
   },
   {
     id: "cd-madness-project-nexus",
-    logo: "assets/logos/cd-madness-project-nexus.svg",
+    logo: "assets/logos/cd-madness-project-nexus.webp",
     title: "Madness Project Nexus",
     category: "arcade",
     badge: "ARCADE",
@@ -4814,7 +4814,7 @@ const gamesData = [
   },
   {
     id: "cd-melon-playground",
-    logo: "assets/logos/cd-melon-playground.svg",
+    logo: "assets/logos/cd-melon-playground.png",
     title: "Melon Playground",
     category: "arcade",
     badge: "ARCADE",
@@ -4831,7 +4831,7 @@ const gamesData = [
   },
   {
     id: "cd-merge-round-racers",
-    logo: "assets/logos/cd-merge-round-racers.svg",
+    logo: "assets/logos/cd-merge-round-racers.webp",
     title: "Merge Round Racers",
     category: "arcade",
     badge: "ARCADE",
@@ -4848,7 +4848,7 @@ const gamesData = [
   },
   {
     id: "cd-minesweeper",
-    logo: "assets/logos/cd-minesweeper.svg",
+    logo: "assets/logos/cd-minesweeper.jpg",
     title: "Minesweeper",
     category: "arcade",
     badge: "ARCADE",
@@ -4865,7 +4865,7 @@ const gamesData = [
   },
   {
     id: "cd-monster-tracks",
-    logo: "assets/logos/cd-monster-tracks.svg",
+    logo: "assets/logos/cd-monster-tracks.png",
     title: "Monster Tracks",
     category: "arcade",
     badge: "ARCADE",
@@ -4882,7 +4882,7 @@ const gamesData = [
   },
   {
     id: "cd-motherload",
-    logo: "assets/logos/cd-motherload.svg",
+    logo: "assets/logos/cd-motherload.png",
     title: "Motherload",
     category: "arcade",
     badge: "ARCADE",
@@ -4899,7 +4899,7 @@ const gamesData = [
   },
   {
     id: "cd-moto-x3m-2",
-    logo: "assets/logos/cd-moto-x3m-2.svg",
+    logo: "assets/logos/cd-moto-x3m-2.webp",
     title: "Moto X3m 2",
     category: "racing",
     badge: "RACING",
@@ -4916,7 +4916,7 @@ const gamesData = [
   },
   {
     id: "cd-moto-x3m-3",
-    logo: "assets/logos/cd-moto-x3m-3.svg",
+    logo: "assets/logos/cd-moto-x3m-3.webp",
     title: "Moto X3m 3",
     category: "racing",
     badge: "RACING",
@@ -4933,7 +4933,7 @@ const gamesData = [
   },
   {
     id: "cd-moto-x3m-pool-party",
-    logo: "assets/logos/cd-moto-x3m-pool-party.svg",
+    logo: "assets/logos/cd-moto-x3m-pool-party.avif",
     title: "Moto X3m Pool Party",
     category: "racing",
     badge: "RACING",
@@ -4950,7 +4950,7 @@ const gamesData = [
   },
   {
     id: "cd-moto-x3m-spooky-land",
-    logo: "assets/logos/cd-moto-x3m-spooky-land.svg",
+    logo: "assets/logos/cd-moto-x3m-spooky-land.webp",
     title: "Moto X3m Spooky Land",
     category: "racing",
     badge: "RACING",
@@ -4967,7 +4967,7 @@ const gamesData = [
   },
   {
     id: "cd-moto-x3m-winter",
-    logo: "assets/logos/cd-moto-x3m-winter.svg",
+    logo: "assets/logos/cd-moto-x3m-winter.webp",
     title: "Moto X3m Winter",
     category: "racing",
     badge: "RACING",
@@ -4984,7 +4984,7 @@ const gamesData = [
   },
   {
     id: "cd-murder",
-    logo: "assets/logos/cd-murder.svg",
+    logo: "assets/logos/cd-murder.png",
     title: "Murder",
     category: "arcade",
     badge: "ARCADE",
@@ -5001,7 +5001,7 @@ const gamesData = [
   },
   {
     id: "cd-noob-miner",
-    logo: "assets/logos/cd-noob-miner.svg",
+    logo: "assets/logos/cd-noob-miner.png",
     title: "Noob Miner",
     category: "arcade",
     badge: "ARCADE",
@@ -5018,7 +5018,7 @@ const gamesData = [
   },
   {
     id: "cd-openTTD",
-    logo: "assets/logos/cd-openTTD.svg",
+    logo: "assets/logos/cd-openTTD.png",
     title: "OpenTTD",
     category: "arcade",
     badge: "ARCADE",
@@ -5035,7 +5035,7 @@ const gamesData = [
   },
   {
     id: "cd-opposite-day",
-    logo: "assets/logos/cd-opposite-day.svg",
+    logo: "assets/logos/cd-opposite-day.png",
     title: "Opposite Day",
     category: "arcade",
     badge: "ARCADE",
@@ -5052,7 +5052,7 @@ const gamesData = [
   },
   {
     id: "cd-ovo-2",
-    logo: "assets/logos/cd-ovo-2.svg",
+    logo: "assets/logos/cd-ovo-2.png",
     title: "Ovo 2",
     category: "arcade",
     badge: "ARCADE",
@@ -5069,7 +5069,7 @@ const gamesData = [
   },
   {
     id: "cd-ovo-3-dimensions",
-    logo: "assets/logos/cd-ovo-3-dimensions.svg",
+    logo: "assets/logos/cd-ovo-3-dimensions.png",
     title: "Ovo 3 Dimensions",
     category: "arcade",
     badge: "ONLINE",
@@ -5086,7 +5086,7 @@ const gamesData = [
   },
   {
     id: "cd-ovo",
-    logo: "assets/logos/cd-ovo.svg",
+    logo: "assets/logos/cd-ovo.webp",
     title: "Ovo",
     category: "arcade",
     badge: "ARCADE",
@@ -5103,7 +5103,7 @@ const gamesData = [
   },
   {
     id: "cd-pac-man",
-    logo: "assets/logos/cd-pac-man.svg",
+    logo: "assets/logos/cd-pac-man.jfif",
     title: "Pac Man",
     category: "arcade",
     badge: "ARCADE",
@@ -5120,7 +5120,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-bakeria",
-    logo: "assets/logos/cd-papas-bakeria.svg",
+    logo: "assets/logos/cd-papas-bakeria.webp",
     title: "Papas Bakeria",
     category: "arcade",
     badge: "ARCADE",
@@ -5137,7 +5137,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-burgeria",
-    logo: "assets/logos/cd-papas-burgeria.svg",
+    logo: "assets/logos/cd-papas-burgeria.webp",
     title: "Papas Burgeria",
     category: "arcade",
     badge: "ARCADE",
@@ -5154,7 +5154,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-cheeseria",
-    logo: "assets/logos/cd-papas-cheeseria.svg",
+    logo: "assets/logos/cd-papas-cheeseria.png",
     title: "Papas Cheeseria",
     category: "arcade",
     badge: "ARCADE",
@@ -5171,7 +5171,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-cupcakeria",
-    logo: "assets/logos/cd-papas-cupcakeria.svg",
+    logo: "assets/logos/cd-papas-cupcakeria.webp",
     title: "Papas Cupcakeria",
     category: "arcade",
     badge: "ARCADE",
@@ -5188,7 +5188,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-donuteria",
-    logo: "assets/logos/cd-papas-donuteria.svg",
+    logo: "assets/logos/cd-papas-donuteria.png",
     title: "Papas Donuteria",
     category: "arcade",
     badge: "ARCADE",
@@ -5205,7 +5205,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-freezeria",
-    logo: "assets/logos/cd-papas-freezeria.svg",
+    logo: "assets/logos/cd-papas-freezeria.png",
     title: "Papas Freezeria",
     category: "arcade",
     badge: "ARCADE",
@@ -5222,7 +5222,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-hot-doggeria",
-    logo: "assets/logos/cd-papas-hot-doggeria.svg",
+    logo: "assets/logos/cd-papas-hot-doggeria.png",
     title: "Papas Hot Doggeria",
     category: "arcade",
     badge: "ARCADE",
@@ -5239,7 +5239,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-pancakeria",
-    logo: "assets/logos/cd-papas-pancakeria.svg",
+    logo: "assets/logos/cd-papas-pancakeria.png",
     title: "Papas Pancakeria",
     category: "arcade",
     badge: "ARCADE",
@@ -5256,7 +5256,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-pastaria",
-    logo: "assets/logos/cd-papas-pastaria.svg",
+    logo: "assets/logos/cd-papas-pastaria.webp",
     title: "Papas Pastaria",
     category: "arcade",
     badge: "ARCADE",
@@ -5273,7 +5273,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-pizzeria",
-    logo: "assets/logos/cd-papas-pizzeria.svg",
+    logo: "assets/logos/cd-papas-pizzeria.webp",
     title: "Papas Pizzeria",
     category: "arcade",
     badge: "ARCADE",
@@ -5290,7 +5290,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-scooperia",
-    logo: "assets/logos/cd-papas-scooperia.svg",
+    logo: "assets/logos/cd-papas-scooperia.jpeg",
     title: "Papas Scooperia",
     category: "arcade",
     badge: "ARCADE",
@@ -5307,7 +5307,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-sushiria",
-    logo: "assets/logos/cd-papas-sushiria.svg",
+    logo: "assets/logos/cd-papas-sushiria.webp",
     title: "Papas Sushiria",
     category: "arcade",
     badge: "ARCADE",
@@ -5324,7 +5324,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-taco-mia",
-    logo: "assets/logos/cd-papas-taco-mia.svg",
+    logo: "assets/logos/cd-papas-taco-mia.png",
     title: "Papas Taco Mia",
     category: "arcade",
     badge: "ARCADE",
@@ -5341,7 +5341,7 @@ const gamesData = [
   },
   {
     id: "cd-papas-wingeria",
-    logo: "assets/logos/cd-papas-wingeria.svg",
+    logo: "assets/logos/cd-papas-wingeria.png",
     title: "Papas Wingeria",
     category: "arcade",
     badge: "ARCADE",
@@ -5358,7 +5358,7 @@ const gamesData = [
   },
   {
     id: "cd-parking-fury-2",
-    logo: "assets/logos/cd-parking-fury-2.svg",
+    logo: "assets/logos/cd-parking-fury-2.png",
     title: "Parking Fury 2",
     category: "arcade",
     badge: "ARCADE",
@@ -5375,7 +5375,7 @@ const gamesData = [
   },
   {
     id: "cd-parking-fury-3",
-    logo: "assets/logos/cd-parking-fury-3.svg",
+    logo: "assets/logos/cd-parking-fury-3.webp",
     title: "Parking Fury 3",
     category: "arcade",
     badge: "ARCADE",
@@ -5392,7 +5392,7 @@ const gamesData = [
   },
   {
     id: "cd-parking-fury",
-    logo: "assets/logos/cd-parking-fury.svg",
+    logo: "assets/logos/cd-parking-fury.png",
     title: "Parking Fury",
     category: "arcade",
     badge: "ARCADE",
@@ -5409,7 +5409,7 @@ const gamesData = [
   },
   {
     id: "cd-picos-school",
-    logo: "assets/logos/cd-picos-school.svg",
+    logo: "assets/logos/cd-picos-school.webp",
     title: "Picos School",
     category: "arcade",
     badge: "ARCADE",
@@ -5426,7 +5426,7 @@ const gamesData = [
   },
   {
     id: "cd-ping-pong-chaos",
-    logo: "assets/logos/cd-ping-pong-chaos.svg",
+    logo: "assets/logos/cd-ping-pong-chaos.png",
     title: "Ping Pong Chaos",
     category: "arcade",
     badge: "ARCADE",
@@ -5443,7 +5443,7 @@ const gamesData = [
   },
   {
     id: "cd-pixel-speedrun",
-    logo: "assets/logos/cd-pixel-speedrun.svg",
+    logo: "assets/logos/cd-pixel-speedrun.png",
     title: "Pixel Speedrun",
     category: "racing",
     badge: "RACING",
@@ -5460,7 +5460,7 @@ const gamesData = [
   },
   {
     id: "cd-plants-vs-zombies",
-    logo: "assets/logos/cd-plants-vs-zombies.svg",
+    logo: "assets/logos/cd-plants-vs-zombies.webp",
     title: "Plants Vs Zombies",
     category: "action",
     badge: "ACTION",
@@ -5477,7 +5477,7 @@ const gamesData = [
   },
   {
     id: "cd-plonky",
-    logo: "assets/logos/cd-plonky.svg",
+    logo: "assets/logos/cd-plonky.png",
     title: "Plonky",
     category: "arcade",
     badge: "ARCADE",
@@ -5494,7 +5494,7 @@ const gamesData = [
   },
   {
     id: "cd-polytrack",
-    logo: "assets/logos/cd-polytrack.svg",
+    logo: "assets/logos/cd-polytrack.webp",
     title: "Polytrack",
     category: "arcade",
     badge: "ARCADE",
@@ -5511,7 +5511,7 @@ const gamesData = [
   },
   {
     id: "cd-poor-bunny",
-    logo: "assets/logos/cd-poor-bunny.svg",
+    logo: "assets/logos/cd-poor-bunny.png",
     title: "Poor Bunny",
     category: "arcade",
     badge: "ARCADE",
@@ -5528,7 +5528,7 @@ const gamesData = [
   },
   {
     id: "cd-pou",
-    logo: "assets/logos/cd-pou.svg",
+    logo: "assets/logos/cd-pou.jpg",
     title: "Pou",
     category: "arcade",
     badge: "ARCADE",
@@ -5545,7 +5545,7 @@ const gamesData = [
   },
   {
     id: "cd-ragdoll-hit",
-    logo: "assets/logos/cd-ragdoll-hit.svg",
+    logo: "assets/logos/cd-ragdoll-hit.png",
     title: "Ragdoll Hit",
     category: "arcade",
     badge: "ARCADE",
@@ -5562,7 +5562,7 @@ const gamesData = [
   },
   {
     id: "cd-ragdoll-soccer",
-    logo: "assets/logos/cd-ragdoll-soccer.svg",
+    logo: "assets/logos/cd-ragdoll-soccer.png",
     title: "Ragdoll Soccer",
     category: "sports",
     badge: "SPORTS",
@@ -5579,7 +5579,7 @@ const gamesData = [
   },
   {
     id: "cd-red-ball-4-vol-1",
-    logo: "assets/logos/cd-red-ball-4-vol-1.svg",
+    logo: "assets/logos/cd-red-ball-4-vol-1.png",
     title: "Red Ball 4 Vol 1",
     category: "sports",
     badge: "SPORTS",
@@ -5596,7 +5596,7 @@ const gamesData = [
   },
   {
     id: "cd-red-ball-4-vol-2",
-    logo: "assets/logos/cd-red-ball-4-vol-2.svg",
+    logo: "assets/logos/cd-red-ball-4-vol-2.png",
     title: "Red Ball 4 Vol 2",
     category: "sports",
     badge: "SPORTS",
@@ -5613,7 +5613,7 @@ const gamesData = [
   },
   {
     id: "cd-red-ball-4-vol-3",
-    logo: "assets/logos/cd-red-ball-4-vol-3.svg",
+    logo: "assets/logos/cd-red-ball-4-vol-3.png",
     title: "Red Ball 4 Vol 3",
     category: "sports",
     badge: "SPORTS",
@@ -5630,7 +5630,7 @@ const gamesData = [
   },
   {
     id: "cd-retro-bowl-college",
-    logo: "assets/logos/cd-retro-bowl-college.svg",
+    logo: "assets/logos/cd-retro-bowl-college.avif",
     title: "Retro Bowl College",
     category: "arcade",
     badge: "ARCADE",
@@ -5647,7 +5647,7 @@ const gamesData = [
   },
   {
     id: "cd-retro-bowl",
-    logo: "assets/logos/cd-retro-bowl.svg",
+    logo: "assets/logos/cd-retro-bowl.avif",
     title: "Retro Bowl",
     category: "arcade",
     badge: "ARCADE",
@@ -5664,7 +5664,7 @@ const gamesData = [
   },
   {
     id: "cd-retro-highway",
-    logo: "assets/logos/cd-retro-highway.svg",
+    logo: "assets/logos/cd-retro-highway.png",
     title: "Retro Highway",
     category: "racing",
     badge: "RACING",
@@ -5681,7 +5681,7 @@ const gamesData = [
   },
   {
     id: "cd-retro-ping-pong",
-    logo: "assets/logos/cd-retro-ping-pong.svg",
+    logo: "assets/logos/cd-retro-ping-pong.png",
     title: "Retro Ping Pong",
     category: "arcade",
     badge: "ARCADE",
@@ -5698,7 +5698,7 @@ const gamesData = [
   },
   {
     id: "cd-riddle-school-2",
-    logo: "assets/logos/cd-riddle-school-2.svg",
+    logo: "assets/logos/cd-riddle-school-2.webp",
     title: "Riddle School 2",
     category: "arcade",
     badge: "ARCADE",
@@ -5715,7 +5715,7 @@ const gamesData = [
   },
   {
     id: "cd-riddle-school-3",
-    logo: "assets/logos/cd-riddle-school-3.svg",
+    logo: "assets/logos/cd-riddle-school-3.webp",
     title: "Riddle School 3",
     category: "arcade",
     badge: "ARCADE",
@@ -5732,7 +5732,7 @@ const gamesData = [
   },
   {
     id: "cd-riddle-school-4",
-    logo: "assets/logos/cd-riddle-school-4.svg",
+    logo: "assets/logos/cd-riddle-school-4.webp",
     title: "Riddle School 4",
     category: "arcade",
     badge: "ARCADE",
@@ -5749,7 +5749,7 @@ const gamesData = [
   },
   {
     id: "cd-riddle-school-5",
-    logo: "assets/logos/cd-riddle-school-5.svg",
+    logo: "assets/logos/cd-riddle-school-5.webp",
     title: "Riddle School 5",
     category: "arcade",
     badge: "ARCADE",
@@ -5766,7 +5766,7 @@ const gamesData = [
   },
   {
     id: "cd-riddle-school",
-    logo: "assets/logos/cd-riddle-school.svg",
+    logo: "assets/logos/cd-riddle-school.webp",
     title: "Riddle School",
     category: "arcade",
     badge: "ARCADE",
@@ -5783,7 +5783,7 @@ const gamesData = [
   },
   {
     id: "cd-riddle-transfer-2",
-    logo: "assets/logos/cd-riddle-transfer-2.svg",
+    logo: "assets/logos/cd-riddle-transfer-2.webp",
     title: "Riddle Transfer 2",
     category: "arcade",
     badge: "ARCADE",
@@ -5800,7 +5800,7 @@ const gamesData = [
   },
   {
     id: "cd-riddle-transfer",
-    logo: "assets/logos/cd-riddle-transfer.svg",
+    logo: "assets/logos/cd-riddle-transfer.webp",
     title: "Riddle Transfer",
     category: "arcade",
     badge: "ARCADE",
@@ -5817,7 +5817,7 @@ const gamesData = [
   },
   {
     id: "cd-rocket-soccer-derby",
-    logo: "assets/logos/cd-rocket-soccer-derby.svg",
+    logo: "assets/logos/cd-rocket-soccer-derby.png",
     title: "Rocket Soccer Derby",
     category: "sports",
     badge: "SPORTS",
@@ -5834,7 +5834,7 @@ const gamesData = [
   },
   {
     id: "cd-rooftop-run",
-    logo: "assets/logos/cd-rooftop-run.svg",
+    logo: "assets/logos/cd-rooftop-run.png",
     title: "Rooftop Run",
     category: "action",
     badge: "RUNNER",
@@ -5851,7 +5851,7 @@ const gamesData = [
   },
   {
     id: "cd-rooftop-snipers-2",
-    logo: "assets/logos/cd-rooftop-snipers-2.svg",
+    logo: "assets/logos/cd-rooftop-snipers-2.png",
     title: "Rooftop Snipers 2",
     category: "action",
     badge: "ACTION",
@@ -5868,7 +5868,7 @@ const gamesData = [
   },
   {
     id: "cd-run-2",
-    logo: "assets/logos/cd-run-2.svg",
+    logo: "assets/logos/cd-run-2.webp",
     title: "Run 2",
     category: "action",
     badge: "RUNNER",
@@ -5885,7 +5885,7 @@ const gamesData = [
   },
   {
     id: "cd-run-3",
-    logo: "assets/logos/cd-run-3.svg",
+    logo: "assets/logos/cd-run-3.webp",
     title: "Run 3",
     category: "action",
     badge: "RUNNER",
@@ -5902,7 +5902,7 @@ const gamesData = [
   },
   {
     id: "cd-run",
-    logo: "assets/logos/cd-run.svg",
+    logo: "assets/logos/cd-run.webp",
     title: "Run",
     category: "action",
     badge: "RUNNER",
@@ -5919,7 +5919,7 @@ const gamesData = [
   },
   {
     id: "cd-sand-game",
-    logo: "assets/logos/cd-sand-game.svg",
+    logo: "assets/logos/cd-sand-game.webp",
     title: "Sand Game",
     category: "arcade",
     badge: "ARCADE",
@@ -5936,7 +5936,7 @@ const gamesData = [
   },
   {
     id: "cd-sandbox-city",
-    logo: "assets/logos/cd-sandbox-city.svg",
+    logo: "assets/logos/cd-sandbox-city.png",
     title: "Sandbox City: Cars & Zombies",
     category: "racing",
     badge: "RACING",
@@ -5953,7 +5953,7 @@ const gamesData = [
   },
   {
     id: "cd-short-life",
-    logo: "assets/logos/cd-short-life.svg",
+    logo: "assets/logos/cd-short-life.png",
     title: "Short Life",
     category: "arcade",
     badge: "ARCADE",
@@ -5970,7 +5970,7 @@ const gamesData = [
   },
   {
     id: "cd-six-cats-under",
-    logo: "assets/logos/cd-six-cats-under.svg",
+    logo: "assets/logos/cd-six-cats-under.png",
     title: "Six Cats Under",
     category: "arcade",
     badge: "ARCADE",
@@ -5987,7 +5987,7 @@ const gamesData = [
   },
   {
     id: "cd-slope-2-player",
-    logo: "assets/logos/cd-slope-2-player.svg",
+    logo: "assets/logos/cd-slope-2-player.webp",
     title: "Slope 2 Player",
     category: "arcade",
     badge: "ARCADE",
@@ -6004,7 +6004,7 @@ const gamesData = [
   },
   {
     id: "cd-slope-3",
-    logo: "assets/logos/cd-slope-3.svg",
+    logo: "assets/logos/cd-slope-3.webp",
     title: "Slope 3",
     category: "arcade",
     badge: "ARCADE",
@@ -6021,7 +6021,7 @@ const gamesData = [
   },
   {
     id: "cd-slope",
-    logo: "assets/logos/cd-slope.svg",
+    logo: "assets/logos/cd-slope.webp",
     title: "Slope",
     category: "arcade",
     badge: "ARCADE",
@@ -6038,7 +6038,7 @@ const gamesData = [
   },
   {
     id: "cd-slow-roads",
-    logo: "assets/logos/cd-slow-roads.svg",
+    logo: "assets/logos/cd-slow-roads.webp",
     title: "Slow Roads",
     category: "arcade",
     badge: "ARCADE",
@@ -6055,7 +6055,7 @@ const gamesData = [
   },
   {
     id: "cd-sm-63",
-    logo: "assets/logos/cd-sm-63.svg",
+    logo: "assets/logos/cd-sm-63.webp",
     title: "Sm 63",
     category: "arcade",
     badge: "ARCADE",
@@ -6072,7 +6072,7 @@ const gamesData = [
   },
   {
     id: "cd-sm-64",
-    logo: "assets/logos/cd-sm-64.svg",
+    logo: "assets/logos/cd-sm-64.webp",
     title: "Sm 64",
     category: "arcade",
     badge: "ARCADE",
@@ -6089,7 +6089,7 @@ const gamesData = [
   },
   {
     id: "cd-snail-bob-2",
-    logo: "assets/logos/cd-snail-bob-2.svg",
+    logo: "assets/logos/cd-snail-bob-2.png",
     title: "Snail Bob 2",
     category: "arcade",
     badge: "ARCADE",
@@ -6106,7 +6106,7 @@ const gamesData = [
   },
   {
     id: "cd-snail-bob-3",
-    logo: "assets/logos/cd-snail-bob-3.svg",
+    logo: "assets/logos/cd-snail-bob-3.png",
     title: "Snail Bob 3",
     category: "arcade",
     badge: "ARCADE",
@@ -6123,7 +6123,7 @@ const gamesData = [
   },
   {
     id: "cd-snail-bob-4",
-    logo: "assets/logos/cd-snail-bob-4.svg",
+    logo: "assets/logos/cd-snail-bob-4.png",
     title: "Snail Bob 4",
     category: "arcade",
     badge: "ARCADE",
@@ -6140,7 +6140,7 @@ const gamesData = [
   },
   {
     id: "cd-snail-bob-5",
-    logo: "assets/logos/cd-snail-bob-5.svg",
+    logo: "assets/logos/cd-snail-bob-5.png",
     title: "Snail Bob 5",
     category: "arcade",
     badge: "ARCADE",
@@ -6157,7 +6157,7 @@ const gamesData = [
   },
   {
     id: "cd-snail-bob-6",
-    logo: "assets/logos/cd-snail-bob-6.svg",
+    logo: "assets/logos/cd-snail-bob-6.png",
     title: "Snail Bob 6",
     category: "arcade",
     badge: "ARCADE",
@@ -6174,7 +6174,7 @@ const gamesData = [
   },
   {
     id: "cd-snail-bob-7",
-    logo: "assets/logos/cd-snail-bob-7.svg",
+    logo: "assets/logos/cd-snail-bob-7.png",
     title: "Snail Bob 7",
     category: "arcade",
     badge: "ARCADE",
@@ -6191,7 +6191,7 @@ const gamesData = [
   },
   {
     id: "cd-snail-bob-8",
-    logo: "assets/logos/cd-snail-bob-8.svg",
+    logo: "assets/logos/cd-snail-bob-8.png",
     title: "Snail Bob 8",
     category: "arcade",
     badge: "ARCADE",
@@ -6208,7 +6208,7 @@ const gamesData = [
   },
   {
     id: "cd-snail-bob",
-    logo: "assets/logos/cd-snail-bob.svg",
+    logo: "assets/logos/cd-snail-bob.jpg",
     title: "Snail Bob",
     category: "arcade",
     badge: "ARCADE",
@@ -6225,7 +6225,7 @@ const gamesData = [
   },
   {
     id: "cd-snowball-io",
-    logo: "assets/logos/cd-snowball-io.svg",
+    logo: "assets/logos/cd-snowball-io.png",
     title: "Snowball .io",
     category: "sports",
     badge: "SPORTS",
@@ -6242,7 +6242,7 @@ const gamesData = [
   },
   {
     id: "cd-soccer-bros",
-    logo: "assets/logos/cd-soccer-bros.svg",
+    logo: "assets/logos/cd-soccer-bros.png",
     title: "Soccer Bros",
     category: "sports",
     badge: "SPORTS",
@@ -6259,7 +6259,7 @@ const gamesData = [
   },
   {
     id: "cd-space-is-key-2",
-    logo: "assets/logos/cd-space-is-key-2.svg",
+    logo: "assets/logos/cd-space-is-key-2.png",
     title: "Space Is Key 2",
     category: "arcade",
     badge: "ARCADE",
@@ -6276,7 +6276,7 @@ const gamesData = [
   },
   {
     id: "cd-space-is-key",
-    logo: "assets/logos/cd-space-is-key.svg",
+    logo: "assets/logos/cd-space-is-key.png",
     title: "Space Is Key",
     category: "arcade",
     badge: "ARCADE",
@@ -6293,7 +6293,7 @@ const gamesData = [
   },
   {
     id: "cd-space-waves",
-    logo: "assets/logos/cd-space-waves.svg",
+    logo: "assets/logos/cd-space-waves.png",
     title: "Space Waves",
     category: "arcade",
     badge: "ARCADE",
@@ -6310,7 +6310,7 @@ const gamesData = [
   },
   {
     id: "cd-spacebar-clicker",
-    logo: "assets/logos/cd-spacebar-clicker.svg",
+    logo: "assets/logos/cd-spacebar-clicker.png",
     title: "Spacebar Clicker",
     category: "casual",
     badge: "CASUAL",
@@ -6327,7 +6327,7 @@ const gamesData = [
   },
   {
     id: "cd-speed-stars",
-    logo: "assets/logos/cd-speed-stars.svg",
+    logo: "assets/logos/cd-speed-stars.png",
     title: "Speed Stars",
     category: "racing",
     badge: "RACING",
@@ -6344,7 +6344,7 @@ const gamesData = [
   },
   {
     id: "cd-sprunki",
-    logo: "assets/logos/cd-sprunki.svg",
+    logo: "assets/logos/cd-sprunki.png",
     title: "Sprunki",
     category: "action",
     badge: "RUNNER",
@@ -6361,7 +6361,7 @@ const gamesData = [
   },
   {
     id: "cd-stack",
-    logo: "assets/logos/cd-stack.svg",
+    logo: "assets/logos/cd-stack.webp",
     title: "Stack",
     category: "arcade",
     badge: "ARCADE",
@@ -6378,7 +6378,7 @@ const gamesData = [
   },
   {
     id: "cd-stacktris",
-    logo: "assets/logos/cd-stacktris.svg",
+    logo: "assets/logos/cd-stacktris.webp",
     title: "Stacktris",
     category: "arcade",
     badge: "ARCADE",
@@ -6395,7 +6395,7 @@ const gamesData = [
   },
   {
     id: "cd-state-io",
-    logo: "assets/logos/cd-state-io.svg",
+    logo: "assets/logos/cd-state-io.png",
     title: "State .io",
     category: "arcade",
     badge: "ONLINE",
@@ -6412,7 +6412,7 @@ const gamesData = [
   },
   {
     id: "cd-stealing-the-diamond",
-    logo: "assets/logos/cd-stealing-the-diamond.svg",
+    logo: "assets/logos/cd-stealing-the-diamond.webp",
     title: "Stealing The Diamond",
     category: "arcade",
     badge: "ARCADE",
@@ -6429,7 +6429,7 @@ const gamesData = [
   },
   {
     id: "cd-stick-archers-battle",
-    logo: "assets/logos/cd-stick-archers-battle.svg",
+    logo: "assets/logos/cd-stick-archers-battle.png",
     title: "Stick Archers Battle",
     category: "action",
     badge: "ACTION",
@@ -6446,7 +6446,7 @@ const gamesData = [
   },
   {
     id: "cd-stick-fighter",
-    logo: "assets/logos/cd-stick-fighter.svg",
+    logo: "assets/logos/cd-stick-fighter.png",
     title: "Stick Fighter",
     category: "arcade",
     badge: "ARCADE",
@@ -6463,7 +6463,7 @@ const gamesData = [
   },
   {
     id: "cd-stick-merge",
-    logo: "assets/logos/cd-stick-merge.svg",
+    logo: "assets/logos/cd-stick-merge.png",
     title: "Stick Merge",
     category: "arcade",
     badge: "ARCADE",
@@ -6480,7 +6480,7 @@ const gamesData = [
   },
   {
     id: "cd-stickman-hook",
-    logo: "assets/logos/cd-stickman-hook.svg",
+    logo: "assets/logos/cd-stickman-hook.webp",
     title: "Stickman Hook",
     category: "arcade",
     badge: "ARCADE",
@@ -6497,7 +6497,7 @@ const gamesData = [
   },
   {
     id: "cd-subway-surfers-beijing",
-    logo: "assets/logos/cd-subway-surfers-beijing.svg",
+    logo: "assets/logos/cd-subway-surfers-beijing.webp",
     title: "Subway Surfers Beijing",
     category: "action",
     badge: "RUNNER",
@@ -6514,7 +6514,7 @@ const gamesData = [
   },
   {
     id: "cd-subway-surfers-havana",
-    logo: "assets/logos/cd-subway-surfers-havana.svg",
+    logo: "assets/logos/cd-subway-surfers-havana.webp",
     title: "Subway Surfers Havana",
     category: "action",
     badge: "RUNNER",
@@ -6531,7 +6531,7 @@ const gamesData = [
   },
   {
     id: "cd-subway-surfers-san-francisco",
-    logo: "assets/logos/cd-subway-surfers-san-francisco.svg",
+    logo: "assets/logos/cd-subway-surfers-san-francisco.webp",
     title: "Subway Surfers San Francisco",
     category: "action",
     badge: "RUNNER",
@@ -6548,7 +6548,7 @@ const gamesData = [
   },
   {
     id: "cd-super-bike-the-champion",
-    logo: "assets/logos/cd-super-bike-the-champion.svg",
+    logo: "assets/logos/cd-super-bike-the-champion.png",
     title: "Super Bike The Champion",
     category: "racing",
     badge: "RACING",
@@ -6565,7 +6565,7 @@ const gamesData = [
   },
   {
     id: "cd-super-liquid-soccer",
-    logo: "assets/logos/cd-super-liquid-soccer.svg",
+    logo: "assets/logos/cd-super-liquid-soccer.png",
     title: "Super Liquid Soccer",
     category: "sports",
     badge: "SPORTS",
@@ -6582,7 +6582,7 @@ const gamesData = [
   },
   {
     id: "cd-super-star-car",
-    logo: "assets/logos/cd-super-star-car.svg",
+    logo: "assets/logos/cd-super-star-car.png",
     title: "Super Star Car Racing",
     category: "racing",
     badge: "RACING",
@@ -6599,7 +6599,7 @@ const gamesData = [
   },
   {
     id: "cd-superhot",
-    logo: "assets/logos/cd-superhot.svg",
+    logo: "assets/logos/cd-superhot.jpeg",
     title: "Superhot",
     category: "arcade",
     badge: "ARCADE",
@@ -6616,7 +6616,7 @@ const gamesData = [
   },
   {
     id: "cd-table-tennis-world-tour",
-    logo: "assets/logos/cd-table-tennis-world-tour.svg",
+    logo: "assets/logos/cd-table-tennis-world-tour.png",
     title: "Table Tennis World Tour",
     category: "sports",
     badge: "SPORTS",
@@ -6633,7 +6633,7 @@ const gamesData = [
   },
   {
     id: "cd-tag",
-    logo: "assets/logos/cd-tag.svg",
+    logo: "assets/logos/cd-tag.png",
     title: "Tag",
     category: "arcade",
     badge: "ARCADE",
@@ -6650,7 +6650,7 @@ const gamesData = [
   },
   {
     id: "cd-tanuki-sunset",
-    logo: "assets/logos/cd-tanuki-sunset.svg",
+    logo: "assets/logos/cd-tanuki-sunset.webp",
     title: "Tanuki Sunset",
     category: "arcade",
     badge: "ARCADE",
@@ -6667,7 +6667,7 @@ const gamesData = [
   },
   {
     id: "cd-tap-road",
-    logo: "assets/logos/cd-tap-road.svg",
+    logo: "assets/logos/cd-tap-road.png",
     title: "Tap Road",
     category: "casual",
     badge: "CASUAL",
@@ -6684,7 +6684,7 @@ const gamesData = [
   },
   {
     id: "cd-temple-of-boom",
-    logo: "assets/logos/cd-temple-of-boom.svg",
+    logo: "assets/logos/cd-temple-of-boom.png",
     title: "Temple Of Boom",
     category: "action",
     badge: "RUNNER",
@@ -6701,7 +6701,7 @@ const gamesData = [
   },
   {
     id: "cd-territorial-io",
-    logo: "assets/logos/cd-territorial-io.svg",
+    logo: "assets/logos/cd-territorial-io.png",
     title: "Territorial .io",
     category: "arcade",
     badge: "ONLINE",
@@ -6718,7 +6718,7 @@ const gamesData = [
   },
   {
     id: "cd-tetrominoes",
-    logo: "assets/logos/cd-tetrominoes.svg",
+    logo: "assets/logos/cd-tetrominoes.png",
     title: "Tetrominoes",
     category: "arcade",
     badge: "ARCADE",
@@ -6735,7 +6735,7 @@ const gamesData = [
   },
   {
     id: "cd-the-impossible-quiz-2",
-    logo: "assets/logos/cd-the-impossible-quiz-2.svg",
+    logo: "assets/logos/cd-the-impossible-quiz-2.webp",
     title: "The Impossible Quiz 2",
     category: "arcade",
     badge: "ARCADE",
@@ -6752,7 +6752,7 @@ const gamesData = [
   },
   {
     id: "cd-the-impossible-quiz",
-    logo: "assets/logos/cd-the-impossible-quiz.svg",
+    logo: "assets/logos/cd-the-impossible-quiz.webp",
     title: "The Impossible Quiz",
     category: "arcade",
     badge: "ARCADE",
@@ -6769,7 +6769,7 @@ const gamesData = [
   },
   {
     id: "cd-there-is-no-g",
-    logo: "assets/logos/cd-there-is-no-g.svg",
+    logo: "assets/logos/cd-there-is-no-g.webp",
     title: "There Is No G",
     category: "arcade",
     badge: "ARCADE",
@@ -6786,7 +6786,7 @@ const gamesData = [
   },
   {
     id: "cd-they-are-coming",
-    logo: "assets/logos/cd-they-are-coming.svg",
+    logo: "assets/logos/cd-they-are-coming.png",
     title: "They Are Coming",
     category: "arcade",
     badge: "ARCADE",
@@ -6803,7 +6803,7 @@ const gamesData = [
   },
   {
     id: "cd-this-is-the-only-level-too",
-    logo: "assets/logos/cd-this-is-the-only-level-too.svg",
+    logo: "assets/logos/cd-this-is-the-only-level-too.png",
     title: "This Is The Only Level Too",
     category: "arcade",
     badge: "ARCADE",
@@ -6820,7 +6820,7 @@ const gamesData = [
   },
   {
     id: "cd-this-is-the-only-level",
-    logo: "assets/logos/cd-this-is-the-only-level.svg",
+    logo: "assets/logos/cd-this-is-the-only-level.png",
     title: "This Is The Only Level",
     category: "arcade",
     badge: "ARCADE",
@@ -6837,7 +6837,7 @@ const gamesData = [
   },
   {
     id: "cd-time-shooter-2",
-    logo: "assets/logos/cd-time-shooter-2.svg",
+    logo: "assets/logos/cd-time-shooter-2.webp",
     title: "Time Shooter 2",
     category: "action",
     badge: "ACTION",
@@ -6854,7 +6854,7 @@ const gamesData = [
   },
   {
     id: "cd-tiny-fishing",
-    logo: "assets/logos/cd-tiny-fishing.svg",
+    logo: "assets/logos/cd-tiny-fishing.webp",
     title: "Tiny Fishing",
     category: "arcade",
     badge: "ARCADE",
@@ -6871,7 +6871,7 @@ const gamesData = [
   },
   {
     id: "cd-trap-the-cat",
-    logo: "assets/logos/cd-trap-the-cat.svg",
+    logo: "assets/logos/cd-trap-the-cat.png",
     title: "Trap The Cat",
     category: "arcade",
     badge: "ARCADE",
@@ -6888,7 +6888,7 @@ const gamesData = [
   },
   {
     id: "cd-trivia-crack",
-    logo: "assets/logos/cd-trivia-crack.svg",
+    logo: "assets/logos/cd-trivia-crack.png",
     title: "Trivia Crack",
     category: "arcade",
     badge: "ARCADE",
@@ -6905,7 +6905,7 @@ const gamesData = [
   },
   {
     id: "cd-tube-jumpers",
-    logo: "assets/logos/cd-tube-jumpers.svg",
+    logo: "assets/logos/cd-tube-jumpers.png",
     title: "Tube Jumpers",
     category: "action",
     badge: "RUNNER",
@@ -6922,7 +6922,7 @@ const gamesData = [
   },
   {
     id: "cd-tunnel-rush",
-    logo: "assets/logos/cd-tunnel-rush.svg",
+    logo: "assets/logos/cd-tunnel-rush.webp",
     title: "Tunnel Rush",
     category: "action",
     badge: "RUNNER",
@@ -6939,7 +6939,7 @@ const gamesData = [
   },
   {
     id: "cd-unicycle-hero",
-    logo: "assets/logos/cd-unicycle-hero.svg",
+    logo: "assets/logos/cd-unicycle-hero.png",
     title: "Unicycle Hero",
     category: "arcade",
     badge: "ARCADE",
@@ -6956,7 +6956,7 @@ const gamesData = [
   },
   {
     id: "cd-vex-4",
-    logo: "assets/logos/cd-vex-4.svg",
+    logo: "assets/logos/cd-vex-4.webp",
     title: "Vex 4",
     category: "arcade",
     badge: "ARCADE",
@@ -6973,7 +6973,7 @@ const gamesData = [
   },
   {
     id: "cd-vex-5",
-    logo: "assets/logos/cd-vex-5.svg",
+    logo: "assets/logos/cd-vex-5.webp",
     title: "Vex 5",
     category: "arcade",
     badge: "ARCADE",
@@ -6990,7 +6990,7 @@ const gamesData = [
   },
   {
     id: "cd-vex-x3m-2",
-    logo: "assets/logos/cd-vex-x3m-2.svg",
+    logo: "assets/logos/cd-vex-x3m-2.avif",
     title: "Vex X3m 2",
     category: "arcade",
     badge: "ARCADE",
@@ -7007,7 +7007,7 @@ const gamesData = [
   },
   {
     id: "cd-vex-x3m",
-    logo: "assets/logos/cd-vex-x3m.svg",
+    logo: "assets/logos/cd-vex-x3m.webp",
     title: "Vex X3m",
     category: "arcade",
     badge: "ARCADE",
@@ -7024,7 +7024,7 @@ const gamesData = [
   },
   {
     id: "cd-volley-random",
-    logo: "assets/logos/cd-volley-random.svg",
+    logo: "assets/logos/cd-volley-random.png",
     title: "Volley Random",
     category: "arcade",
     badge: "ARCADE",
@@ -7041,7 +7041,7 @@ const gamesData = [
   },
   {
     id: "cd-war-the-knights",
-    logo: "assets/logos/cd-war-the-knights.svg",
+    logo: "assets/logos/cd-war-the-knights.png",
     title: "War The Knights",
     category: "action",
     badge: "ACTION",
@@ -7058,7 +7058,7 @@ const gamesData = [
   },
   {
     id: "cd-we-become-what-we-behold",
-    logo: "assets/logos/cd-we-become-what-we-behold.svg",
+    logo: "assets/logos/cd-we-become-what-we-behold.avif",
     title: "We Become What We Behold",
     category: "arcade",
     badge: "ARCADE",
@@ -7075,7 +7075,7 @@ const gamesData = [
   },
   {
     id: "cd-wheelie-bike",
-    logo: "assets/logos/cd-wheelie-bike.svg",
+    logo: "assets/logos/cd-wheelie-bike.png",
     title: "Wheelie Bike",
     category: "racing",
     badge: "RACING",
@@ -7092,7 +7092,7 @@ const gamesData = [
   },
   {
     id: "cd-wheely-2",
-    logo: "assets/logos/cd-wheely-2.svg",
+    logo: "assets/logos/cd-wheely-2.png",
     title: "Wheely 2",
     category: "arcade",
     badge: "ARCADE",
@@ -7109,7 +7109,7 @@ const gamesData = [
   },
   {
     id: "cd-wheely-3",
-    logo: "assets/logos/cd-wheely-3.svg",
+    logo: "assets/logos/cd-wheely-3.png",
     title: "Wheely 3",
     category: "arcade",
     badge: "ARCADE",
@@ -7126,7 +7126,7 @@ const gamesData = [
   },
   {
     id: "cd-wheely-4",
-    logo: "assets/logos/cd-wheely-4.svg",
+    logo: "assets/logos/cd-wheely-4.png",
     title: "Wheely 4",
     category: "arcade",
     badge: "ARCADE",
@@ -7143,7 +7143,7 @@ const gamesData = [
   },
   {
     id: "cd-wheely-5",
-    logo: "assets/logos/cd-wheely-5.svg",
+    logo: "assets/logos/cd-wheely-5.png",
     title: "Wheely 5",
     category: "arcade",
     badge: "ARCADE",
@@ -7160,7 +7160,7 @@ const gamesData = [
   },
   {
     id: "cd-wheely-6",
-    logo: "assets/logos/cd-wheely-6.svg",
+    logo: "assets/logos/cd-wheely-6.webp",
     title: "Wheely 6",
     category: "arcade",
     badge: "ARCADE",
@@ -7177,7 +7177,7 @@ const gamesData = [
   },
   {
     id: "cd-wheely-7",
-    logo: "assets/logos/cd-wheely-7.svg",
+    logo: "assets/logos/cd-wheely-7.png",
     title: "Wheely 7",
     category: "arcade",
     badge: "ARCADE",
@@ -7194,7 +7194,7 @@ const gamesData = [
   },
   {
     id: "cd-wheely-8",
-    logo: "assets/logos/cd-wheely-8.svg",
+    logo: "assets/logos/cd-wheely-8.png",
     title: "Wheely 8",
     category: "arcade",
     badge: "ARCADE",
@@ -7211,7 +7211,7 @@ const gamesData = [
   },
   {
     id: "cd-wheely",
-    logo: "assets/logos/cd-wheely.svg",
+    logo: "assets/logos/cd-wheely.webp",
     title: "Wheely",
     category: "arcade",
     badge: "ARCADE",
@@ -7228,7 +7228,7 @@ const gamesData = [
   },
   {
     id: "cd-wordle-unlimited",
-    logo: "assets/logos/cd-wordle-unlimited.svg",
+    logo: "assets/logos/cd-wordle-unlimited.webp",
     title: "Wordle Unlimited",
     category: "puzzle",
     badge: "PUZZLE",
@@ -7245,7 +7245,7 @@ const gamesData = [
   },
   {
     id: "cd-worlds-hardest-game-2",
-    logo: "assets/logos/cd-worlds-hardest-game-2.svg",
+    logo: "assets/logos/cd-worlds-hardest-game-2.webp",
     title: "The World's Hardest Game 2",
     category: "arcade",
     badge: "ARCADE",
@@ -7262,7 +7262,7 @@ const gamesData = [
   },
   {
     id: "cd-worlds-hardest-game-3",
-    logo: "assets/logos/cd-worlds-hardest-game-3.svg",
+    logo: "assets/logos/cd-worlds-hardest-game-3.webp",
     title: "The World's Hardest Game 3",
     category: "arcade",
     badge: "ARCADE",
@@ -7279,7 +7279,7 @@ const gamesData = [
   },
   {
     id: "cd-worlds-hardest-game",
-    logo: "assets/logos/cd-worlds-hardest-game.svg",
+    logo: "assets/logos/cd-worlds-hardest-game.webp",
     title: "The World's Hardest Game",
     category: "arcade",
     badge: "ARCADE",
@@ -7296,7 +7296,7 @@ const gamesData = [
   },
   {
     id: "cd-wrestle-bros",
-    logo: "assets/logos/cd-wrestle-bros.svg",
+    logo: "assets/logos/cd-wrestle-bros.png",
     title: "Wrestle Bros Pro",
     category: "sports",
     badge: "SPORTS",
@@ -7313,7 +7313,7 @@ const gamesData = [
   },
   {
     id: "cd-yohoho-io",
-    logo: "assets/logos/cd-yohoho-io.svg",
+    logo: "assets/logos/cd-yohoho-io.png",
     title: "YoHoHo.io Pirate Battle",
     category: "action",
     badge: "ACTION",
@@ -7330,7 +7330,7 @@ const gamesData = [
   },
   {
     id: "cd-zombie-rush",
-    logo: "assets/logos/cd-zombie-rush.svg",
+    logo: "assets/logos/cd-zombie-rush.png",
     title: "Zombie Rush Survival",
     category: "action",
     badge: "ACTION",
@@ -7347,7 +7347,7 @@ const gamesData = [
   },
   {
     id: "cd-zrist",
-    logo: "assets/logos/cd-zrist.svg",
+    logo: "assets/logos/cd-zrist.png",
     title: "Zrist",
     category: "arcade",
     badge: "ARCADE",

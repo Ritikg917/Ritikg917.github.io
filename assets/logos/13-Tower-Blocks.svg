@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e65c00" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+
+    <!-- Radial Glow -->
+    <radialGradient id="centerGlow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#e65c00" stop-opacity="0.5" />
+      <stop offset="70%" stop-color="#e65c00" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#e65c00" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Filter Shadows -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#e65c00" flood-opacity="0.6"/>
+    </filter>
+    <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+    <filter id="iconShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Rectangle -->
+  <rect x="4" y="4" width="292" height="292" rx="36" fill="url(#bgGrad)" stroke="#e65c00" stroke-width="4" stroke-opacity="0.8"/>
+
+  <!-- Radial Background Glow -->
+  <circle cx="150" cy="130" r="110" fill="url(#centerGlow)"/>
+
+  <!-- Decorative Tech / Gaming Grid -->
+  <g opacity="0.12" stroke="#ffffff" stroke-width="1.5">
+    <line x1="30" y1="60" x2="270" y2="60" />
+    <line x1="30" y1="120" x2="270" y2="120" />
+    <line x1="30" y1="180" x2="270" y2="180" />
+    <line x1="90" y1="30" x2="90" y2="210" />
+    <line x1="150" y1="30" x2="150" y2="210" />
+    <line x1="210" y1="30" x2="210" y2="210" />
+  </g>
+
+  <!-- Top Category Chip -->
+  <g transform="translate(20, 20)">
+    <rect x="0" y="0" width="84" height="24" rx="12" fill="rgba(0,0,0,0.6)" stroke="#e65c00" stroke-width="1.5"/>
+    <text x="42" y="16" fill="#e65c00" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="900" text-anchor="middle" letter-spacing="1">ARCADE</text>
+  </g>
+
+  <!-- Top Right Rating Stars -->
+  <g transform="translate(200, 20)">
+    <rect x="0" y="0" width="80" height="24" rx="12" fill="rgba(0,0,0,0.6)" stroke="#facc15" stroke-width="1.5"/>
+    <text x="40" y="16" fill="#facc15" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="900" text-anchor="middle">★ 4.7</text>
+  </g>
+
+  <!-- Central Illustrated Icon Ring -->
+  <circle cx="150" cy="125" r="62" fill="rgba(255,255,255,0.06)" stroke="url(#accentGrad)" stroke-width="3" filter="url(#glow)"/>
+  <circle cx="150" cy="125" r="50" fill="rgba(0,0,0,0.4)"/>
+
+  <!-- Main Game Icon -->
+  <text x="150" y="152" font-size="64" text-anchor="middle" filter="url(#iconShadow)">🏗️</text>
+
+  <!-- Lower Title Banner -->
+  <rect x="18" y="210" width="264" height="66" rx="18" fill="rgba(15, 23, 42, 0.9)" stroke="#e65c00" stroke-width="2"/>
+  
+  <!-- Game Title -->
+  <text x="150" y="240" fill="#ffffff" font-family="'Impact', 'Arial Black', sans-serif" font-size="17" font-weight="bold" text-anchor="middle" letter-spacing="0.5" filter="url(#textShadow)">
+    Tower Blocks Stacker
+  </text>
+
+  <!-- Badge Pill -->
+  <g transform="translate(150, 258)">
+    <text x="0" y="5" fill="#e65c00" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="900" text-anchor="middle" letter-spacing="1">
+      SKILL • RS GAMES
+    </text>
+  </g>
+
+  <!-- Glossy Reflection Highlight -->
+  <path d="M 20 20 Q 150 70 280 20 C 260 90 40 90 20 20 Z" fill="rgba(255, 255, 255, 0.12)"/>
+</svg>

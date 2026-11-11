@@ -10,6 +10,11 @@
   <meta name="description" content="Play 430+ free web games instantly offline and online on RS Games! 1v1.LOL, 2048, BrowserQuest, A Dark Room, Untrusted, Tux VS Dragon, PoryDrive, Serious Shooter, FNAF, Friday Night Funkin, Geometry Dash, Drift Hunters, Granny, Minecraft, GTA, and 330+ offline games.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2300e5ff'/><text y='68' font-size='48' font-weight='900' fill='%230f1423' font-family='sans-serif' x='18'>RS</text></svg>">
   
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2833936740086610" crossorigin="anonymous"></script>
+  <!-- AMP Auto Ads -->
+  <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +23,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- AMP Auto Ads -->
+  <amp-auto-ads type="adsense" data-ad-client="ca-pub-2833936740086610"></amp-auto-ads>
 
   <!-- ========================================================================
        SITE HEADER
@@ -53,6 +60,10 @@
 
       <!-- Header Controls -->
       <div class="header-actions">
+        <button class="action-btn" id="playOnPhoneBtn" title="Open on Mobile Phone">
+          <span>📱 Play on Phone</span>
+        </button>
+
         <button class="action-btn action-btn-random" id="randomGameBtn" title="Play a random game!">
           <span>🎲 Surprise Me</span>
         </button>
@@ -214,10 +225,20 @@
           id="gameIframe" 
           class="game-iframe" 
           src="about:blank"
-          allow="autoplay; fullscreen; microphone; keyboard" 
-          sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups"
+          allow="autoplay; fullscreen; microphone; keyboard; gamepad; pointer-lock; accelerometer; gyroscope" 
+          allowfullscreen="true"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups allow-pointer-lock"
           title="Play Game"
         ></iframe>
+
+        <!-- Floating HUD for Fullscreen Mode on Mobile & PC -->
+        <div class="fullscreen-floating-hud" id="fullscreenFloatingHud">
+          <button class="floating-hud-btn hud-exit-btn" id="floatingExitFullscreenBtn" title="Exit Fullscreen">
+            <span>✕ Exit Fullscreen</span>
+          </button>
+        </div>
       </div>
 
       <!-- Game Information & Controls -->
@@ -260,6 +281,34 @@
 
   <!-- Toast Notification -->
   <div class="toast-msg" id="toastNotification">Action complete</div>
+
+  <!-- ========================================================================
+       PHONE CONNECT MODAL (QR CODE & LAN IP)
+       ======================================================================== -->
+  <div class="phone-modal" id="phoneConnectModal" role="dialog" aria-modal="true" aria-label="Connect Mobile Phone">
+    <div class="phone-modal-backdrop" id="phoneModalBackdrop"></div>
+    <div class="phone-modal-card">
+      <button class="phone-modal-close" id="phoneModalCloseBtn" aria-label="Close">✕</button>
+      <div class="phone-modal-header">
+        <span class="phone-modal-icon">📱</span>
+        <h2 class="phone-modal-title">Apne Phone me RS Games Khelein</h2>
+        <p class="phone-modal-subtitle">Apne mobile phone ko laptop ke same Wi-Fi se connect karein aur neeche diye link ya QR code ko scan karein:</p>
+      </div>
+      
+      <div class="phone-qr-box">
+        <img id="phoneQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=http://172.29.179.230:3000" alt="Mobile QR Code" width="180" height="180">
+      </div>
+
+      <div class="phone-url-box">
+        <input type="text" id="phoneUrlInput" class="phone-url-input" value="http://172.29.179.230:3000" readonly>
+        <button class="phone-copy-btn" id="phoneCopyBtn">📋 Copy Link</button>
+      </div>
+
+      <div class="phone-modal-tips">
+        <p>💡 <strong>Tip:</strong> Phone me <code>localhost</code> ki jagah ye Wi-Fi IP address (<code>172.29.179.230:3000</code>) dalein taaki games turant khulein!</p>
+      </div>
+    </div>
+  </div>
 
   <!-- ========================================================================
        FOOTER

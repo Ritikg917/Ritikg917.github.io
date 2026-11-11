@@ -8,9 +8,22 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 const PORT = process.env.PORT || 3000;
 const BASE_DIR = __dirname;
+
+function getLocalIp() {
+  const nets = os.networkInterfaces();
+  for (const name of Object.keys(nets)) {
+    for (const net of nets[name]) {
+      if (net.family === 'IPv4' && !net.internal) {
+        return net.address;
+      }
+    }
+  }
+  return 'localhost';
+}
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -50,6 +63,23 @@ function fetchWithRedirect(url, callback) {
 const server = http.createServer((req, res) => {
   // Decode URL and normalize path
   let reqPath = decodeURI(req.url.split('?')[0]);
+
+  // Network info endpoint for mobile connection
+  if (reqPath === '/api/network-info') {
+    const localIp = getLocalIp();
+    res.writeHead(200, {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin': '*'
+    });
+    res.end(JSON.stringify({
+      localIp,
+      port: PORT,
+      mobileUrl: `http://${localIp}:${PORT}`,
+      localUrl: `http://localhost:${PORT}`
+    }));
+    return;
+  }
+
   if (reqPath === '/' || reqPath === '') {
     reqPath = '/index.html';
   }
@@ -129,11 +159,13 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
+  const localIp = getLocalIp();
   console.log(`\n======================================================`);
   console.log(`🎮 RS GAMES PORTAL IS RUNNING!`);
-  console.log(`🌐 Local URL:   http://localhost:${PORT}`);
-  console.log(`📁 Game count:  433 HTML5 & JS Games loaded`);
-  console.log(`⚡ Smart Cache: Active (Zero-failure on-demand streaming)`);
+  console.log(`🌐 Local (Laptop): http://localhost:${PORT}`);
+  console.log(`📱 Mobile (Phone):  http://${localIp}:${PORT}`);
+  console.log(`📁 Game count:     433 HTML5 & JS Games loaded`);
+  console.log(`⚡ Smart Cache:    Active (Zero-failure on-demand streaming)`);
   console.log(`======================================================\n`);
 });

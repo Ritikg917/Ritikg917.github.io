@@ -837,35 +837,195 @@ body {
 .game-viewport-card {
   background: #000000;
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow: hidden !important;
   border: 1px solid var(--border-subtle);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
   position: relative;
   width: 100%;
+  max-width: 100%;
   height: 680px;
   max-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* Fullscreen Styling (Supports Desktop Browser Fullscreen API + Mobile Viewport Fallback) */
+.game-viewport-card:fullscreen,
+.game-viewport-card:-webkit-full-screen,
 .game-viewport-card.fullscreen-mode {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
-  z-index: 999;
-  border-radius: 0;
-  border: none;
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  max-height: 100dvh !important;
+  z-index: 999999 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #000000 !important;
+  box-shadow: none !important;
+}
+
+.game-viewport-card:fullscreen .game-iframe,
+.game-viewport-card:-webkit-full-screen .game-iframe,
+.game-viewport-card.fullscreen-mode .game-iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  border: none !important;
+  background: #000000 !important;
+  touch-action: auto !important;
+  pointer-events: auto !important;
 }
 
 .game-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: #ffffff;
-  display: block;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  border: none !important;
+  background: #000000;
+  display: block !important;
+  touch-action: auto !important;
+  pointer-events: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Floating Exit Button for Fullscreen Mode */
+.fullscreen-floating-hud {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1000000;
+  display: none;
+  align-items: center;
+  pointer-events: none;
+}
+
+.game-viewport-card:fullscreen .fullscreen-floating-hud,
+.game-viewport-card:-webkit-full-screen .fullscreen-floating-hud,
+.game-viewport-card.fullscreen-mode .fullscreen-floating-hud,
+.player-modal.is-mobile-fullscreen .fullscreen-floating-hud {
+  display: flex !important;
+}
+
+.floating-hud-btn {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(220, 38, 38, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(248, 113, 113, 0.8);
+  border-radius: var(--radius-pill);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.5);
+  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.floating-hud-btn:active {
+  transform: scale(0.92);
+  background: #b91c1c;
+}
+
+.hud-exit-btn {
+  background: rgba(220, 38, 38, 0.92);
+  border-color: rgba(248, 113, 113, 0.8);
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.5);
+}
+
+/* Body and Modal Fullscreen Locks */
+body.game-fullscreen-active {
+  overflow: hidden !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  touch-action: none !important;
+}
+
+body.game-fullscreen-active .site-header,
+body.game-fullscreen-active .categories-nav,
+body.game-fullscreen-active .main-wrapper,
+body.game-fullscreen-active .site-footer {
+  display: none !important;
+}
+
+.player-modal.is-mobile-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-width: 100vw !important;
+  max-height: 100dvh !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 99999 !important;
+  background: #000000 !important;
+}
+
+.player-modal.is-mobile-fullscreen .player-topbar {
+  display: none !important;
+}
+
+.player-modal.is-mobile-fullscreen .player-stage-container {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-width: 100vw !important;
+  max-height: 100dvh !important;
+  overflow: hidden !important;
+  gap: 0 !important;
+  display: flex !important;
+}
+
+.player-modal.is-mobile-fullscreen .game-viewport-card {
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-width: 100vw !important;
+  max-height: 100dvh !important;
+  border-radius: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: fixed !important;
+  inset: 0 !important;
+}
+
+.player-modal.is-mobile-fullscreen .game-details-grid,
+.player-modal.is-mobile-fullscreen .related-games-section {
+  display: none !important;
 }
 
 /* Loading Spinner inside Game Frame */
@@ -1192,21 +1352,35 @@ body {
     height: 100dvh;
   }
   .player-topbar {
-    padding: 8px 12px;
-    min-height: 52px;
-  }
-  .player-topbar-left {
+    padding: 8px 10px;
+    min-height: 48px;
     gap: 8px;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   .player-back-btn {
-    padding: 8px 14px;
-    font-size: 13px;
+    padding: 6px 10px;
+    font-size: 12px;
     font-weight: 800;
-    min-height: 40px;
+    min-height: 36px;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .player-game-title-wrap {
+    gap: 6px;
+    min-width: 0;
+    flex: 1;
+  }
+  .player-game-icon {
+    font-size: 20px;
+  }
+  .player-game-icon img {
+    width: 24px !important;
+    height: 24px !important;
   }
   .player-game-title {
-    font-size: 14px;
-    max-width: 140px;
+    font-size: 13px;
+    max-width: 110px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1214,26 +1388,51 @@ body {
   .player-category-badge {
     display: none;
   }
+  .player-actions {
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .player-action-btn {
+    padding: 6px 8px;
+    min-width: 36px;
+    height: 36px;
+    font-size: 14px;
+    justify-content: center;
+    border-radius: var(--radius-pill);
+  }
+  .player-action-btn span {
+    display: none !important;
+  }
+
+
   .player-stage-container {
-    padding: 8px;
-    gap: 12px;
+    padding: 6px;
+    gap: 10px;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   .game-viewport-card {
-    height: calc(100dvh - 170px);
-    min-height: 340px;
+    height: calc(100svh - 110px);
+    min-height: 280px;
     border-radius: 12px;
-  }
-  .game-iframe {
-    width: 100%;
-    height: 100%;
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
     touch-action: manipulation;
   }
-  .player-topbar-right .tool-btn span {
-    display: none;
-  }
-  .player-topbar-right .tool-btn {
-    padding: 8px 10px;
-    min-height: 38px;
+  .game-iframe {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    touch-action: manipulation;
+    border: none !important;
+    background: #000000;
   }
 
   /* Footer */
@@ -1258,8 +1457,8 @@ body {
     font-size: 64px;
   }
   .game-viewport-card {
-    height: calc(100dvh - 150px);
-    min-height: 320px;
+    height: calc(100dvh - 120px);
+    min-height: 280px;
   }
   .game-controls-box {
     padding: 12px;
@@ -1267,7 +1466,7 @@ body {
 }
 
 /* Landscape Mode on Mobile */
-@media (max-height: 500px) and (orientation: landscape) {
+@media (max-height: 600px) and (orientation: landscape) {
   .player-topbar {
     position: absolute;
     top: 6px;
@@ -1277,20 +1476,174 @@ body {
     background: rgba(10, 14, 23, 0.85);
     border-radius: 20px;
     padding: 4px 12px;
-    min-height: 40px;
+    min-height: 38px;
   }
   .player-stage-container {
     padding: 0;
     height: 100vh;
     height: 100dvh;
+    overflow: hidden;
   }
   .game-viewport-card {
-    height: 100vh;
-    height: 100dvh;
+    height: 100vh !important;
+    height: 100dvh !important;
     border-radius: 0;
     border: none;
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    z-index: 50;
   }
-  .game-details-grid {
-    display: none;
+  .game-details-grid,
+  .related-games-section {
+    display: none !important;
   }
+}
+
+
+
+/* ==========================================================================
+   PHONE CONNECT MODAL
+   ========================================================================== */
+.phone-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.phone-modal.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.phone-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 8, 16, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.phone-modal-card {
+  position: relative;
+  z-index: 2;
+  background: #161c30;
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 20px;
+  max-width: 440px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 229, 255, 0.2);
+  text-align: center;
+}
+
+.phone-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.phone-modal-close:hover {
+  background: rgba(239, 68, 68, 0.4);
+}
+
+.phone-modal-icon {
+  font-size: 42px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.phone-modal-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.phone-modal-subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.phone-qr-box {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 16px;
+  display: inline-block;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.phone-qr-box img {
+  display: block;
+  border-radius: 8px;
+}
+
+.phone-url-box {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.phone-url-input {
+  flex: 1;
+  background: rgba(10, 14, 25, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #00e5ff;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 14px;
+  outline: none;
+}
+
+.phone-copy-btn {
+  background: var(--accent-cyan);
+  color: #0b0e14;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 0 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.phone-copy-btn:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+.phone-modal-tips {
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #cbd5e1;
+  text-align: left;
 }

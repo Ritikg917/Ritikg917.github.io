@@ -135,7 +135,18 @@
     gameControlsGuide: document.getElementById('gameControlsGuide'),
     gameTagsContainer: document.getElementById('gameTagsContainer'),
     relatedGamesContainer: document.getElementById('relatedGamesContainer'),
-    toast: document.getElementById('toastNotification')
+    toast: document.getElementById('toastNotification'),
+
+    // Mobile & Phone Connect Elements
+    playOnPhoneBtn: document.getElementById('playOnPhoneBtn'),
+    phoneModal: document.getElementById('phoneConnectModal'),
+    phoneModalCloseBtn: document.getElementById('phoneModalCloseBtn'),
+    phoneModalBackdrop: document.getElementById('phoneModalBackdrop'),
+    phoneUrlInput: document.getElementById('phoneUrlInput'),
+    phoneCopyBtn: document.getElementById('phoneCopyBtn'),
+    phoneQrImg: document.getElementById('phoneQrImg'),
+    floatingExitFullscreenBtn: document.getElementById('floatingExitFullscreenBtn'),
+    fullscreenFloatingHud: document.getElementById('fullscreenFloatingHud')
   };
 
   // Toast Notification
@@ -384,17 +395,9 @@
       <span class="tag-pill">#${tag}</span>
     `).join('');
 
-    // Load iframe
+    // Load iframe with Smart Static Host + CDN Fallback
     elements.playerLoader.classList.remove('is-hidden');
-    elements.playerIframe.src = game.path;
-    elements.playerIframe.onload = () => {
-      elements.playerLoader.classList.add('is-hidden');
-      try {
-        elements.playerIframe.focus();
-      } catch (err) {
-        // Safe cross-origin ignore
-      }
-    };
+    loadGameIntoIframe(game);
 
     // Render Related Games
     renderRelatedGames(game);
@@ -404,12 +407,150 @@
     document.body.style.overflow = 'hidden';
   }
 
+  // Smart Game Loader: Prioritizes local files on host; automatically streams on-demand from CDN if host misses file
+  let currentBlobUrl = null;
+
+  function loadGameIntoIframe(game) {
+    const iframe = elements.playerIframe;
+    const localPath = game.path;
+
+    if (currentBlobUrl) {
+      URL.revokeObjectURL(currentBlobUrl);
+      currentBlobUrl = null;
+    }
+
+    iframe.removeAttribute('srcdoc');
+
+    const onIframeLoaded = () => {
+      elements.playerLoader.classList.add('is-hidden');
+      try {
+        iframe.focus();
+        injectIframeResponsiveFix();
+      } catch (err) {}
+    };
+
+    iframe.onload = onIframeLoaded;
+
+    // Standard games (1v1.LOL, Among Us, FNF, Drift Hunters, Minecraft, etc.) load directly
+    if (!localPath.startsWith('html-css-javascript-games-main/offline/')) {
+      iframe.src = localPath;
+      return;
+    }
+
+    // Offline games pack: check if file exists on this web host
+    fetch(localPath, { method: 'HEAD' })
+      .then(res => {
+        if (res.ok) {
+          // File exists on current static host / localhost
+          iframe.src = localPath;
+        } else {
+          // File is missing on host (404) -> stream on demand via GitHub raw with CORS
+          streamOfflineGame(localPath);
+        }
+      })
+      .catch(() => {
+        // If HEAD fetch is restricted, attempt local load
+        iframe.src = localPath;
+      });
+  }
+
+  function streamOfflineGame(localPath) {
+    const fileName = localPath.replace('html-css-javascript-games-main/offline/', '');
+    const remoteUrl = `https://raw.githubusercontent.com/CoolDude2349/Offline-HTML-Games-Pack/master/offline/${encodeURIComponent(fileName)}`;
+
+    fetch(remoteUrl)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.text();
+      })
+      .then(html => {
+        const blob = new Blob([html], { type: 'text/html; charset=utf-8' });
+        currentBlobUrl = URL.createObjectURL(blob);
+        elements.playerIframe.src = currentBlobUrl;
+      })
+      .catch(err => {
+        console.warn(`[CDN stream error] Falling back to local:`, err);
+        elements.playerIframe.src = localPath;
+      });
+  }
+
+  // Inject Responsive Mobile CSS & Viewport inside the Game Document
+  function injectIframeResponsiveFix() {
+    try {
+      const iframe = elements.playerIframe;
+      if (!iframe) return;
+      const doc = iframe.contentDocument || iframe.contentWindow?.document;
+      if (!doc) return;
+
+      // 1. Ensure viewport meta exists
+      let meta = doc.querySelector('meta[name="viewport"]');
+      if (!meta) {
+        meta = doc.createElement('meta');
+        meta.name = 'viewport';
+        doc.head.appendChild(meta);
+      }
+      meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover';
+
+      // 2. Inject responsive & direct touch styles
+      let style = doc.getElementById('rs-game-responsive-fix');
+      if (!style) {
+        style = doc.createElement('style');
+        style.id = 'rs-game-responsive-fix';
+        doc.head.appendChild(style);
+      }
+      style.textContent = `
+        html, body {
+          width: 100% !important;
+          height: 100% !important;
+          max-width: 100% !important;
+          max-height: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: hidden !important;
+          background: #000000 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          touch-action: auto !important;
+          -webkit-touch-callout: none !important;
+          -webkit-user-select: none !important;
+          user-select: none !important;
+        }
+        canvas, #canvas, #gameCanvas, .game-canvas, #unityContainer, #unity-container, #c2canvas, #canvas-container {
+          max-width: 100vw !important;
+          max-height: 100vh !important;
+          max-height: 100dvh !important;
+          touch-action: none !important;
+          pointer-events: auto !important;
+        }
+      `;
+
+      if (doc.body) {
+        doc.body.style.maxWidth = '100vw';
+        doc.body.style.maxHeight = '100dvh';
+        doc.body.style.overflow = 'hidden';
+      }
+    } catch (err) {
+      // Cross-origin safe
+    }
+  }
+
   // Close Game Player
   function closeGamePlayer() {
+    if (state.isFullscreen) {
+      toggleFullscreen();
+    }
     sfx.playClick();
     elements.playerModal.classList.remove('is-active');
+    elements.playerModal.classList.remove('is-mobile-fullscreen');
+    elements.gameViewportCard.classList.remove('fullscreen-mode');
+    document.body.classList.remove('game-fullscreen-active');
     document.body.style.overflow = '';
     elements.playerIframe.src = 'about:blank';
+    if (currentBlobUrl) {
+      URL.revokeObjectURL(currentBlobUrl);
+      currentBlobUrl = null;
+    }
     state.currentGameId = null;
 
     // Clear hash
@@ -572,6 +713,17 @@
       toggleFullscreen();
     });
 
+    if (elements.floatingExitFullscreenBtn) {
+      elements.floatingExitFullscreenBtn.addEventListener('click', () => {
+        sfx.playClick();
+        toggleFullscreen();
+      });
+    }
+
+    // Sync fullscreen change with native browser Esc / F11 / Back
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+
     elements.playerShareBtn.addEventListener('click', () => {
       sfx.playClick();
       const shareUrl = `${window.location.origin}${window.location.pathname}#game=${state.currentGameId}`;
@@ -603,6 +755,14 @@
 
     // Handle Hash on Load & Back/Forward button
     window.addEventListener('hashchange', checkUrlHash);
+
+    // Auto re-scale game on resize / orientation change
+    window.addEventListener('resize', () => {
+      if (state.currentGameId) injectIframeResponsiveFix();
+    });
+    window.addEventListener('orientationchange', () => {
+      setTimeout(injectIframeResponsiveFix, 300);
+    });
   }
 
   // Update Active Category Pill
@@ -613,23 +773,84 @@
     });
   }
 
-  // Toggle Native Fullscreen
-  function toggleFullscreen() {
+  // Device Detection Helper
+  function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod|Mobile|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+  }
+
+  // Fullscreen Controllers (Desktop Browser Native API + Mobile Fallback)
+  function enterFullscreen() {
     const card = elements.gameViewportCard;
-    if (!document.fullscreenElement) {
+    const modal = elements.playerModal;
+    state.isFullscreen = true;
+
+    // Apply CSS Fullscreen styling
+    card.classList.add('fullscreen-mode');
+    document.body.classList.add('game-fullscreen-active');
+    if (isMobileDevice()) {
+      modal.classList.add('is-mobile-fullscreen');
+    }
+
+    // Standard Desktop / Laptop Fullscreen API
+    try {
       if (card.requestFullscreen) {
-        card.requestFullscreen();
+        card.requestFullscreen().catch(() => {});
       } else if (card.webkitRequestFullscreen) {
         card.webkitRequestFullscreen();
-      } else if (card.msRequestFullscreen) {
-        card.msRequestFullscreen();
+      } else if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
       }
-      card.classList.add('fullscreen-mode');
+    } catch (err) {}
+
+    if (elements.playerFullscreenBtn) {
+      elements.playerFullscreenBtn.innerHTML = `⛶ <span>Exit Fullscreen</span>`;
+    }
+    showToast('⛶ Fullscreen Active');
+    setTimeout(injectIframeResponsiveFix, 150);
+  }
+
+  function exitFullscreen() {
+    const card = elements.gameViewportCard;
+    const modal = elements.playerModal;
+    state.isFullscreen = false;
+
+    // Native browser exit fullscreen
+    try {
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
+      }
+    } catch (err) {}
+
+    card.classList.remove('fullscreen-mode');
+    modal.classList.remove('is-mobile-fullscreen');
+    document.body.classList.remove('game-fullscreen-active');
+
+    if (elements.playerFullscreenBtn) {
+      elements.playerFullscreenBtn.innerHTML = `⛶ <span>Fullscreen</span>`;
+    }
+    showToast('Exit Fullscreen');
+    setTimeout(injectIframeResponsiveFix, 150);
+  }
+
+  function toggleFullscreen() {
+    const isCurrentlyFs = !!(document.fullscreenElement || document.webkitFullscreenElement || state.isFullscreen);
+    if (isCurrentlyFs) {
+      exitFullscreen();
     } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-      card.classList.remove('fullscreen-mode');
+      enterFullscreen();
+    }
+  }
+
+  function handleFullscreenChange() {
+    const isNativeFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    if (!isNativeFs && state.isFullscreen) {
+      exitFullscreen();
+    } else if (isNativeFs && !state.isFullscreen) {
+      enterFullscreen();
     }
   }
 
@@ -647,6 +868,51 @@
     }
   }
 
+
+
+  // Setup Phone Connect Modal
+  function setupPhoneConnectModal() {
+    if (!elements.playOnPhoneBtn || !elements.phoneModal) return;
+
+    // Fetch real LAN IP from server
+    fetch('/api/network-info')
+      .then(res => res.json())
+      .then(info => {
+        if (info.mobileUrl && elements.phoneUrlInput) {
+          elements.phoneUrlInput.value = info.mobileUrl;
+          if (elements.phoneQrImg) {
+            elements.phoneQrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(info.mobileUrl)}`;
+          }
+        }
+      })
+      .catch(() => {});
+
+    elements.playOnPhoneBtn.addEventListener('click', () => {
+      elements.phoneModal.classList.add('is-active');
+    });
+
+    if (elements.phoneModalCloseBtn) {
+      elements.phoneModalCloseBtn.addEventListener('click', () => {
+        elements.phoneModal.classList.remove('is-active');
+      });
+    }
+
+    if (elements.phoneModalBackdrop) {
+      elements.phoneModalBackdrop.addEventListener('click', () => {
+        elements.phoneModal.classList.remove('is-active');
+      });
+    }
+
+    if (elements.phoneCopyBtn && elements.phoneUrlInput) {
+      elements.phoneCopyBtn.addEventListener('click', () => {
+        elements.phoneUrlInput.select();
+        navigator.clipboard.writeText(elements.phoneUrlInput.value)
+          .then(() => showToast('📋 Link copied! Phone me paste karein.'))
+          .catch(() => showToast('Link selected'));
+      });
+    }
+  }
+
   // Initialize App
   function init() {
     const allChipCount = document.querySelector('.category-chip[data-category="all"] .chip-count');
@@ -654,6 +920,7 @@
     updateFavoritesBadge();
     renderGrid();
     setupEventListeners();
+    setupPhoneConnectModal();
     checkUrlHash();
   }
 

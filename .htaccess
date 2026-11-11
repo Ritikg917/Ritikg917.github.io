@@ -1,0 +1,14 @@
+# Apache configuration for RS Games Portal
+<IfModule mod_mime.c>
+  AddType application/wasm .wasm
+  AddType application/octet-stream .data
+  AddType application/octet-stream .unityweb
+  AddType application/javascript .js
+  AddType application/json .json
+  AddType text/html .html
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "*"
+  Header set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+</IfModule>
