@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Catch Fruits Game</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div id="container">
+        <div id="score">
+            Score: <span id="scorevalue">0</span>
+        </div>
+        <div id="trialsLeft">
+            <span class="heart">❤️</span><span class="heart">❤️</span><span class="heart">❤️</span>
+        </div>
+       
+        <div id="fruitsContainer">
+            <div id="fruit1" class="fruit">🍎</div>
+        </div>
+        <div id="instruction">
+            Hover or Slice the Falling Fruits!
+        </div>
+        <button id="startreset">
+            Start Game
+        </button>
+        <div id="gameOver" style="display: none;">
+            <p>Game Over!</p>
+            <p>Your score: <span id="finalScore">0</span></p>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

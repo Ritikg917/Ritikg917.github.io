@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle, #2b1055, #7597de);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    overflow: hidden;
+}
+
+#container {
+    width: 600px;
+    height: 520px;
+    background: linear-gradient(180deg, #1e130c, #9a8478);
+    border: 8px solid #3c1f0f;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+#score {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    background: #ffcc00;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+#trialsLeft {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 20px;
+    z-index: 10;
+    display: flex;
+    gap: 5px;
+}
+
+#fruitsContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.fruit {
+    position: absolute;
+    font-size: 50px;
+    cursor: crosshair;
+    display: none;
+    transition: transform 0.1s ease;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.4));
+}
+
+.fruit.sliced {
+    animation: sliceEffect 0.3s forwards;
+}
+
+@keyframes sliceEffect {
+    0% { transform: scale(1.2) rotate(20deg); opacity: 1; }
+    100% { transform: scale(0.2) rotate(180deg); opacity: 0; }
+}
+
+#instruction {
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    z-index: 10;
+}
+
+#startreset {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00e5ff;
+    color: #030712;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 800;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 229, 255, 0.4);
+    transition: transform 0.2s, background 0.2s;
+    z-index: 10;
+}
+
+#startreset:hover {
+    transform: translateX(-50%) scale(1.05);
+    background: #4df0ff;
+}
+
+#gameOver {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 32px;
+    font-weight: 900;
+    z-index: 20;
+    text-align: center;
+}
+
+#gameOver p:nth-child(2) {
+    font-size: 22px;
+    color: #ffcc00;
+}
