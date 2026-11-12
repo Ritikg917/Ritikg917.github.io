@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GTA III: Liberty City 3D (re3)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #090b10;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #game-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #three-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    /* GTA III Classic HUD */
+    .gta3-hud {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .hud-cash {
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      font-size: 34px;
+      color: #70ff70;
+      text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+      letter-spacing: 2px;
+    }
+    .hud-bars {
+      display: flex;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #444;
+    }
+    .bar-col {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .bar-lbl {
+      font-size: 10px;
+      color: #bbb;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .bar-box {
+      width: 100px;
+      height: 12px;
+      background: #222;
+      border: 1px solid #666;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .bar-val {
+      height: 100%;
+      transition: width 0.15s ease-out;
+    }
+    .hp-val { background: linear-gradient(90deg, #d32f2f, #ff5252); width: 100%; }
+    .arm-val { background: linear-gradient(90deg, #1976d2, #42a5f5); width: 100%; }
+    
+    .hud-stars {
+      display: flex;
+      gap: 3px;
+      margin-top: 4px;
+    }
+    .gta-star {
+      font-size: 24px;
+      color: #333;
+      filter: drop-shadow(1px 1px 2px #000);
+      transition: color 0.2s;
+    }
+    .gta-star.active {
+      color: #ffd700;
+      animation: starGlow 0.8s infinite alternate;
+    }
+    @keyframes starGlow {
+      from { filter: drop-shadow(0 0 2px #ffaa00); }
+      to { filter: drop-shadow(0 0 10px #ff0000); }
+    }
+
+    .weapon-hud {
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0,0,0,0.7);
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid #555;
+      color: white;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .wpn-icon { font-size: 28px; }
+    .wpn-name { font-weight: 800; font-size: 14px; color: #ffca28; }
+    .wpn-ammo { font-size: 13px; color: #eee; }
+
+    /* Radar */
+    .radar-box {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid #ff4081;
+      background: rgba(15, 23, 42, 0.85);
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 64, 129, 0.4);
+      z-index: 10;
+      pointer-events: none;
+    }
+    #radar-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Radio HUD */
+    .radio-banner {
+      position: absolute;
+      top: 85px;
+      left: 20px;
+      background: rgba(0,0,0,0.7);
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #ff4081;
+      color: #ff4081;
+      font-size: 13px;
+      font-weight: bold;
+      z-index: 10;
+      display: none;
+      pointer-events: none;
+    }
+
+    /* Mission Box */
+    .mission-box {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(10, 15, 25, 0.9);
+      border: 2px solid #ffd700;
+      border-radius: 10px;
+      padding: 10px 24px;
+      color: white;
+      text-align: center;
+      z-index: 10;
+      display: none;
+    }
+    .mission-title { font-weight: 900; font-size: 15px; color: #ffd700; text-transform: uppercase; }
+    .mission-sub { font-size: 12px; color: #ddd; margin-top: 2px; }
+
+    /* Crosshair */
+    .crosshair {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      background: rgba(255, 64, 129, 0.6);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    /* Touch Controls */
+    .touch-controls {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 20;
+      display: none;
+    }
+    .t-btn {
+      position: absolute;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+      border: 2px solid rgba(255,255,255,0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: white;
+      font-weight: bold;
+      pointer-events: auto;
+      touch-action: none;
+    }
+    .t-btn:active { background: rgba(255, 64, 129, 0.6); border-color: #ff4081; }
+    #tb-fire { right: 24px; bottom: 100px; width: 72px; height: 72px; background: rgba(244,67,54,0.4); border-color: #f44336; }
+    #tb-action { right: 110px; bottom: 80px; }
+    #tb-sprint { right: 30px; bottom: 190px; }
+    #tb-weapon { right: 105px; bottom: 165px; }
+
+    #t-joy-zone {
+      position: absolute;
+      left: 30px;
+      bottom: 30px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(255,255,255,0.3);
+      pointer-events: auto;
+      touch-action: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #t-joy-knob {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      pointer-events: none;
+      transform: translate(0, 0);
+    }
+
+    /* Start Screen */
+    .gta-modal {
+      position: absolute;
+      inset: 0;
+      background: rgba(6, 9, 15, 0.92);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      color: white;
+      text-align: center;
+      padding: 24px;
+    }
+    .gta-title {
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      font-size: clamp(38px, 7vw, 64px);
+      letter-spacing: 4px;
+      background: linear-gradient(180deg, #ff4081, #7c4dff, #00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+    .gta-sub {
+      font-size: clamp(14px, 3vw, 22px);
+      font-weight: 700;
+      color: #ffd700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .gta-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 16px 24px;
+      max-width: 500px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #ccc;
+    }
+    .gta-card b { color: #ffd700; }
+    .gta-btn {
+      padding: 14px 40px;
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+      background: linear-gradient(90deg, #ff4081, #7c4dff);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255, 64, 129, 0.6);
+      transition: transform 0.15s;
+    }
+    .gta-btn:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="three-canvas"></canvas>
+    <div class="crosshair"></div>
+
+    <!-- HUD -->
+    <div class="gta3-hud">
+      <div class="hud-cash" id="hud-cash">$005000</div>
+      <div class="hud-bars">
+        <div class="bar-col">
+          <span class="bar-lbl">Health</span>
+          <div class="bar-box"><div class="bar-val hp-val" id="hud-hp"></div></div>
+        </div>
+        <div class="bar-col">
+          <span class="bar-lbl">Armor</span>
+          <div class="bar-box"><div class="bar-val arm-val" id="hud-arm"></div></div>
+        </div>
+      </div>
+      <div class="hud-stars" id="hud-stars">
+        <span class="gta-star">★</span>
+        <span class="gta-star">★</span>
+        <span class="gta-star">★</span>
+        <span class="gta-star">★</span>
+        <span class="gta-star">★</span>
+      </div>
+    </div>
+
+    <!-- Top Left Weapon -->
+    <div class="weapon-hud">
+      <div class="wpn-icon" id="hud-wpn-icon">🔫</div>
+      <div>
+        <div class="wpn-name" id="hud-wpn-name">PISTOL 9MM</div>
+        <div class="wpn-ammo" id="hud-wpn-ammo">150 RNDS</div>
+      </div>
+    </div>
+
+    <div class="radio-banner" id="hud-radio">📻 Head Radio: Flashback FM</div>
+
+    <!-- Radar -->
+    <div class="radar-box">
+      <canvas id="radar-canvas"></canvas>
+    </div>
+
+    <!-- Mission Banner -->
+    <div class="mission-box" id="mission-box">
+      <div class="mission-title" id="mission-title">Mission: Portland Payback</div>
+      <div class="mission-sub" id="mission-sub">Reach the harbor checkpoint without getting busted!</div>
+    </div>
+
+    <!-- Touch Controls -->
+    <div class="touch-controls" id="touch-controls">
+      <div id="t-joy-zone">
+        <div id="t-joy-knob"></div>
+      </div>
+      <div class="t-btn" id="tb-fire">🔥</div>
+      <div class="t-btn" id="tb-action">🚗</div>
+      <div class="t-btn" id="tb-sprint">⚡</div>
+      <div class="t-btn" id="tb-weapon">🔫</div>
+    </div>
+
+    <!-- Start Modal -->
+    <div class="gta-modal" id="start-modal">
+      <h1 class="gta-title">Grand Theft Auto III</h1>
+      <div class="gta-sub">Liberty City 3D (re3 Engine)</div>
+      <div class="gta-card">
+        <b>CONTROLS:</b><br>
+        • <b>W, A, S, D / Arrows</b>: Move Claude / Steer Car<br>
+        • <b>F / Enter</b>: Enter / Exit Car (Carjack)<br>
+        • <b>Space / Left Click</b>: Shoot / Punch<br>
+        • <b>Shift</b>: Sprint / Drift<br>
+        • <b>E / Q</b>: Next / Previous Weapon<br>
+        • <b>R</b>: Cycle Radio Station<br>
+        • <b>Mouse</b>: Look Around / Aim<br><br>
+        <b>OBJECTIVE:</b> Explore 3D Liberty City, steal sports cars, complete syndicate missions, and outrun the LCPD police department!
+      </div>
+      <button class="gta-btn" id="start-btn">ENTER LIBERTY CITY</button>
+    </div>
+
+    <div class="gta-modal" id="wasted-modal" style="display: none;">
+      <h1 class="gta-title" style="color: #ff3333; -webkit-text-fill-color: #ff3333;">WASTED</h1>
+      <div class="gta-sub" style="color: #bbb;">Treated at Sweeney General Hospital</div>
+      <button class="gta-btn" id="respawn-btn">RESPAWN ($500)</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

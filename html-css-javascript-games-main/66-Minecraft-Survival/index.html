@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Minecraft Survival 3D (MCP 940 Edition)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      font-family: 'Minecraft', 'Courier New', Courier, monospace;
+    }
+    #game-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #three-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    /* Minecraft Crosshair */
+    .crosshair {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 24px;
+      height: 24px;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .crosshair::before, .crosshair::after {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, 0.85);
+      mix-blend-mode: difference;
+    }
+    .crosshair::before {
+      top: 10px;
+      left: 0;
+      width: 24px;
+      height: 4px;
+    }
+    .crosshair::after {
+      top: 0;
+      left: 10px;
+      width: 4px;
+      height: 24px;
+    }
+
+    /* Classic Minecraft Survival HUD */
+    .mc-hud {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      z-index: 15;
+      pointer-events: none;
+    }
+    .hud-bars {
+      display: flex;
+      justify-content: space-between;
+      width: 420px;
+      padding: 0 4px;
+    }
+    .hearts-row, .hunger-row {
+      display: flex;
+      gap: 2px;
+    }
+    .heart-icon, .hunger-icon {
+      font-size: 16px;
+      filter: drop-shadow(1px 1px 0 #000);
+    }
+    .xp-bar-container {
+      position: relative;
+      width: 420px;
+      height: 8px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .xp-fill {
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(90deg, #55ff55, #aaff55);
+    }
+    .xp-level {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      font-weight: bold;
+      color: #7fff00;
+      text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+
+    /* Hotbar */
+    .hotbar-container {
+      display: flex;
+      background: rgba(20, 20, 20, 0.85);
+      border: 3px solid #8b8b8b;
+      border-radius: 4px;
+      padding: 3px;
+      gap: 4px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.8);
+      pointer-events: auto;
+    }
+    .hotbar-slot {
+      width: 44px;
+      height: 44px;
+      background: #4a4a4a;
+      border: 2px solid #373737;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: border-color 0.1s, transform 0.1s;
+    }
+    .hotbar-slot.active {
+      border: 3px solid #ffffff;
+      transform: scale(1.08);
+      background: #5c5c5c;
+      box-shadow: 0 0 8px #ffffff;
+    }
+    .slot-count {
+      position: absolute;
+      bottom: 2px;
+      right: 4px;
+      font-size: 11px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 0 #000;
+    }
+
+    /* Top Info HUD */
+    .top-hud {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      color: #fff;
+      text-shadow: 2px 2px 0 #000;
+      font-size: 14px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .mc-version {
+      font-weight: bold;
+      color: #ffeb3b;
+    }
+
+    /* Crafting Modal */
+    .crafting-modal {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 40;
+    }
+    .crafting-panel {
+      background: #c6c6c6;
+      border: 4px solid #373737;
+      border-radius: 4px;
+      padding: 20px;
+      width: 480px;
+      color: #222;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.9);
+    }
+    .craft-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #555;
+      padding-bottom: 6px;
+    }
+    .recipes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .recipe-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #8b8b8b;
+      padding: 8px 12px;
+      border: 2px solid #373737;
+      border-radius: 4px;
+      cursor: pointer;
+      color: white;
+      font-size: 13px;
+    }
+    .recipe-item:hover {
+      background: #a0a0a0;
+      border-color: #fff;
+    }
+    .recipe-icon { font-size: 24px; }
+    .close-craft-btn {
+      width: 100%;
+      padding: 10px;
+      background: #555;
+      color: white;
+      border: 2px solid #222;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Touch Controls */
+    .touch-controls {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 30;
+      display: none;
+    }
+    .mc-touch-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      border: 2px solid rgba(255,255,255,0.7);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      pointer-events: auto;
+      touch-action: none;
+    }
+    .mc-touch-btn:active { background: rgba(85, 255, 85, 0.5); }
+    #btn-jump { right: 30px; bottom: 120px; }
+    #btn-break { right: 110px; bottom: 120px; background: rgba(255, 70, 70, 0.4); }
+    #btn-place { right: 70px; bottom: 200px; background: rgba(70, 160, 255, 0.4); }
+    #btn-craft { left: 20px; top: 70px; width: 50px; height: 50px; font-size: 18px; border-radius: 8px; }
+
+    #joy-zone {
+      position: absolute;
+      left: 30px;
+      bottom: 30px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.4);
+      pointer-events: auto;
+      touch-action: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #joy-knob {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      pointer-events: none;
+    }
+
+    /* Start / Instructions Modal */
+    .start-screen {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 14, 18, 0.94);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      color: white;
+      text-align: center;
+      padding: 24px;
+    }
+    .mc-logo {
+      font-size: clamp(38px, 8vw, 68px);
+      font-weight: 900;
+      letter-spacing: 3px;
+      background: linear-gradient(180deg, #7cfc00, #228b22);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 15px rgba(124, 252, 0, 0.6));
+      margin-bottom: 6px;
+    }
+    .mc-sub {
+      font-size: clamp(14px, 3.5vw, 22px);
+      color: #ffeb3b;
+      margin-bottom: 24px;
+      letter-spacing: 2px;
+    }
+    .mc-card {
+      background: rgba(255,255,255,0.06);
+      border: 2px solid #555;
+      border-radius: 8px;
+      padding: 18px 24px;
+      max-width: 520px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #ddd;
+    }
+    .mc-card b { color: #55ff55; }
+    .mc-play-btn {
+      padding: 14px 44px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      background: #4caf50;
+      border: 3px solid #2e7d32;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(76, 175, 80, 0.6);
+      transition: background 0.15s, transform 0.15s;
+    }
+    .mc-play-btn:hover {
+      background: #66bb6a;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="three-canvas"></canvas>
+    <div class="crosshair"></div>
+
+    <!-- Top Info -->
+    <div class="top-hud">
+      <div class="mc-version">Minecraft Coder Pack (MCP 940 / 1.12)</div>
+      <div id="hud-biome">Biome: Forest Plains</div>
+      <div id="hud-time">Time: 12:00 PM (Day)</div>
+    </div>
+
+    <!-- Minecraft HUD -->
+    <div class="mc-hud">
+      <div class="hud-bars">
+        <div class="hearts-row" id="hud-hearts">
+          <span class="heart-icon">❤️</span><span class="heart-icon">❤️</span><span class="heart-icon">❤️</span><span class="heart-icon">❤️</span><span class="heart-icon">❤️</span>
+          <span class="heart-icon">❤️</span><span class="heart-icon">❤️</span><span class="heart-icon">❤️</span><span class="heart-icon">❤️</span><span class="heart-icon">❤️</span>
+        </div>
+        <div class="hunger-row" id="hud-hunger">
+          <span class="hunger-icon">🍗</span><span class="hunger-icon">🍗</span><span class="hunger-icon">🍗</span><span class="hunger-icon">🍗</span><span class="hunger-icon">🍗</span>
+          <span class="hunger-icon">🍗</span><span class="hunger-icon">🍗</span><span class="hunger-icon">🍗</span><span class="hunger-icon">🍗</span><span class="hunger-icon">🍗</span>
+        </div>
+      </div>
+
+      <div class="xp-bar-container">
+        <div class="xp-fill" id="hud-xp-fill"></div>
+        <div class="xp-level" id="hud-xp-lvl">7</div>
+      </div>
+
+      <!-- Hotbar -->
+      <div class="hotbar-container" id="hotbar">
+        <!-- 9 Slots injected dynamically -->
+      </div>
+    </div>
+
+    <!-- Crafting Window -->
+    <div class="crafting-modal" id="craft-modal">
+      <div class="crafting-panel">
+        <div class="craft-title">Crafting Table (MCP 1.12)</div>
+        <div class="recipes-grid">
+          <div class="recipe-item" data-craft="planks">
+            <span class="recipe-icon">🪵</span>
+            <div><b>Oak Planks (x4)</b><br><small>Cost: 1 Wood</small></div>
+          </div>
+          <div class="recipe-item" data-craft="sticks">
+            <span class="recipe-icon">🥢</span>
+            <div><b>Sticks (x4)</b><br><small>Cost: 2 Planks</small></div>
+          </div>
+          <div class="recipe-item" data-craft="wood_pickaxe">
+            <span class="recipe-icon">⛏️</span>
+            <div><b>Wooden Pickaxe</b><br><small>Cost: 3 Planks + 2 Sticks</small></div>
+          </div>
+          <div class="recipe-item" data-craft="stone_pickaxe">
+            <span class="recipe-icon">🔨</span>
+            <div><b>Stone Pickaxe</b><br><small>Cost: 3 Cobble + 2 Sticks</small></div>
+          </div>
+          <div class="recipe-item" data-craft="sword">
+            <span class="recipe-icon">🗡️</span>
+            <div><b>Iron Sword</b><br><small>Cost: 2 Iron + 1 Stick</small></div>
+          </div>
+          <div class="recipe-item" data-craft="torches">
+            <span class="recipe-icon">🕯️</span>
+            <div><b>Torches (x4)</b><br><small>Cost: 1 Coal + 1 Stick</small></div>
+          </div>
+        </div>
+        <button class="close-craft-btn" id="close-craft">Close [E]</button>
+      </div>
+    </div>
+
+    <!-- Touch Controls -->
+    <div class="touch-controls" id="touch-controls">
+      <div id="joy-zone"><div id="joy-knob"></div></div>
+      <div class="mc-touch-btn" id="btn-jump">⬆️</div>
+      <div class="mc-touch-btn" id="btn-break">⛏️</div>
+      <div class="mc-touch-btn" id="btn-place">📦</div>
+      <div class="mc-touch-btn" id="btn-craft">🔨</div>
+    </div>
+
+    <!-- Start Modal -->
+    <div class="start-screen" id="start-modal">
+      <h1 class="mc-logo">MINECRAFT</h1>
+      <div class="mc-sub">Survival Edition (MCP 940)</div>
+      <div class="mc-card">
+        <b>CONTROLS:</b><br>
+        • <b>W, A, S, D</b>: Walk & Strafe<br>
+        • <b>Space</b>: Jump<br>
+        • <b>Mouse Left Click</b>: Mine / Break Block / Attack<br>
+        • <b>Mouse Right Click</b>: Place Selected Block<br>
+        • <b>1 - 9 / Wheel</b>: Select Hotbar Slot<br>
+        • <b>E</b>: Open Crafting Table & Recipes<br><br>
+        <b>SURVIVAL:</b> Gather wood, mine coal and diamond ores, craft tools, build a shelter, and survive the night against zombies and creepers!
+      </div>
+      <button class="mc-play-btn" id="start-btn">PLAY SURVIVAL</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>
